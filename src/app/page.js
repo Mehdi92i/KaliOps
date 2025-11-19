@@ -2,7 +2,7 @@ import Link from 'next/link';
 import RecommendationCarousel from '@/components/ui/RecommendationCarousel';
 
 export const metadata = {
-    title: 'OptiOps – Optimisation QA',
+    title: 'KaliOps Consulting – Optimisation QA',
     description:
         'Structuration qualité, stratégie QA, automatisation de test, intégration continue.',
     keywords: [
@@ -29,7 +29,7 @@ export default function Home() {
                     </h1>
 
                     <p className="text-lg md:text-xl text-gray-700">
-                        Bienvenue chez <span className="text-[#002364]">Opti</span>
+                        Bienvenue chez <span className="text-[#002364]">Kali</span>
                         <span className="text-[#D70064]">Ops</span>, un accompagnement
                         freelance sur-mesure en qualité logicielle.
                     </p>

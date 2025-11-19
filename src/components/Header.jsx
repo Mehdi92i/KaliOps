@@ -21,7 +21,7 @@ export default function Header() {
                 <nav className="flex items-center justify-between px-6 py-4">
                     {/* Bloc logo */}
                     <Link href="/" className="text-2xl font-bold">
-                        <span className="text-[#002364]">Opti</span>
+                        <span className="text-[#002364]">Kali</span>
                         <span className="text-[#D70064]">Ops</span>
                     </Link>
 
