@@ -15,7 +15,7 @@ export async function POST(req) {
     try {
         await resend.emails.send({
             from: 'onboarding@resend.dev',
-            to: 'mehdi.tassi.pro@gmail.com',
+            to: 'kaliops.consulting@gmail.com',
             subject: `📬 Nouveau message de ${name}`,
             html: `
         <h2>📨 Nouveau message reçu via le formulaire</h2>
