@@ -28,6 +28,7 @@ export default function CvSkills() {
                         <li>📊 Suivi des métriques QA</li>
                         <li>🧠 Amélioration continue</li>
                         <li>🧭 Pilotage des objectifs par profil</li>
+                        <li> Certification ISTQB Foundation</li>
                     </ul>
                 </div>
             </div>
