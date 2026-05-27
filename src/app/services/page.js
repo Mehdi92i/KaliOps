@@ -3,11 +3,7 @@
 import { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-
-export default function Services() {
-    const [currentSlide, setCurrentSlide] = useState(0);
-
-    const services = [
+const services = [
         {
             id: 'strategie',
             icon: '🎯',
@@ -40,7 +36,10 @@ export default function Services() {
             description:
                 "Que ce soit pour un audit QA, du coaching de testeurs, ou pour formaliser votre référentiel de tests, je vous accompagne avec des pratiques adaptées à votre structure et vos outils. Mon but est de vous rendre autonomes sur votre qualité.",
         },
-    ];
+];
+
+export default function Services() {
+    const [currentSlide, setCurrentSlide] = useState(0);
 
     useEffect(() => {
         const hash = window.location.hash;
@@ -66,7 +65,7 @@ export default function Services() {
                         <span className="text-brand-secondary">services</span>
                     </h1>
                     <p className="text-lg md:text-xl text-gray-700">
-                        J'accompagne les équipes tech à construire une démarche qualité moderne, fluide et efficace.
+                        J&apos;accompagne les équipes tech à construire une démarche qualité moderne, fluide et efficace.
                         Voici comment je peux vous aider :
                     </p>
                 </div>

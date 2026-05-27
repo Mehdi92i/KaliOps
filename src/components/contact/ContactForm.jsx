@@ -33,7 +33,7 @@ export default function ContactForm() {
                 toast.error('❌ Une erreur est survenue.');
             }
         } catch (err) {
-            toast.error('❌ Impossible d'envoyer le message.');
+            toast.error("❌ Impossible d'envoyer le message.");
         } finally {
             setIsSubmitting(false);
         }
