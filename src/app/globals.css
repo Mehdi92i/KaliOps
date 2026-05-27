@@ -1,23 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Poppins:wght@600;700&display=swap');
 @import "tailwindcss";
 
+/* ─── Design Tokens ───────────────────────────────────────────────────────── */
+/*                                                                             */
+/*  Pour changer les couleurs ou assets du site, modifiez uniquement ce bloc. */
+/*  Toutes les variables sont propagées automatiquement à Tailwind v4.        */
+/*                                                                             */
 :root {
+  /* Base */
   --background: #f9fafb;
   --foreground: #1f2937;
 
-  /* Accent principal : le bleu Opti */
-  --accent: #002364;
-  /* Accent soncondaire */
-  --accent-alt: #D70064;
+  /* ── Couleurs de marque ──────────────────────── */
+  --brand-primary:   #002364;   /* Bleu KaliOps           */
+  --brand-secondary: #D70064;   /* Magenta OPS            */
+  --brand-tertiary:  #412761;   /* Violet (milieu dégradé)*/
+
+  /* ── États hover ────────────────────────────── */
+  --brand-primary-hover:          #001b4d;
+  --brand-secondary-hover:        #c10058;
+  --brand-secondary-deep-hover:   #b00050;
+
+  /* ── Gradient de page ───────────────────────── */
+  --gradient-from: var(--brand-secondary);
+  --gradient-via:  var(--brand-tertiary);
+  --gradient-to:   var(--brand-primary);
+
+  /* ── LinkedIn ───────────────────────────────── */
+  --linkedin:        #0A66C2;
+  --linkedin-hover:  #084d99;
+  --linkedin-bg-hover: #e6f0fb;
+
+  /* ── Hover fond lien nav ────────────────────── */
+  --nav-hover-bg:    #fce4ec;
+
+  /* ── Section CV (jaune) ─────────────────────── */
+  --cv-section:      #eab308;   /* équivalent yellow-500  */
+
+  /* ── Mise en valeur (témoignages) ──────────── */
+  --highlight:       #FFD700;
 }
 
-
+/* ─── Tokens Tailwind v4 ──────────────────────────────────────────────────── */
+/* Ces tokens sont disponibles directement comme classes Tailwind :            */
+/*   text-brand-primary, bg-brand-secondary, border-brand-tertiary…           */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
+  --color-background:                 var(--background);
+  --color-foreground:                 var(--foreground);
+  --color-brand-primary:              var(--brand-primary);
+  --color-brand-secondary:            var(--brand-secondary);
+  --color-brand-tertiary:             var(--brand-tertiary);
+  --color-brand-primary-hover:        var(--brand-primary-hover);
+  --color-brand-secondary-hover:      var(--brand-secondary-hover);
+  --color-brand-secondary-deep-hover: var(--brand-secondary-deep-hover);
+  --color-linkedin:                   var(--linkedin);
+  --color-linkedin-hover:             var(--linkedin-hover);
+  --color-linkedin-bg-hover:          var(--linkedin-bg-hover);
+  --color-nav-hover-bg:               var(--nav-hover-bg);
+  --color-cv-section:                 var(--cv-section);
+  --color-highlight:                  var(--highlight);
 }
 
+/* ─── Styles globaux ──────────────────────────────────────────────────────── */
 body {
   background: var(--background);
   color: var(--foreground);
@@ -27,15 +71,32 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  color: var(--accent); /* Bleu Opti */
+  color: var(--brand-primary);
   letter-spacing: -0.5px;
 }
+
 body.cv-page {
-  background: linear-gradient(to bottom right, #D70064, #412761, #002364);
+  background: linear-gradient(
+    to bottom right,
+    var(--gradient-from),
+    var(--gradient-via),
+    var(--gradient-to)
+  );
   background-size: cover;
   background-attachment: fixed;
 }
+
 @layer utilities {
+  /* Dégradé de page réutilisable sur tous les layouts */
+  .page-gradient {
+    background: linear-gradient(
+      to bottom right,
+      var(--gradient-from),
+      var(--gradient-via),
+      var(--gradient-to)
+    );
+  }
+
   @keyframes fade-in {
     from {
       opacity: 0;

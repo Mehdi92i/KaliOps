@@ -10,7 +10,7 @@ export default function Cv() {
     return (
         <div className="relative min-h-screen">
             {/* Arrière-plan dégradé couvrant toute la page */}
-            <div className="fixed inset-0 -z-10 bg-gradient-to-br from-[#D70064] via-[#412761] to-[#002364]" />
+            <div className="fixed inset-0 -z-10 page-gradient" />
 
             {/* Contenu principal */}
             <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12 py-10">

@@ -1,11 +1,12 @@
 import { useRef, useState, useEffect } from 'react';
+import { sounds } from '@/config/assets';
 
 const BugHuntGame = () => {
     const [isActive, setIsActive] = useState(false);
     const [bugs, setBugs] = useState([]);
     const [score, setScore] = useState(0);
     const [showFinalScore, setShowFinalScore] = useState(false);
-    const [isHydrated, setIsHydrated] = useState(false); // 👈 ajout
+    const [isHydrated, setIsHydrated] = useState(false);
 
     const timeoutRef = useRef(null);
     const intervalRef = useRef(null);
@@ -35,7 +36,7 @@ const BugHuntGame = () => {
     };
 
     const spawnBug = () => {
-        const id = crypto.randomUUID?.() || Math.random().toString(36).substring(7); // plus robuste
+        const id = crypto.randomUUID?.() || Math.random().toString(36).substring(7);
         const x = Math.random() * 90;
         const y = Math.random() * 90;
         const rotation = Math.random() * 360;
@@ -50,7 +51,7 @@ const BugHuntGame = () => {
     const hitBug = (id) => {
         removeBug(id);
         setScore((s) => s + 1);
-        const audio = new Audio('/sounds/squish.mp3');
+        const audio = new Audio(sounds.bugSquish);
         audio.play();
     };
 
@@ -71,7 +72,7 @@ const BugHuntGame = () => {
             </button>
 
             {showFinalScore && !isActive && isHydrated && (
-                <div className="fixed top-[4.5rem] right-4 z-50 bg-white text-[#002364] font-semibold shadow-md px-4 py-2 rounded-full border border-pink-300 text-sm">
+                <div className="fixed top-[4.5rem] right-4 z-50 bg-white text-brand-primary font-semibold shadow-md px-4 py-2 rounded-full border border-pink-300 text-sm">
                     🎉 Partie terminée ! Tu as attrapé <span className="text-pink-600">{score}</span> bugs !
                 </div>
             )}
