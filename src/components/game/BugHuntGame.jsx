@@ -64,12 +64,14 @@ const BugHuntGame = () => {
 
     return (
         <div className="relative">
-            <button
-                onClick={isActive ? stopGame : startGame}
-                className="bg-gradient-to-r from-pink-600 to-blue-900 text-white font-bold py-2 px-4 rounded-full shadow-xl hover:scale-105 transition"
-            >
-                {isActive ? 'Arrêter la chasse' : 'Chasser un bug 🐞'}
-            </button>
+            {!isActive && (
+                <button
+                    onClick={startGame}
+                    className="bg-gradient-to-r from-pink-600 to-blue-900 text-white font-bold py-2 px-4 rounded-full shadow-xl hover:scale-105 transition"
+                >
+                    Chasser un bug 🐞
+                </button>
+            )}
 
             {showFinalScore && !isActive && isHydrated && (
                 <div className="fixed top-[4.5rem] right-4 z-50 bg-white text-brand-primary font-semibold shadow-md px-4 py-2 rounded-full border border-pink-300 text-sm">
@@ -79,6 +81,15 @@ const BugHuntGame = () => {
 
             {isActive && isHydrated && (
                 <div className="fixed inset-0 z-50">
+                    <div className="absolute top-4 left-4">
+                        <button
+                            onClick={stopGame}
+                            className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full shadow-xl transition"
+                        >
+                            Arrêter la chasse
+                        </button>
+                    </div>
+
                     <div className="absolute top-4 right-4 text-white text-lg bg-black/70 px-3 py-1 rounded-full shadow-md">
                         Score : {score}
                     </div>
