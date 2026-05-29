@@ -2,7 +2,7 @@ export default function CvExperiences() {
     return (
         <div className="lg:col-span-2 bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-white/30 space-y-8">
         <div className="text-center">
-                <h2 className="text-2xl md:text-3xl font-bold text-yellow-500 mb-6">Expériences professionnelles</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-cv-section mb-6">Expériences professionnelles</h2>
             </div>
             {/* Contenu des expériences */}
                 {/* Poste Chapter Lead QA – MEDIN+ */}
@@ -77,7 +77,7 @@ export default function CvExperiences() {
 
                     </div>
                 </div>
-            <hr className="border-t-4 border-[#D70064] w-64 mx-auto rounded-full my-12" />
+            <hr className="border-t-4 border-brand-secondary w-64 mx-auto rounded-full my-12" />
             {/* Poste Lead QA Skilleos détaillé */}
                 <div className="space-y-6">
                     <h3 className="text-xl font-semibold text-gray-800">Lead QA – Skilleos</h3>
@@ -154,7 +154,7 @@ export default function CvExperiences() {
                         </div>
                     </div>
                 </div>
-                <hr className="border-t-4 border-[#D70064] w-64 mx-auto rounded-full my-12" />
+                <hr className="border-t-4 border-brand-secondary w-64 mx-auto rounded-full my-12" />
                 {/* Poste Lead QA FlexyBeauty/Kiute détaillé */}
                 <div className="space-y-6">
                     <h3 className="text-xl font-semibold text-gray-800">Lead QA – FlexyBeauty/Kiute</h3>
@@ -215,7 +215,7 @@ export default function CvExperiences() {
 
                     </div>
                 </div>
-                <hr className="border-t-4 border-[#D70064] w-64 mx-auto rounded-full my-12" />
+                <hr className="border-t-4 border-brand-secondary w-64 mx-auto rounded-full my-12" />
                 {/* Poste QA Test Automation Engineer – Aviva */}
                 <div className="space-y-6">
                     <h3 className="text-xl font-semibold text-gray-800">QA Test Automation Engineer – Aviva</h3>
@@ -276,7 +276,7 @@ export default function CvExperiences() {
 
                     </div>
                 </div>
-                <hr className="border-t-4 border-[#D70064] w-64 mx-auto rounded-full my-12" />
+                <hr className="border-t-4 border-brand-secondary w-64 mx-auto rounded-full my-12" />
                 {/* Poste Chef de projet Test Junior – AXA Banque */}
                 <div className="space-y-6">
                     <h3 className="text-xl font-semibold text-gray-800">Chef de projet Test Junior – AXA Banque</h3>

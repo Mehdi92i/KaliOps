@@ -13,8 +13,8 @@ export default function RecommendationCarousel() {
     return (
         <div className="w-full flex flex-col items-center py-12 mt-0">
             <h2 className="text-2xl font-extrabold mb-6 text-center">
-                <span className="text-[#D70064] drop-shadow">Ce qu’on dit de moi</span>{' '}
-                <span className="text-[#FFD700]">👇</span>
+                <span className="text-brand-secondary drop-shadow">Ce qu'on dit de moi</span>{' '}
+                <span className="text-highlight">👇</span>
             </h2>
 
             <div className="flex items-center space-x-4">
@@ -22,12 +22,12 @@ export default function RecommendationCarousel() {
                     onClick={prev}
                     className="p-2 bg-white/80 rounded-full shadow-md hover:bg-white transition"
                 >
-                    <HiChevronLeft className="w-6 h-6 text-[#002364]" />
+                    <HiChevronLeft className="w-6 h-6 text-brand-primary" />
                 </button>
 
                 <div className="bg-white/90 rounded-xl p-6 shadow-lg max-w-md w-[320px] sm:w-[400px] md:w-[500px] transition-all duration-500 ease-in-out opacity-0 animate-fade-in">
-                    <p className="text-sm text-gray-700 italic">“{recommendations[current].text}”</p>
-                    <p className="mt-4 text-sm font-semibold text-[#002364]">
+                    <p className="text-sm text-gray-700 italic">"{recommendations[current].text}"</p>
+                    <p className="mt-4 text-sm font-semibold text-brand-primary">
                         {recommendations[current].name}
                         <span className="block text-xs text-gray-500">{recommendations[current].role}</span>
                     </p>
@@ -37,7 +37,7 @@ export default function RecommendationCarousel() {
                     onClick={next}
                     className="p-2 bg-white/80 rounded-full shadow-md hover:bg-white transition"
                 >
-                    <HiChevronRight className="w-6 h-6 text-[#002364]" />
+                    <HiChevronRight className="w-6 h-6 text-brand-primary" />
                 </button>
             </div>
         </div>

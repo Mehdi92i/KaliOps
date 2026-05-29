@@ -1,7 +1,7 @@
 export default function CvTools() {
     return (
         <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-white/30">
-            <h2 className="text-2xl font-bold text-yellow-500 mb-6 text-center">Outils techniques</h2>
+            <h2 className="text-2xl font-bold text-cv-section mb-6 text-center">Outils techniques</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
                 <div>
                     <h3 className="text-lg font-semibold text-gray-800 mb-2 text-center">Frameworks & Languages</h3>

@@ -33,7 +33,7 @@ export default function ContactForm() {
                 toast.error('❌ Une erreur est survenue.');
             }
         } catch (err) {
-            toast.error('❌ Impossible d’envoyer le message.');
+            toast.error("❌ Impossible d'envoyer le message.");
         } finally {
             setIsSubmitting(false);
         }
@@ -45,11 +45,10 @@ export default function ContactForm() {
                 onSubmit={handleSubmit}
                 className="w-full max-w-lg bg-white/90 backdrop-blur-md border border-white/30 shadow-lg rounded-lg p-8 space-y-6 text-left"
             >
-                {/* Nom */}
                 <div className="space-y-2">
                     <label
                         htmlFor="name"
-                        className="block font-bold text-sm uppercase tracking-wide text-[#002364]"
+                        className="block font-bold text-sm uppercase tracking-wide text-brand-primary"
                     >
                         Nom*
                     </label>
@@ -58,15 +57,14 @@ export default function ContactForm() {
                         id="name"
                         name="name"
                         required
-                        className="w-full rounded px-4 py-2 bg-white/80 text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D70064]"
+                        className="w-full rounded px-4 py-2 bg-white/80 text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary"
                     />
                 </div>
 
-                {/* Email */}
                 <div className="space-y-2">
                     <label
                         htmlFor="email"
-                        className="block font-bold text-sm uppercase tracking-wide text-[#002364]"
+                        className="block font-bold text-sm uppercase tracking-wide text-brand-primary"
                     >
                         Email*
                     </label>
@@ -75,15 +73,14 @@ export default function ContactForm() {
                         id="email"
                         name="email"
                         required
-                        className="w-full rounded px-4 py-2 bg-white/80 text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D70064]"
+                        className="w-full rounded px-4 py-2 bg-white/80 text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary"
                     />
                 </div>
 
-                {/* Type de demande */}
                 <div className="space-y-2">
                     <label
                         htmlFor="type"
-                        className="block font-bold text-sm uppercase tracking-wide text-[#002364]"
+                        className="block font-bold text-sm uppercase tracking-wide text-brand-primary"
                     >
                         Type de demande*
                     </label>
@@ -91,24 +88,22 @@ export default function ContactForm() {
                         id="type"
                         name="type"
                         required
-                        className="w-full rounded px-4 py-2 bg-white/80 text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D70064]"
+                        className="w-full rounded px-4 py-2 bg-white/80 text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary"
                     >
                         <option value="">-- Sélectionnez un type --</option>
                         <option value="conseil">Conseil stratégique</option>
                         <option value="audit">Audit qualité</option>
                         <option value="automatisation">Automatisation des tests</option>
-                        <option value="coaching">Coaching d’équipe QA</option>
+                        <option value="coaching">Coaching d'équipe QA</option>
                         <option value="formation">Formation / sensibilisation</option>
                         <option value="autre">Autre</option>
                     </select>
                 </div>
 
-
-                {/* Message */}
                 <div className="space-y-2">
                     <label
                         htmlFor="message"
-                        className="block font-bold text-sm uppercase tracking-wide text-[#002364]"
+                        className="block font-bold text-sm uppercase tracking-wide text-brand-primary"
                     >
                         Message*
                     </label>
@@ -117,15 +112,14 @@ export default function ContactForm() {
                         name="message"
                         rows="5"
                         required
-                        className="w-full rounded px-4 py-2 bg-white/80 text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D70064]"
+                        className="w-full rounded px-4 py-2 bg-white/80 text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary"
                     />
                 </div>
 
-                {/* Bouton */}
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-[#D70064] hover:bg-[#c10058] text-white font-semibold py-2 px-6 rounded shadow-md transition disabled:opacity-50"
+                    className="bg-brand-secondary hover:bg-brand-secondary-hover text-white font-semibold py-2 px-6 rounded shadow-md transition disabled:opacity-50"
                 >
                     {isSubmitting ? 'Envoi...' : 'Envoyer'}
                 </button>
