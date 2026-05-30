@@ -6,12 +6,28 @@ module.exports = defineConfig({
     forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 2 : 0,
     workers: process.env.CI ? 1 : undefined,
-    reporter: 'html',
+
+    // En CI : annotations GitHub + liste détaillée + rapport HTML
+    // En local : liste détaillée + rapport HTML interactif
+    reporter: process.env.CI
+        ? [
+              ['github'],
+              ['list', { printSteps: true }],
+              ['html', { open: 'never', outputFolder: 'playwright-report' }],
+              ['json', { outputFile: 'playwright-report/results.json' }],
+          ]
+        : [
+              ['list', { printSteps: true }],
+              ['html', { open: 'on-failure', outputFolder: 'playwright-report' }],
+          ],
 
     use: {
         baseURL: 'http://localhost:3000',
-        trace: 'on-first-retry',
+        trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
+        video: 'retain-on-failure',
+        actionTimeout: 10000,
+        navigationTimeout: 30000,
     },
 
     projects: [
@@ -29,8 +45,6 @@ module.exports = defineConfig({
     ],
 
     webServer: {
-        // En CI : utilise le build prod déjà compilé par le step précédent
-        // En local : réutilise le serveur dev s'il tourne déjà
         command: process.env.CI ? 'npm run start' : 'npm run dev',
         url: 'http://localhost:3000',
         reuseExistingServer: !process.env.CI,
