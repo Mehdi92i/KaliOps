@@ -6,12 +6,26 @@ export default defineConfig({
     forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 2 : 0,
     workers: process.env.CI ? 1 : undefined,
-    reporter: 'html',
+
+    reporter: process.env.CI
+        ? [
+              ['github'],
+              ['list', { printSteps: true }],
+              ['html', { open: 'never', outputFolder: 'playwright-report' }],
+              ['json', { outputFile: 'playwright-report/results.json' }],
+          ]
+        : [
+              ['list', { printSteps: true }],
+              ['html', { open: 'on-failure', outputFolder: 'playwright-report' }],
+          ],
 
     use: {
         baseURL: 'http://localhost:3000',
-        trace: 'on-first-retry',
+        trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
+        video: 'retain-on-failure',
+        actionTimeout: 10000,
+        navigationTimeout: 30000,
     },
 
     projects: [
@@ -19,10 +33,12 @@ export default defineConfig({
             name: 'chromium',
             use: { ...devices['Desktop Chrome'] },
         },
-        ...(!process.env.CI ? [{
-            name: 'Mobile Safari',
-            use: { ...devices['iPhone 13'] },
-        }] : []),
+        ...(!process.env.CI ? [
+            {
+                name: 'Mobile Safari',
+                use: { ...devices['iPhone 13'] },
+            },
+        ] : []),
     ],
 
     webServer: {
