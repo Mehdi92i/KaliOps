@@ -54,8 +54,10 @@ test.describe('Page Services', () => {
 
     test('l\'ancre URL positionne sur le bon service', async ({ page }) => {
         await page.goto('/services#qaops');
-        await page.waitForLoadState('networkidle');
-        await expect(page.getByRole('heading', { name: /CI\/CD & QAOps/i })).toBeVisible({ timeout: 10000 });
+        // Le carousel ne rend qu'une carte à la fois : id="qaops" n'existe dans le DOM
+        // qu'après l'hydratation React + useEffect → attendre explicitement sa présence
+        await page.waitForSelector('[id="qaops"]', { timeout: 15000 });
+        await expect(page.getByRole('heading', { name: /CI\/CD & QAOps/i })).toBeVisible();
     });
 
     test('le bouton "Me contacter" est présent et fonctionnel', async ({ page }) => {
