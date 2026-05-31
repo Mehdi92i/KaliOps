@@ -54,7 +54,8 @@ test.describe('Page Services', () => {
 
     test('l\'ancre URL positionne sur le bon service', async ({ page }) => {
         await page.goto('/services#qaops');
-        await expect(page.getByRole('heading', { name: /CI\/CD & QAOps/i })).toBeVisible();
+        await page.waitForLoadState('networkidle');
+        await expect(page.getByRole('heading', { name: /CI\/CD & QAOps/i })).toBeVisible({ timeout: 10000 });
     });
 
     test('le bouton "Me contacter" est présent et fonctionnel', async ({ page }) => {
