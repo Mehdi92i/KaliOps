@@ -42,7 +42,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Run security tests
-        run: npx playwright test tests/security.spec.js --reporter=github,list
+        run: npx playwright test tests/security.spec.js --reporter=github,list,html
 
       - name: Upload security report
         if: always()
