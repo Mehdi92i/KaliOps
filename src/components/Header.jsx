@@ -22,14 +22,16 @@ export default function Header() {
             <div className="max-w-screen-xl mx-auto">
                 <nav className="flex items-center justify-between px-6 py-3">
                     <Link href="/">
-                        <Image
-                            src={images.logo}
-                            alt="KaliOps"
-                            height={48}
-                            width={120}
-                            priority
-                            className="object-contain brightness-0 invert"
-                        />
+                        <span className="block bg-white rounded-xl px-3 py-1.5">
+                            <Image
+                                src={images.logo}
+                                alt="KaliOps"
+                                height={40}
+                                width={110}
+                                priority
+                                className="object-contain"
+                            />
+                        </span>
                     </Link>
 
                     <div className="flex items-center gap-6">
