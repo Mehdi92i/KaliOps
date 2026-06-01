@@ -48,7 +48,7 @@ test.describe('Page Accueil', () => {
     });
 
     test('les flèches du carousel de recommandations fonctionnent', async ({ page }) => {
-        const carousel = page.locator('div.bg-white\\/90.rounded-xl').first();
+        const carousel = page.locator('div.bg-background.rounded-xl').first();
         const initialText = await carousel.textContent();
 
         await page.getByRole('button').filter({ has: page.locator('svg') }).last().click();
