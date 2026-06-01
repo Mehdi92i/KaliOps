@@ -6,9 +6,10 @@ test.describe('Navigation & Header', () => {
     });
 
     test('le logo KaliOps est visible et redirige vers /accueil', async ({ page }) => {
-        const logo = page.locator('header a[href="/"]').first();
-        await expect(logo).toContainText('Kali');
-        await expect(logo).toContainText('Ops');
+        const logo = page.locator('header a[href="/"] img[alt="KaliOps"]');
+        await expect(logo).toBeVisible();
+        await logo.click();
+        await expect(page).toHaveURL('/');
     });
 
     test('le header est présent sur toutes les pages', async ({ page }) => {

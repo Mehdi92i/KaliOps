@@ -18,15 +18,13 @@ test.describe('Système de thème – CSS Variables', () => {
         expect(tertiary).not.toBe('');
     });
 
-    test('la couleur primaire est appliquée sur le logo "Kali"', async ({ page }) => {
+    test('le logo image KaliOps est présent dans le header', async ({ page }) => {
         await page.goto('/');
-        const kaliSpan = page.locator('header a[href="/"] span').first();
-        const color = await kaliSpan.evaluate(el =>
-            getComputedStyle(el).color
-        );
-        // La couleur doit être définie (non vide, non transparente)
-        expect(color).not.toBe('');
-        expect(color).not.toBe('rgba(0, 0, 0, 0)');
+        const logo = page.locator('header a[href="/"] img[alt="KaliOps"]');
+        await expect(logo).toBeVisible();
+        const src = await logo.getAttribute('src');
+        expect(src).not.toBe('');
+        expect(src).not.toBeNull();
     });
 
     test('la variable --gradient-from est définie', async ({ page }) => {
