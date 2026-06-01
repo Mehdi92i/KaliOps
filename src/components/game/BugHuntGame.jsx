@@ -67,15 +67,15 @@ const BugHuntGame = () => {
             {!isActive && (
                 <button
                     onClick={startGame}
-                    className="bg-gradient-to-r from-pink-600 to-blue-900 text-white font-bold py-2 px-4 rounded-full shadow-xl hover:scale-105 transition"
+                    className="bg-gradient-to-r from-brand-primary to-brand-tertiary text-white font-bold py-2 px-4 rounded-full shadow-xl hover:scale-105 transition"
                 >
                     Chasser un bug 🐞
                 </button>
             )}
 
             {showFinalScore && !isActive && isHydrated && (
-                <div className="fixed top-[4.5rem] right-4 z-50 bg-white text-brand-primary font-semibold shadow-md px-4 py-2 rounded-full border border-pink-300 text-sm">
-                    🎉 Partie terminée ! Tu as attrapé <span className="text-pink-600">{score}</span> bugs !
+                <div className="fixed top-[4.5rem] right-4 z-50 bg-white text-brand-primary font-semibold shadow-md px-4 py-2 rounded-full border border-brand-secondary text-sm">
+                    🎉 Partie terminée ! Tu as attrapé <span className="text-brand-secondary">{score}</span> bugs !
                 </div>
             )}
 

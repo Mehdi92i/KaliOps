@@ -9,3 +9,7 @@ export const sounds = {
 export const social = {
     linkedin: 'https://www.linkedin.com/in/mehdi-t-4505a38b/',
 };
+
+export const images = {
+    logo: '/images/KO_LOGO.png',
+};

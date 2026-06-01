@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import BugHuntGame from '@/components/game/BugHuntGame';
 import { SiLinkedin } from 'react-icons/si';
-import { social } from '@/config/assets';
+import { social, images } from '@/config/assets';
 
 export default function Header() {
     const pathname = usePathname();
@@ -20,9 +21,15 @@ export default function Header() {
         <header className="sticky top-0 z-40 backdrop-blur-md bg-white/70 border-b border-white/20 shadow-sm">
             <div className="max-w-screen-xl mx-auto">
                 <nav className="flex items-center justify-between px-6 py-4">
-                    <Link href="/" className="text-2xl font-bold">
-                        <span className="text-brand-primary">Kali</span>
-                        <span className="text-brand-secondary">Ops</span>
+                    <Link href="/">
+                        <Image
+                            src={images.logo}
+                            alt="KaliOps"
+                            height={52}
+                            width={130}
+                            priority
+                            className="object-contain"
+                        />
                     </Link>
 
                     <div className="flex items-center gap-6">
