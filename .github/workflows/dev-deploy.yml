@@ -1,4 +1,4 @@
-name: CI - Dev branches
+name: CI - Lint, Build & Tests
 
 on:
   push:
