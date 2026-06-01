@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Poppins:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@600;700&family=Jost:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 /* ─── Design Tokens ───────────────────────────────────────────────────────── */
@@ -8,37 +8,38 @@
 /*                                                                             */
 :root {
   /* Base */
-  --background: #f9fafb;
-  --foreground: #1f2937;
+  --background: #f2ebe7;   /* Crème charte KaliOps   */
+  --foreground: #060906;   /* Noir profond            */
 
   /* ── Couleurs de marque ──────────────────────── */
-  --brand-primary:   #002364;   /* Bleu KaliOps           */
-  --brand-secondary: #D70064;   /* Magenta OPS            */
-  --brand-tertiary:  #412761;   /* Violet (milieu dégradé)*/
+  --brand-primary:   #174449;   /* Teal foncé             */
+  --brand-secondary: #dd9222;   /* Doré                   */
+  --brand-tertiary:  #405643;   /* Vert foncé             */
+  --brand-amber:     #ba751c;   /* Ambre                  */
 
   /* ── États hover ────────────────────────────── */
-  --brand-primary-hover:          #001b4d;
-  --brand-secondary-hover:        #c10058;
-  --brand-secondary-deep-hover:   #b00050;
+  --brand-primary-hover:          #0f2d31;
+  --brand-secondary-hover:        #c47f1a;
+  --brand-secondary-deep-hover:   #a86d15;
 
   /* ── Gradient de page ───────────────────────── */
-  --gradient-from: var(--brand-secondary);
+  --gradient-from: var(--brand-primary);
   --gradient-via:  var(--brand-tertiary);
-  --gradient-to:   var(--brand-primary);
+  --gradient-to:   var(--brand-amber);
 
   /* ── LinkedIn ───────────────────────────────── */
-  --linkedin:        #0A66C2;
-  --linkedin-hover:  #084d99;
+  --linkedin:          #0A66C2;
+  --linkedin-hover:    #084d99;
   --linkedin-bg-hover: #e6f0fb;
 
   /* ── Hover fond lien nav ────────────────────── */
-  --nav-hover-bg:    #fce4ec;
+  --nav-hover-bg:    #e8ddd7;
 
-  /* ── Section CV (jaune) ─────────────────────── */
-  --cv-section:      #eab308;   /* équivalent yellow-500  */
+  /* ── Section CV ─────────────────────────────── */
+  --cv-section:      #dd9222;
 
   /* ── Mise en valeur (témoignages) ──────────── */
-  --highlight:       #FFD700;
+  --highlight:       #dd9222;
 }
 
 /* ─── Tokens Tailwind v4 ──────────────────────────────────────────────────── */
@@ -50,6 +51,7 @@
   --color-brand-primary:              var(--brand-primary);
   --color-brand-secondary:            var(--brand-secondary);
   --color-brand-tertiary:             var(--brand-tertiary);
+  --color-brand-amber:                var(--brand-amber);
   --color-brand-primary-hover:        var(--brand-primary-hover);
   --color-brand-secondary-hover:      var(--brand-secondary-hover);
   --color-brand-secondary-deep-hover: var(--brand-secondary-deep-hover);
@@ -65,11 +67,11 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Jost', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Signika Negative', sans-serif;
   font-weight: 700;
   color: var(--brand-primary);
   letter-spacing: -0.5px;
@@ -87,7 +89,6 @@ body.cv-page {
 }
 
 @layer utilities {
-  /* Dégradé de page réutilisable sur tous les layouts */
   .page-gradient {
     background: linear-gradient(
       to bottom right,
