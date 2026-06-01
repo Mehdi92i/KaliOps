@@ -13,10 +13,10 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
@@ -35,13 +35,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Upload build
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-dev-${{ github.sha }}
-          path: .next/
-          retention-days: 1
-
   security:
     name: Tests Sécurité
     runs-on: ubuntu-latest
@@ -52,10 +45,10 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
@@ -72,11 +65,8 @@ jobs:
         run: npm audit --audit-level=high
         continue-on-error: true
 
-      - name: Download build
-        uses: actions/download-artifact@v4
-        with:
-          name: build-dev-${{ github.sha }}
-          path: .next/
+      - name: Build
+        run: npm run build
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
@@ -102,10 +92,10 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
@@ -118,11 +108,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Download build
-        uses: actions/download-artifact@v4
-        with:
-          name: build-dev-${{ github.sha }}
-          path: .next/
+      - name: Build
+        run: npm run build
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
