@@ -35,7 +35,7 @@ jobs:
         run: npm run build
 
   security:
-    name: Security
+    name: Security Tests
     runs-on: ubuntu-latest
     needs: lint-build
 
