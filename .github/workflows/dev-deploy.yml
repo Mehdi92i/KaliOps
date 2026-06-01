@@ -1,4 +1,4 @@
-name: CI - Lint, Build & Tests
+name: CI / Dev
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   lint-build:
-    name: Lint & Build
+    name: Qualité du code
     runs-on: ubuntu-latest
 
     steps:
@@ -36,7 +36,7 @@ jobs:
         run: npm run build
 
   security:
-    name: Tests Sécurité
+    name: Sécurité
     runs-on: ubuntu-latest
     needs: lint-build
 
@@ -83,7 +83,7 @@ jobs:
           retention-days: 7
 
   playwright:
-    name: Tests Playwright
+    name: Tests E2E
     runs-on: ubuntu-latest
     needs: security
 

@@ -1,4 +1,4 @@
-name: CI - Preproduction
+name: CI / Preprod
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   lint-build:
-    name: Lint & Build
+    name: Code Quality
     runs-on: ubuntu-latest
 
     steps:
@@ -35,7 +35,7 @@ jobs:
         run: npm run build
 
   security:
-    name: Tests Sécurité
+    name: Security
     runs-on: ubuntu-latest
     needs: lint-build
 
@@ -82,7 +82,7 @@ jobs:
           retention-days: 14
 
   playwright:
-    name: Tests Playwright
+    name: E2E Tests
     runs-on: ubuntu-latest
     needs: security
 
