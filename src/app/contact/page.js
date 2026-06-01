@@ -8,7 +8,7 @@ export default function Contact() {
 
             <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12 py-20 flex flex-col items-center space-y-16">
                 {/* Bloc titre + accroche */}
-                <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-10 text-center space-y-6 max-w-2xl">
+                <div className="bg-background border-t-4 border-brand-secondary shadow-xl rounded-2xl p-10 text-center space-y-6 max-w-2xl">
                     <h1 className="text-3xl md:text-5xl font-bold">
                         <span className="text-brand-primary">Envie de</span>{' '}
                         <span className="text-brand-secondary">collaborer</span> ?
@@ -20,7 +20,7 @@ export default function Contact() {
 
                 {/* Formulaire centré dans un bloc harmonisé */}
                 <div className="w-full flex justify-center">
-                    <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-10 w-full max-w-xl">
+                    <div className="bg-background shadow-xl rounded-2xl p-10 w-full max-w-xl">
                         <ContactForm />
                     </div>
                 </div>

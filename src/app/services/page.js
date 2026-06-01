@@ -59,7 +59,7 @@ export default function Services() {
             <div className="fixed inset-0 -z-10 page-gradient" />
 
             <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12 py-20 flex flex-col items-center space-y-16">
-                <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-10 text-center space-y-6 max-w-2xl">
+                <div className="bg-background border-t-4 border-brand-secondary shadow-xl rounded-2xl p-10 text-center space-y-6 max-w-2xl">
                     <h1 className="text-3xl md:text-5xl font-bold">
                         <span className="text-brand-primary">Mes</span>{' '}
                         <span className="text-brand-secondary">services</span>
@@ -81,7 +81,7 @@ export default function Services() {
                     <div
                         key={services[currentSlide].id}
                         id={services[currentSlide].id}
-                        className="cursor-default bg-white/90 rounded-xl p-8 shadow-lg hover:shadow-xl text-center space-y-4 w-[320px] sm:w-[400px] md:w-[500px] transition-all duration-500 ease-in-out opacity-0 animate-fade-in"
+                        className="cursor-default bg-background rounded-xl p-8 shadow-xl border-t-4 border-brand-secondary text-center space-y-4 w-[320px] sm:w-[400px] md:w-[500px] transition-all duration-500 ease-in-out opacity-0 animate-fade-in"
                     >
                         <div className={`text-5xl ${services[currentSlide].color}`}>
                             {services[currentSlide].icon}

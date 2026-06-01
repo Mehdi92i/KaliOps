@@ -22,7 +22,7 @@ export default function Home() {
             <div className="fixed inset-0 -z-10 page-gradient" />
 
             <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12 py-20 flex flex-col items-center space-y-16">
-                <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-10 text-center space-y-6 max-w-2xl">
+                <div className="bg-background border-t-4 border-brand-secondary shadow-xl rounded-2xl p-10 text-center space-y-6 max-w-2xl">
                     <h1 className="text-3xl md:text-5xl font-bold">
                         Structurer la qualité. <br />
                         Accélérer le delivery.
@@ -44,7 +44,7 @@ export default function Home() {
                 <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-5xl px-4">
                     <Link
                         href="/services#strategie"
-                        className="bg-white/90 text-brand-secondary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
+                        className="bg-background border-b-4 border-brand-secondary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
                     >
                         <span className="text-4xl mb-2">🎯</span>
                         <h3 className="font-bold text-lg">Stratégie QA</h3>
@@ -53,7 +53,7 @@ export default function Home() {
 
                     <Link
                         href="/services#tests"
-                        className="bg-white/90 text-brand-tertiary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
+                        className="bg-background border-b-4 border-brand-tertiary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
                     >
                         <span className="text-4xl mb-2">🧪</span>
                         <h3 className="font-bold text-lg">Tests automatisés & manuels</h3>
@@ -62,7 +62,7 @@ export default function Home() {
 
                     <Link
                         href="/services#qaops"
-                        className="bg-white/90 text-brand-primary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
+                        className="bg-background border-b-4 border-brand-primary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
                     >
                         <span className="text-4xl mb-2">⚙️</span>
                         <h3 className="font-bold text-lg">CI/CD & QAOps</h3>
@@ -71,7 +71,7 @@ export default function Home() {
 
                     <Link
                         href="/services#accompagnement"
-                        className="bg-white/90 text-brand-secondary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
+                        className="bg-background border-b-4 border-brand-secondary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
                     >
                         <span className="text-4xl mb-2">🤝</span>
                         <h3 className="font-bold text-lg">Accompagnement</h3>

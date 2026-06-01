@@ -25,7 +25,7 @@ export default function RecommendationCarousel() {
                     <HiChevronLeft className="w-6 h-6 text-brand-primary" />
                 </button>
 
-                <div className="bg-white/90 rounded-xl p-6 shadow-lg max-w-md w-[320px] sm:w-[400px] md:w-[500px] transition-all duration-500 ease-in-out opacity-0 animate-fade-in">
+                <div className="bg-background rounded-xl p-6 shadow-xl border-l-4 border-brand-secondary max-w-md w-[320px] sm:w-[400px] md:w-[500px] transition-all duration-500 ease-in-out opacity-0 animate-fade-in">
                     <p className="text-sm text-gray-700 italic">"{recommendations[current].text}"</p>
                     <p className="mt-4 text-sm font-semibold text-brand-primary">
                         {recommendations[current].name}
