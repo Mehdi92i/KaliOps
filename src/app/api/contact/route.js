@@ -16,6 +16,10 @@ export async function POST(req) {
         return Response.json({ success: false, error: "Champs requis manquants." }, { status: 400 });
     }
 
+    if (name.length > 100 || email.length > 254 || message.length > 5000 || type.length > 50) {
+        return Response.json({ success: false, error: "Champs trop longs." }, { status: 400 });
+    }
+
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
         return Response.json(
