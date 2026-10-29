@@ -11,7 +11,7 @@ export default function Contact() {
                 <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-10 text-center space-y-6 max-w-2xl">
                     <h1 className="text-3xl md:text-5xl font-bold">
                         <span className="text-brand-primary">Envie de</span>{' '}
-                        <span className="text-brand-secondary">collaborer</span> ?
+                        <span className="text-brand-tertiary">collaborer</span> ?
                     </h1>
                     <p className="text-lg md:text-xl text-gray-700">
                         Que ce soit pour un accompagnement QA, un audit, je suis à votre écoute. Parlons qualité et adaptons votre besoin.

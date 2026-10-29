@@ -22,7 +22,7 @@ export default function Header() {
                 <nav className="flex items-center justify-between px-6 py-4">
                     <Link href="/" className="text-2xl font-bold">
                         <span className="text-brand-primary">Kali</span>
-                        <span className="text-brand-secondary">Ops</span>
+                        <span className="text-brand-tertiary">Ops</span>
                     </Link>
 
                     <div className="flex items-center gap-6">
@@ -47,7 +47,7 @@ export default function Header() {
                                     <Link
                                         key={link.href}
                                         href={link.href}
-                                        className="px-4 py-2 rounded-lg bg-transparent hover:bg-nav-hover-bg text-brand-primary hover:text-brand-secondary transition-colors duration-200"
+                                        className="px-4 py-2 rounded-lg bg-transparent hover:bg-nav-hover-bg text-brand-primary hover:text-brand-tertiary transition-colors duration-200"
                                     >
                                         {link.label}
                                     </Link>

@@ -7,7 +7,7 @@ const services = [
         {
             id: 'strategie',
             icon: '🎯',
-            color: 'text-brand-secondary',
+            color: 'text-brand-primary',
             title: 'Stratégie QA',
             description:
                 "Une démarche qualité efficace commence par une stratégie claire. J'analyse votre contexte produit, vos contraintes d'équipe, et je vous propose un plan d'action QA concret : rôles, types de tests, niveaux de validation, choix d'outils, KPIs et organisation.",
@@ -31,7 +31,7 @@ const services = [
         {
             id: 'accompagnement',
             icon: '🤝',
-            color: 'text-brand-secondary',
+            color: 'text-brand-tertiary',
             title: 'Accompagnement',
             description:
                 "Que ce soit pour un audit QA, du coaching de testeurs, ou pour formaliser votre référentiel de tests, je vous accompagne avec des pratiques adaptées à votre structure et vos outils. Mon but est de vous rendre autonomes sur votre qualité.",
@@ -62,7 +62,7 @@ export default function Services() {
                 <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-10 text-center space-y-6 max-w-2xl">
                     <h1 className="text-3xl md:text-5xl font-bold">
                         <span className="text-brand-primary">Mes</span>{' '}
-                        <span className="text-brand-secondary">services</span>
+                        <span className="text-brand-tertiary">services</span>
                     </h1>
                     <p className="text-lg md:text-xl text-gray-700">
                         J&apos;accompagne les équipes tech à construire une démarche qualité moderne, fluide et efficace.

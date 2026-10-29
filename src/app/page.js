@@ -31,7 +31,7 @@ export default function Home() {
                     <p className="text-lg md:text-xl text-gray-700">
                         Bienvenue chez{' '}
                         <span className="text-brand-primary">Kali</span>
-                        <span className="text-brand-secondary">Ops</span>, un accompagnement
+                        <span className="text-brand-tertiary">Ops</span>, un accompagnement
                         freelance sur-mesure en qualité logicielle.
                     </p>
 
@@ -44,7 +44,7 @@ export default function Home() {
                 <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-5xl px-4">
                     <Link
                         href="/services#strategie"
-                        className="bg-white/90 text-brand-secondary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
+                        className="bg-white/90 text-brand-primary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
                     >
                         <span className="text-4xl mb-2">🎯</span>
                         <h3 className="font-bold text-lg">Stratégie QA</h3>
@@ -71,7 +71,7 @@ export default function Home() {
 
                     <Link
                         href="/services#accompagnement"
-                        className="bg-white/90 text-brand-secondary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
+                        className="bg-white/90 text-brand-tertiary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
                     >
                         <span className="text-4xl mb-2">🤝</span>
                         <h3 className="font-bold text-lg">Accompagnement</h3>
