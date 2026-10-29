@@ -53,8 +53,11 @@ test.describe('Page Services', () => {
     });
 
     test('l\'ancre URL positionne sur le bon service', async ({ page }) => {
-        await page.goto('/services#qaops');
-        await expect(page.getByRole('heading', { name: /CI\/CD & QAOps/i })).toBeVisible();
+        // Naviguer via le lien de la home (client-side) garantit que le hash
+        // est traité par Next.js avant le montage du composant
+        await page.goto('/');
+        await page.locator('a[href="/services#qaops"]').first().click();
+        await expect(page.getByRole('heading', { name: /CI\/CD & QAOps/i })).toBeVisible({ timeout: 10000 });
     });
 
     test('le bouton "Me contacter" est présent et fonctionnel', async ({ page }) => {
