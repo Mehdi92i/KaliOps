@@ -2,13 +2,14 @@ import ContactForm from '@/components/contact/ContactForm';
 
 export default function Contact() {
     return (
-        <div className="relative w-full min-h-screen">
+        <div className="relative w-full">
             {/* Fond dégradé harmonisé */}
             <div className="fixed inset-0 -z-10 page-gradient" />
 
-            <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12 py-20 flex flex-col items-center space-y-16">
+            {/* Mobile : titre puis formulaire empilés. Grand écran : côte à côte pour tenir dans l'écran. */}
+            <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12 py-6 md:py-8 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 items-center justify-items-center">
                 {/* Bloc titre + accroche */}
-                <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-10 text-center space-y-6 max-w-2xl">
+                <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-6 sm:p-10 text-center lg:text-left space-y-6 max-w-2xl">
                     <h1 className="text-3xl md:text-5xl font-bold">
                         <span className="text-brand-primary">Envie de</span>{' '}
                         <span className="text-kali-cuivre">collaborer</span> ?
@@ -20,7 +21,7 @@ export default function Contact() {
 
                 {/* Formulaire centré dans un bloc harmonisé */}
                 <div className="w-full flex justify-center">
-                    <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-10 w-full max-w-xl">
+                    <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-3 sm:p-6 w-full max-w-xl">
                         <ContactForm />
                     </div>
                 </div>
