@@ -28,14 +28,14 @@ export default function Home() {
                         Accélérer le <span className="text-kali-cuivre">delivery</span>.
                     </h1>
 
-                    <p className="text-lg md:text-xl text-gray-700">
+                    <p className="text-lg md:text-xl text-texte-secondaire">
                         Bienvenue chez{' '}
                         <span className="text-brand-primary">Kali</span>
                         <span className="text-brand-tertiary">Ops</span>, un accompagnement
                         freelance sur-mesure en qualité logicielle.
                     </p>
 
-                    <p className="italic text-gray-800 mt-4 text-center">
+                    <p className="italic text-texte mt-4 text-center">
                         ➜ Vous voulez intégrer / fiabiliser votre qualité logicielle ?
                         Contactez-moi.
                     </p>
@@ -48,7 +48,7 @@ export default function Home() {
                     >
                         <span className="text-4xl mb-2">🎯</span>
                         <h3 className="font-bold text-lg">Stratégie QA</h3>
-                        <p className="text-sm text-gray-700 mt-1">Alignée produit & delivery</p>
+                        <p className="text-sm text-texte-secondaire mt-1">Alignée produit & delivery</p>
                     </Link>
 
                     <Link
@@ -57,7 +57,7 @@ export default function Home() {
                     >
                         <span className="text-4xl mb-2">🧪</span>
                         <h3 className="font-bold text-lg">Tests automatisés & manuels</h3>
-                        <p className="text-sm text-gray-700 mt-1">E2E, API, Performance</p>
+                        <p className="text-sm text-texte-secondaire mt-1">E2E, API, Performance</p>
                     </Link>
 
                     <Link
@@ -66,7 +66,7 @@ export default function Home() {
                     >
                         <span className="text-4xl mb-2">⚙️</span>
                         <h3 className="font-bold text-lg">CI/CD & QAOps</h3>
-                        <p className="text-sm text-gray-700 mt-1">Intégration continue</p>
+                        <p className="text-sm text-texte-secondaire mt-1">Intégration continue</p>
                     </Link>
 
                     <Link
@@ -75,7 +75,7 @@ export default function Home() {
                     >
                         <span className="text-4xl mb-2">🤝</span>
                         <h3 className="font-bold text-lg">Accompagnement</h3>
-                        <p className="text-sm text-gray-700 mt-1">Audit, support, coaching</p>
+                        <p className="text-sm text-texte-secondaire mt-1">Audit, support, coaching</p>
                     </Link>
                 </section>
 
@@ -88,7 +88,7 @@ export default function Home() {
                     </Link>
                     <Link
                         href="/cv"
-                        className="bg-brand-secondary text-white font-semibold px-6 py-3 rounded shadow-md hover:bg-brand-secondary-hover transition"
+                        className="bg-brand-secondary text-kali-noir font-semibold px-6 py-3 rounded shadow-md hover:bg-brand-secondary-hover transition"
                     >
                         Voir mon CV
                     </Link>

@@ -4,8 +4,8 @@ export default function CvSkills() {
             <h2 className="text-2xl font-bold text-cv-section mb-6 text-center">Compétences</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
                 <div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Expertises fonctionnelles</h3>
-                    <ul className="list-none space-y-1 text-gray-800 text-sm">
+                    <h3 className="text-lg font-semibold text-texte mb-2">Expertises fonctionnelles</h3>
+                    <ul className="list-none space-y-1 text-texte text-sm">
                         <li>📝 Tests manuels</li>
                         <li>🔁 Tests E2E</li>
                         <li>🔌 Tests API</li>
@@ -21,8 +21,8 @@ export default function CvSkills() {
                     </ul>
                 </div>
                 <div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Méthodologies & CI</h3>
-                    <ul className="list-none space-y-1 text-gray-800 text-sm">
+                    <h3 className="text-lg font-semibold text-texte mb-2">Méthodologies & CI</h3>
+                    <ul className="list-none space-y-1 text-texte text-sm">
                         <li>🔄 CI/CD - QAOps</li>
                         <li>📅 Agilité/Cycle en V</li>
                         <li>📊 Suivi des métriques QA</li>

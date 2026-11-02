@@ -4,7 +4,7 @@ export default function CvTools() {
             <h2 className="text-2xl font-bold text-cv-section mb-6 text-center">Outils techniques</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
                 <div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2 text-center">Frameworks & Languages</h3>
+                    <h3 className="text-lg font-semibold text-texte mb-2 text-center">Frameworks & Languages</h3>
                     <div className="flex flex-wrap gap-2">
                         {[
                             "🧪 Cypress",
@@ -16,7 +16,7 @@ export default function CvTools() {
                             "🐚 Bash / Shell",
                             "🐳 Dockerfile"
                         ].map((tool, i) => (
-                            <span key={i} className="flex items-center gap-1 text-gray-800 border border-gray-200 px-3 py-1 rounded-full text-sm font-medium">
+                            <span key={i} className="flex items-center gap-1 text-texte border border-bordure px-3 py-1 rounded-full text-sm font-medium">
                                 {tool}
                             </span>
                         ))}
@@ -24,7 +24,7 @@ export default function CvTools() {
                 </div>
 
                 <div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2 text-center">Logiciels</h3>
+                    <h3 className="text-lg font-semibold text-texte mb-2 text-center">Logiciels</h3>
                     <div className="flex flex-wrap gap-2">
                         {[
                             "📮 Postman",
@@ -38,7 +38,7 @@ export default function CvTools() {
                             "💠 Aqua",
                             "🌐 WebStorm"
                         ].map((tool, i) => (
-                            <span key={i} className="flex items-center gap-1 text-gray-800 border border-gray-200 px-3 py-1 rounded-full text-sm font-medium">
+                            <span key={i} className="flex items-center gap-1 text-texte border border-bordure px-3 py-1 rounded-full text-sm font-medium">
                                 {tool}
                             </span>
                         ))}
