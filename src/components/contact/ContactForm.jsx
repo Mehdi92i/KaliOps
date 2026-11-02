@@ -57,7 +57,7 @@ export default function ContactForm() {
                         id="name"
                         name="name"
                         required
-                        className="w-full rounded px-4 py-2 bg-white/80 text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary"
+                        className="w-full rounded px-4 py-2 bg-white/80 text-texte border border-bordure focus:outline-none focus:ring-2 focus:ring-kali-cuivre"
                     />
                 </div>
 
@@ -73,7 +73,7 @@ export default function ContactForm() {
                         id="email"
                         name="email"
                         required
-                        className="w-full rounded px-4 py-2 bg-white/80 text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary"
+                        className="w-full rounded px-4 py-2 bg-white/80 text-texte border border-bordure focus:outline-none focus:ring-2 focus:ring-kali-cuivre"
                     />
                 </div>
 
@@ -88,7 +88,7 @@ export default function ContactForm() {
                         id="type"
                         name="type"
                         required
-                        className="w-full rounded px-4 py-2 bg-white/80 text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary"
+                        className="w-full rounded px-4 py-2 bg-white/80 text-texte border border-bordure focus:outline-none focus:ring-2 focus:ring-kali-cuivre"
                     >
                         <option value="">-- Sélectionnez un type --</option>
                         <option value="conseil">Conseil stratégique</option>
@@ -112,14 +112,14 @@ export default function ContactForm() {
                         name="message"
                         rows="5"
                         required
-                        className="w-full rounded px-4 py-2 bg-white/80 text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary"
+                        className="w-full rounded px-4 py-2 bg-white/80 text-texte border border-bordure focus:outline-none focus:ring-2 focus:ring-kali-cuivre"
                     />
                 </div>
 
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-brand-secondary hover:bg-brand-secondary-hover text-white font-semibold py-2 px-6 rounded shadow-md transition disabled:opacity-50"
+                    className="bg-brand-secondary hover:bg-brand-secondary-hover text-kali-noir font-semibold py-2 px-6 rounded shadow-md transition disabled:opacity-50"
                 >
                     {isSubmitting ? 'Envoi...' : 'Envoyer'}
                 </button>

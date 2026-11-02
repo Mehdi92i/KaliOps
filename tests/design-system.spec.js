@@ -11,7 +11,6 @@ const CHARTE = {
     '--kali-blanc': '#ffffff',
 };
 
-const PETROLE = 'rgb(23, 68, 73)';
 const OCRE = 'rgb(221, 146, 34)';
 const CUIVRE = 'rgb(186, 117, 28)';
 
@@ -48,13 +47,25 @@ test.describe('Design system – tokens de la charte', () => {
 });
 
 test.describe('Design system – couleurs de marque', () => {
-    test('le logo affiche « Kali » en pétrole et « Ops » en cuivre', async ({ page }) => {
+    test('le header affiche le logo horizontal de la charte', async ({ page }) => {
         await page.goto('/');
-        const [kali, ops] = await page
-            .locator('header a[href="/"] span')
-            .evaluateAll((spans) => spans.map((s) => getComputedStyle(s).color));
-        expect(kali).toBe(PETROLE);
-        expect(ops).toBe(CUIVRE);
+        const lien = page.locator('header a[href="/"]').first();
+        const logo = lien.locator('img[src*="kaliops-logo-horizontal.svg"]');
+
+        await expect(logo).toBeVisible();
+        // Image réellement chargée (pas d'icône cassée)
+        expect(await logo.evaluate((img) => img.complete && img.naturalWidth > 0)).toBe(true);
+        // Le logo est décoratif : le lien reste nommé « KaliOps » pour les lecteurs d'écran
+        await expect(logo).toHaveAttribute('alt', '');
+        await expect(page.getByRole('link', { name: 'KaliOps' })).toBeVisible();
+    });
+
+    test('le SVG du logo utilise uniquement les couleurs de la charte', async ({ request }) => {
+        const svg = await (await request.get('/images/kaliops-logo-horizontal.svg')).text();
+        const couleurs = [...new Set(svg.match(/#[0-9a-fA-F]{6}\b/g).map((c) => c.toLowerCase()))];
+        for (const couleur of couleurs) {
+            expect(Object.values(CHARTE), couleur).toContain(couleur);
+        }
     });
 
     const ACCENTS = [
@@ -102,5 +113,58 @@ test.describe('Design system – règle de contraste (CLAUDE.md)', () => {
 
             expect(fautifs, fautifs.join(', ')).toEqual([]);
         });
+
+        test(`aucun texte blanc sur fond ocre ou cuivre sur ${path}`, async ({ page }) => {
+            await page.goto(path);
+            // Blanc sur ocre : 2,6:1. La charte impose du texte noir sur l'ocre (7,82:1).
+            const fautifs = await page.evaluate(({ ocre, cuivre }) => {
+                const blanc = 'rgb(255, 255, 255)';
+                return [...document.querySelectorAll('body *')]
+                    .filter((el) => {
+                        const style = getComputedStyle(el);
+                        return [ocre, cuivre].includes(style.backgroundColor)
+                            && style.color === blanc
+                            && el.textContent.trim() !== '';
+                    })
+                    .map((el) => `« ${el.textContent.trim().slice(0, 30)} »`);
+            }, { ocre: OCRE, cuivre: CUIVRE });
+
+            expect(fautifs, fautifs.join(', ')).toEqual([]);
+        });
     }
+});
+
+test.describe('Design system – pas de couleur en dur dans le code', () => {
+    // Toutes les couleurs passent par les tokens de src/app/globals.css (règle CLAUDE.md)
+    const PALETTE_TAILWIND = /\b(?:text|bg|border|from|via|to|ring|fill|stroke|outline|divide|decoration|placeholder|shadow)-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-\d{2,3}\b|\b(?:text|bg|border)-black\b/g;
+    // (?<!&) : ignore les entités HTML comme &#039;
+    const HEXA = /(?<!&)#(?:[0-9a-fA-F]{6}|[0-9a-fA-F]{3})\b/g;
+
+    test('les composants n\'utilisent ni couleur Tailwind par défaut ni code hexadécimal', async () => {
+        const fs = await import('node:fs');
+        const path = await import('node:path');
+
+        const fichiers = [];
+        const parcourir = (dossier) => {
+            for (const entree of fs.readdirSync(dossier, { withFileTypes: true })) {
+                const chemin = path.join(dossier, entree.name);
+                if (entree.isDirectory()) parcourir(chemin);
+                else if (/\.(jsx?|tsx?)$/.test(entree.name)) fichiers.push(chemin);
+            }
+        };
+        parcourir(path.join(process.cwd(), 'src'));
+
+        const fautes = [];
+        for (const fichier of fichiers) {
+            fs.readFileSync(fichier, 'utf8').split('\n').forEach((ligne, i) => {
+                for (const motif of [PALETTE_TAILWIND, HEXA]) {
+                    for (const trouve of ligne.match(motif) ?? []) {
+                        fautes.push(`${path.relative(process.cwd(), fichier)}:${i + 1} ${trouve}`);
+                    }
+                }
+            });
+        }
+
+        expect(fautes, fautes.join('\n')).toEqual([]);
+    });
 });

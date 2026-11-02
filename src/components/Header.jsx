@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import BugHuntGame from '@/components/game/BugHuntGame';
 import { SiLinkedin } from 'react-icons/si';
-import { social } from '@/config/assets';
+import { images, social } from '@/config/assets';
 
 export default function Header() {
     const pathname = usePathname();
@@ -21,10 +21,13 @@ export default function Header() {
             <div className="max-w-screen-xl mx-auto">
                 {/* Mobile : logo + actions sur la 1re ligne, liens sur la 2e. À partir de md : une seule ligne. */}
                 <nav className="flex flex-wrap md:flex-nowrap items-center justify-between gap-y-1 px-4 sm:px-6 py-2 md:py-4">
-                    <Link href="/" className="font-heading text-2xl sm:text-3xl font-bold">
-                        <span className="text-brand-primary">Kali</span>
-                        {/* Cuivre sur blanc : 3,7 — conforme AA en gros texte gras uniquement */}
-                        <span className="text-kali-cuivre">Ops</span>
+                    <Link href="/" className="shrink-0">
+                        {/* Logo décoratif : le nom accessible du lien vient du texte masqué ci-dessous */}
+                        {/* eslint-disable-next-line @next/next/no-img-element -- SVG vectoriel, pas d'optimisation next/image utile */}
+                        <img src={images.logoHorizontal} alt="" width="346" height="86" className="h-[22px] min-[360px]:h-8 md:h-10 w-auto" />
+                        <span className="sr-only">
+                            <span>Kali</span><span>Ops</span>
+                        </span>
                     </Link>
 
                     <div className="flex items-center gap-2 sm:gap-3 md:ml-auto">
