@@ -1,6 +1,16 @@
 import { useRef, useState, useEffect } from 'react';
 import { sounds } from '@/config/assets';
 
+// Icône « bug » (tracé Lucide) appliquée en masque CSS : elle prend la couleur du token
+// (noir sur ocre, 7,8:1) sans ajouter de <svg> au DOM, que les tests des carousels ciblent.
+const BUG_ICON_MASK = `url("data:image/svg+xml,${encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">'
+    + '<path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/>'
+    + '<path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/>'
+    + '<path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/>'
+    + '<path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></svg>'
+)}") center / contain no-repeat`;
+
 const BugHuntGame = () => {
     const [isActive, setIsActive] = useState(false);
     const [bugs, setBugs] = useState([]);
@@ -67,15 +77,20 @@ const BugHuntGame = () => {
             {!isActive && (
                 <button
                     onClick={startGame}
-                    className="bg-gradient-to-r from-pink-600 to-blue-900 text-white font-bold text-xs sm:text-base min-h-11 md:min-h-0 py-2 px-3 sm:px-4 rounded-full shadow-xl hover:scale-105 transition whitespace-nowrap"
+                    className="inline-flex items-center gap-1.5 bg-brand-secondary hover:bg-brand-secondary-hover text-kali-noir font-bold text-xs sm:text-base min-h-11 md:min-h-0 py-2 px-3 sm:px-4 rounded-full shadow-xl hover:scale-105 transition whitespace-nowrap"
                 >
-                    Chasser un bug 🐞
+                    Chasser un bug
+                    <span
+                        aria-hidden="true"
+                        className="inline-block w-4 h-4 sm:w-5 sm:h-5 bg-kali-noir"
+                        style={{ mask: BUG_ICON_MASK, WebkitMask: BUG_ICON_MASK }}
+                    />
                 </button>
             )}
 
             {showFinalScore && !isActive && isHydrated && (
-                <div className="fixed top-[4.5rem] right-4 z-50 bg-white text-brand-primary font-semibold shadow-md px-4 py-2 rounded-full border border-pink-300 text-sm">
-                    🎉 Partie terminée ! Tu as attrapé <span className="text-pink-600">{score}</span> bugs !
+                <div className="fixed top-[4.5rem] right-4 z-50 bg-white text-brand-primary font-semibold shadow-md px-4 py-2 rounded-full border border-kali-ocre text-sm">
+                    🎉 Partie terminée ! Tu as attrapé <span className="font-bold text-brand-tertiary">{score}</span> bugs !
                 </div>
             )}
 
@@ -84,13 +99,13 @@ const BugHuntGame = () => {
                     <div className="absolute top-4 left-4">
                         <button
                             onClick={stopGame}
-                            className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full shadow-xl transition"
+                            className="bg-brand-primary hover:bg-brand-primary-hover text-white font-bold py-2 px-4 rounded-full shadow-xl transition"
                         >
                             Arrêter la chasse
                         </button>
                     </div>
 
-                    <div className="absolute top-4 right-4 text-white text-lg bg-black/70 px-3 py-1 rounded-full shadow-md">
+                    <div className="absolute top-4 right-4 text-white text-lg bg-kali-noir/70 px-3 py-1 rounded-full shadow-md">
                         Score : {score}
                     </div>
 

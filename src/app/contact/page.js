@@ -14,7 +14,7 @@ export default function Contact() {
                         <span className="text-brand-primary">Envie de</span>{' '}
                         <span className="text-kali-cuivre">collaborer</span> ?
                     </h1>
-                    <p className="text-lg md:text-xl text-gray-700">
+                    <p className="text-lg md:text-xl text-texte-secondaire">
                         Que ce soit pour un accompagnement QA, un audit, je suis à votre écoute. Parlons qualité et adaptons votre besoin.
                     </p>
                 </div>

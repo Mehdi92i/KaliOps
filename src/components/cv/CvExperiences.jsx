@@ -7,18 +7,18 @@ export default function CvExperiences() {
             {/* Contenu des expériences */}
                 {/* Poste Chapter Lead QA – MEDIN+ */}
                 <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-gray-800">Chapter Lead QA – MEDIN+</h3>
-                    <p className="text-sm text-gray-600 mb-4">Depuis Novembre 2023</p>
+                    <h3 className="text-xl font-semibold text-texte">Chapter Lead QA – MEDIN+</h3>
+                    <p className="text-sm text-texte-secondaire mb-4">Depuis Novembre 2023</p>
                     <div className="space-y-6">
 
                         {/* Bloc 1 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">🧩</span>
+                                <span className="text-2xl">🧩</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Leadership & coordination transverse</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Leadership & coordination transverse</h4>
+                                <p className="text-texte-secondaire">
                                     Création et animation du Chapter QA. Coordination avec les équipes produit, IT, sécurité, métier et architecture. Participation aux comités stratégiques. Gestion de prestataires pour des missions ciblées.
                                 </p>
                             </div>
@@ -27,11 +27,11 @@ export default function CvExperiences() {
                         {/* Bloc 2 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">📘</span>
+                                <span className="text-2xl">📘</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Définition & diffusion des bonnes pratiques</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Définition & diffusion des bonnes pratiques</h4>
+                                <p className="text-texte-secondaire">
                                     Définition de la stratégie de tests en lien avec les enjeux produit et métier. Mise en place et optimisation des workflows QA, documentation des process, application des méthodologies Agile (Scrum, Kanban). Veille et diffusion des bonnes pratiques QA.
                                 </p>
                             </div>
@@ -40,11 +40,11 @@ export default function CvExperiences() {
                         {/* Bloc 3 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">🚀</span>
+                                <span className="text-2xl">🚀</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Support aux équipes & accompagnement au changement</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Support aux équipes & accompagnement au changement</h4>
+                                <p className="text-texte-secondaire">
                                     Automatisation des tests (E2E, API, performance avec K6) via une CI Bitbucket. Accompagnement des développeurs et PO dans l’intégration des tests dans les outils de delivery. Sensibilisation à la culture QAOps au sein des équipes R&D.
                                 </p>
                             </div>
@@ -53,11 +53,11 @@ export default function CvExperiences() {
                         {/* Bloc 4 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">🎯</span>
+                                <span className="text-2xl">🎯</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Montée en compétence & recrutement</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Montée en compétence & recrutement</h4>
+                                <p className="text-texte-secondaire">
                                     Coaching quotidien des QA, création d’une communauté de testeurs, montée en compétence, suivi des KPI, définition des objectifs individuels et recrutement.
                                 </p>
                             </div>
@@ -65,11 +65,11 @@ export default function CvExperiences() {
                         {/* Bloc 5 - Projets majeurs */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">🚀</span>
+                                <span className="text-2xl">🚀</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Projets majeurs</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Projets majeurs</h4>
+                                <p className="text-texte-secondaire">
                                     Industrialisation des tests manuels et automatisés, a de la TNR pour accélérer les validations, mise en place d’une culture QAOps et de KPIs QA
                                 </p>
                             </div>
@@ -80,19 +80,19 @@ export default function CvExperiences() {
             <hr className="border-t-4 border-brand-secondary w-full max-w-64 mx-auto rounded-full my-12" />
             {/* Poste Lead QA Skilleos détaillé */}
                 <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-gray-800">Lead QA – Skilleos</h3>
-                    <p className="text-sm text-gray-600 mb-4">Juillet 2021 – 2023</p>
+                    <h3 className="text-xl font-semibold text-texte">Lead QA – Skilleos</h3>
+                    <p className="text-sm text-texte-secondaire mb-4">Juillet 2021 – 2023</p>
 
                     <div className="space-y-6">
 
                         {/* Bloc 1 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">👥</span>
+                                <span className="text-2xl">👥</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Création et pilotage du pôle QA</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Création et pilotage du pôle QA</h4>
+                                <p className="text-texte-secondaire">
                                     Recrutement, management d&#39;équipe QA, rôle de référent qualité au sein des squads Agile.
                                 </p>
                             </div>
@@ -101,11 +101,11 @@ export default function CvExperiences() {
                         {/* Bloc 2 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">🛠️</span>
+                                <span className="text-2xl">🛠️</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Opérationnel QA</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Opérationnel QA</h4>
+                                <p className="text-texte-secondaire">
                                     Réalisation de tests fonctionnels manuels, maintenance et exécution des tests automatisés (web et mobile),
                                     élaboration de cas de test manuels, validation d&#39;APIs, réalisation de tests de performance et de charge sur les environnements critiques.
                                 </p>
@@ -115,11 +115,11 @@ export default function CvExperiences() {
                         {/* Bloc 3 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">⚙️</span>
+                                <span className="text-2xl">⚙️</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Stratégie qualité & Monitoring</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Stratégie qualité & Monitoring</h4>
+                                <p className="text-texte-secondaire">
                                     Définition de la stratégie qualité, suivi des environnements, création de jeux de données de test, reporting KPI.
                                 </p>
                             </div>
@@ -128,11 +128,11 @@ export default function CvExperiences() {
                         {/* Bloc 4 */}
                         <div className="flex items-start space-x-4">
                             <div className=" p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">📈</span>
+                                <span className="text-2xl">📈</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Industrialisation des tests & Amélioration continue</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Industrialisation des tests & Amélioration continue</h4>
+                                <p className="text-texte-secondaire">
                                     Mise en place et maintenance de tests manuels et automatisés (web & mobile), création de la bibliothèque de tests, intégration dans la CI/CD, amélioration continue des processus QA.
                                 </p>
                             </div>
@@ -143,11 +143,11 @@ export default function CvExperiences() {
                     {/* Bloc 5 - Projets majeurs */}
                     <div className="flex items-start space-x-4">
                         <div className="p-2 rounded">
-                            <span className="text-yellow-600 text-2xl">🚀</span>
+                            <span className="text-2xl">🚀</span>
                         </div>
                         <div>
-                            <h4 className="text-lg font-semibold text-gray-700">Projets majeurs</h4>
-                            <p className="text-gray-600">
+                            <h4 className="text-lg font-semibold text-texte-secondaire">Projets majeurs</h4>
+                            <p className="text-texte-secondaire">
                                 Validation de la migration du framework mobile Android/iOS, structuration des processus QA et
                                 industrialisation des tests en collaboration avec la team DevOps.
                             </p>
@@ -157,18 +157,18 @@ export default function CvExperiences() {
                 <hr className="border-t-4 border-brand-secondary w-full max-w-64 mx-auto rounded-full my-12" />
                 {/* Poste Lead QA FlexyBeauty/Kiute détaillé */}
                 <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-gray-800">Lead QA – FlexyBeauty/Kiute</h3>
-                    <p className="text-sm text-gray-600 mb-4">Décembre 2018 – Juillet 2021</p>
+                    <h3 className="text-xl font-semibold text-texte">Lead QA – FlexyBeauty/Kiute</h3>
+                    <p className="text-sm text-texte-secondaire mb-4">Décembre 2018 – Juillet 2021</p>
                     <div className="space-y-6">
 
                         {/* Bloc 1 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">👥</span>
+                                <span className="text-2xl">👥</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Création et pilotage du pôle QA</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Création et pilotage du pôle QA</h4>
+                                <p className="text-texte-secondaire">
                                     Recrutement, management de l&#39;équipe QA et de la team support 2, rôle de référent qualité au sein des équipes Agile.
                                 </p>
                             </div>
@@ -177,11 +177,11 @@ export default function CvExperiences() {
                         {/* Bloc 2 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">📊</span>
+                                <span className="text-2xl">📊</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Stratégie de test & monitoring</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Stratégie de test & monitoring</h4>
+                                <p className="text-texte-secondaire">
                                     Mise en place de la stratégie de tests manuels, architecture des tests automatisés (web, mobile), suivi des environnements, préparation des jeux de données, remontée et analyse des bugs, reporting KPI.
                                 </p>
                             </div>
@@ -190,11 +190,11 @@ export default function CvExperiences() {
                         {/* Bloc 3 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">🛠️</span>
+                                <span className="text-2xl">🛠️</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Automatisation & QAOps</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Automatisation & QAOps</h4>
+                                <p className="text-texte-secondaire">
                                     Réalisation de POCs, scripts de tests API & e2e, tests de charge & performance, intégration des tests dans la CI/CD, création du référentiel de tests.
                                 </p>
                             </div>
@@ -203,11 +203,11 @@ export default function CvExperiences() {
                         {/* Bloc 4 - Projets majeurs */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">🚀</span>
+                                <span className="text-2xl">🚀</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Projets majeurs</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Projets majeurs</h4>
+                                <p className="text-texte-secondaire">
                                     Partenariat Google : validation de « Reserve with Google », industrialisation des tests avec la team Infra, acculturation QA, validation de l&#39;app mobile iOS.
                                 </p>
                             </div>
@@ -218,18 +218,18 @@ export default function CvExperiences() {
                 <hr className="border-t-4 border-brand-secondary w-full max-w-64 mx-auto rounded-full my-12" />
                 {/* Poste QA Test Automation Engineer – Aviva */}
                 <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-gray-800">QA Test Automation Engineer – Aviva</h3>
-                    <p className="text-sm text-gray-600 mb-4">Septembre 2017 – Novembre 2018</p>
+                    <h3 className="text-xl font-semibold text-texte">QA Test Automation Engineer – Aviva</h3>
+                    <p className="text-sm text-texte-secondaire mb-4">Septembre 2017 – Novembre 2018</p>
                     <div className="space-y-6">
 
                         {/* Bloc 1 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">🧠</span>
+                                <span className="text-2xl">🧠</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Référent technique & stratégie de tests</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Référent technique & stratégie de tests</h4>
+                                <p className="text-texte-secondaire">
                                     Conception des architectures et des stratégies de tests, référent technique au sein de l’équipe QA, chiffrage et planification des campagnes de test.
                                 </p>
                             </div>
@@ -238,11 +238,11 @@ export default function CvExperiences() {
                         {/* Bloc 2 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">🧪</span>
+                                <span className="text-2xl">🧪</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Automatisation & maintenance des tests</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Automatisation & maintenance des tests</h4>
+                                <p className="text-texte-secondaire">
                                     Automatisation des tests e2e pour produits web et AS400, maintenance des tests automatisés sous UFT (VBA), automatisation des régressions.
                                 </p>
                             </div>
@@ -251,11 +251,11 @@ export default function CvExperiences() {
                         {/* Bloc 3 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">🔍</span>
+                                <span className="text-2xl">🔍</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Analyse & amélioration continue</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Analyse & amélioration continue</h4>
+                                <p className="text-texte-secondaire">
                                     Remontée et analyse des anomalies, réalisation de POCs sur la faisabilité des tests.
                                 </p>
                             </div>
@@ -264,11 +264,11 @@ export default function CvExperiences() {
                         {/* Bloc 4 - Projets majeurs */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">🚀</span>
+                                <span className="text-2xl">🚀</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Projets majeurs</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Projets majeurs</h4>
+                                <p className="text-texte-secondaire">
                                     NMRH Eurofil, ASK IT Never, TRA (Tierce Recette Applicative).
                                 </p>
                             </div>
@@ -279,18 +279,18 @@ export default function CvExperiences() {
                 <hr className="border-t-4 border-brand-secondary w-full max-w-64 mx-auto rounded-full my-12" />
                 {/* Poste Chef de projet Test Junior – AXA Banque */}
                 <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-gray-800">Chef de projet Test Junior – AXA Banque</h3>
-                    <p className="text-sm text-gray-600 mb-4">Septembre 2015 – Septembre 2017</p>
+                    <h3 className="text-xl font-semibold text-texte">Chef de projet Test Junior – AXA Banque</h3>
+                    <p className="text-sm text-texte-secondaire mb-4">Septembre 2015 – Septembre 2017</p>
                     <div className="space-y-6">
 
                         {/* Bloc 1 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">🧪</span>
+                                <span className="text-2xl">🧪</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Automatisation & stratégie de test</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Automatisation & stratégie de test</h4>
+                                <p className="text-texte-secondaire">
                                     Études de faisabilité via POC, choix des technologies de test, mise en place d’un projet d’automatisation des tests Web, mobile et API.
                                 </p>
                             </div>
@@ -299,11 +299,11 @@ export default function CvExperiences() {
                         {/* Bloc 2 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">📊</span>
+                                <span className="text-2xl">📊</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Performance & pilotage</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Performance & pilotage</h4>
+                                <p className="text-texte-secondaire">
                                     Estimation de charges, réalisation de tests de charge et de performance, reporting régulier, indicateurs qualité (KPI), application de la méthode RACI.
                                 </p>
                             </div>
@@ -312,11 +312,11 @@ export default function CvExperiences() {
                         {/* Bloc 3 */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">🔁</span>
+                                <span className="text-2xl">🔁</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">CI/CD & industrialisation</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">CI/CD & industrialisation</h4>
+                                <p className="text-texte-secondaire">
                                     Mise en place des tests automatisés dans la chaîne CI/CD pour améliorer la réactivité et la stabilité des livraisons.
                                 </p>
                             </div>
@@ -325,11 +325,11 @@ export default function CvExperiences() {
                         {/* Bloc 4 - Projets majeurs */}
                         <div className="flex items-start space-x-4">
                             <div className="p-2 rounded">
-                                <span className="text-yellow-600 text-2xl">🚀</span>
+                                <span className="text-2xl">🚀</span>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-gray-700">Projets majeurs</h4>
-                                <p className="text-gray-600">
+                                <h4 className="text-lg font-semibold text-texte-secondaire">Projets majeurs</h4>
+                                <p className="text-texte-secondaire">
                                     AUTO’TEST, AXIMMO, migration des services EIP.
                                 </p>
                             </div>

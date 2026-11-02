@@ -65,7 +65,7 @@ export default function Services() {
                         <span className="text-brand-primary">Mes</span>{' '}
                         <span className="text-kali-cuivre">services</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-gray-700">
+                    <p className="text-lg md:text-xl text-texte-secondaire">
                         J&apos;accompagne les équipes tech à construire une démarche qualité moderne, fluide et efficace.
                         Voici comment je peux vous aider :
                     </p>
@@ -90,7 +90,7 @@ export default function Services() {
                         <h3 className={`text-2xl font-bold ${services[currentSlide].color}`}>
                             {services[currentSlide].title}
                         </h3>
-                        <p className="text-gray-700 text-base">
+                        <p className="text-texte-secondaire text-base">
                             {services[currentSlide].description}
                         </p>
                     </div>
@@ -109,7 +109,7 @@ export default function Services() {
                     </p>
                     <a
                         href="/contact"
-                        className="inline-block bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold px-8 py-3 rounded shadow-md transition"
+                        className="inline-block bg-brand-secondary hover:bg-brand-secondary-hover text-kali-noir font-semibold px-8 py-3 rounded shadow-md transition"
                     >
                         Me contacter
                     </a>

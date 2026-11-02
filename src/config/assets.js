@@ -1,3 +1,7 @@
+export const images = {
+    logoHorizontal: '/images/kaliops-logo-horizontal.svg',
+};
+
 export const documents = {
     cv: '/documents/CV_Mehdi_072025.pdf',
 };

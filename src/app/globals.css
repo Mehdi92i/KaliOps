@@ -48,6 +48,12 @@
 
   /* ── Mise en valeur (témoignages) ──────────── */
   --highlight:       var(--kali-ocre);
+
+  /* ── Textes et bordures (dérivés du noir et du pétrole de la charte) ── */
+  --texte:            var(--kali-noir);
+  --texte-secondaire: color-mix(in srgb, var(--kali-noir) 78%, var(--kali-blanc));   /* ≈ 10:1 sur blanc */
+  --texte-discret:    color-mix(in srgb, var(--kali-noir) 62%, var(--kali-blanc));   /* ≈ 6:1 sur blanc  */
+  --bordure:          color-mix(in srgb, var(--kali-petrole) 22%, var(--kali-blanc));
 }
 
 /* ─── Tokens Tailwind v4 ──────────────────────────────────────────────────── */
@@ -77,6 +83,12 @@
   --color-kali-creme:                 var(--kali-creme);
   --color-kali-noir:                  var(--kali-noir);
   --color-kali-blanc:                 var(--kali-blanc);
+
+  /* Textes et bordures (classes text-texte, text-texte-secondaire, text-texte-discret, border-bordure) */
+  --color-texte:                      var(--texte);
+  --color-texte-secondaire:           var(--texte-secondaire);
+  --color-texte-discret:              var(--texte-discret);
+  --color-bordure:                    var(--bordure);
 
   /* Typographie des titres (classe font-heading) */
   --font-heading:                     'Signika Negative', system-ui, sans-serif;
