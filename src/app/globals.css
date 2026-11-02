@@ -68,6 +68,18 @@
   --color-nav-hover-bg:               var(--nav-hover-bg);
   --color-cv-section:                 var(--cv-section);
   --color-highlight:                  var(--highlight);
+
+  /* Palette charte KaliOps (classes text-kali-*, bg-kali-*…) */
+  --color-kali-petrole:               var(--kali-petrole);
+  --color-kali-ocre:                  var(--kali-ocre);
+  --color-kali-vert:                  var(--kali-vert);
+  --color-kali-cuivre:                var(--kali-cuivre);
+  --color-kali-creme:                 var(--kali-creme);
+  --color-kali-noir:                  var(--kali-noir);
+  --color-kali-blanc:                 var(--kali-blanc);
+
+  /* Typographie des titres (classe font-heading) */
+  --font-heading:                     'Signika Negative', system-ui, sans-serif;
 }
 
 /* ─── Styles globaux ──────────────────────────────────────────────────────── */

@@ -17,12 +17,13 @@ export default function Header() {
     ];
 
     return (
-        <header className="sticky top-0 z-40 backdrop-blur-md bg-white/70 border-b border-white/20 shadow-sm">
+        <header className="sticky top-0 z-40 bg-white border-b border-white/20 shadow-sm">
             <div className="max-w-screen-xl mx-auto">
                 <nav className="flex items-center justify-between px-6 py-4">
-                    <Link href="/" className="text-2xl font-bold">
+                    <Link href="/" className="font-heading text-2xl sm:text-3xl font-bold">
                         <span className="text-brand-primary">Kali</span>
-                        <span className="text-brand-tertiary">Ops</span>
+                        {/* Cuivre sur blanc : 3,7 — conforme AA en gros texte gras uniquement */}
+                        <span className="text-kali-cuivre">Ops</span>
                     </Link>
 
                     <div className="flex items-center gap-6">
