@@ -2,7 +2,7 @@ import { documents } from '@/config/assets';
 
 export default function CvIntro() {
     return (
-        <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-white/30">
+        <div className="bg-white/90 backdrop-blur-sm rounded-lg p-5 sm:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-white/30">
             <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 tracking-tight text-center">
                 Curriculum <span className="text-kali-cuivre">Vitae</span>
             </h1>

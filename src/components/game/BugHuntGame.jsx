@@ -67,7 +67,7 @@ const BugHuntGame = () => {
             {!isActive && (
                 <button
                     onClick={startGame}
-                    className="bg-gradient-to-r from-pink-600 to-blue-900 text-white font-bold py-2 px-4 rounded-full shadow-xl hover:scale-105 transition"
+                    className="bg-gradient-to-r from-pink-600 to-blue-900 text-white font-bold text-xs sm:text-base min-h-11 md:min-h-0 py-2 px-3 sm:px-4 rounded-full shadow-xl hover:scale-105 transition whitespace-nowrap"
                 >
                     Chasser un bug 🐞
                 </button>

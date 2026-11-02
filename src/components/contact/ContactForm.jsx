@@ -43,7 +43,7 @@ export default function ContactForm() {
         <>
             <form
                 onSubmit={handleSubmit}
-                className="w-full max-w-lg bg-white/90 backdrop-blur-md border border-white/30 shadow-lg rounded-lg p-8 space-y-6 text-left"
+                className="w-full max-w-lg bg-white/90 backdrop-blur-md border border-white/30 shadow-lg rounded-lg p-5 sm:p-8 space-y-6 text-left"
             >
                 <div className="space-y-2">
                     <label

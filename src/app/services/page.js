@@ -55,11 +55,12 @@ export default function Services() {
     }, []);
 
     return (
-        <div className="relative w-full min-h-screen">
+        // flex-1 + justify-center : centre le contenu verticalement quand l'écran est plus haut que la page
+        <div className="relative w-full flex-1 flex flex-col justify-center">
             <div className="fixed inset-0 -z-10 page-gradient" />
 
-            <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12 py-20 flex flex-col items-center space-y-16">
-                <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-10 text-center space-y-6 max-w-2xl">
+            <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12 py-6 md:py-8 flex flex-col items-center space-y-8 md:space-y-10">
+                <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-6 sm:p-10 text-center space-y-6 max-w-2xl">
                     <h1 className="text-3xl md:text-5xl font-bold">
                         <span className="text-brand-primary">Mes</span>{' '}
                         <span className="text-kali-cuivre">services</span>
@@ -70,10 +71,10 @@ export default function Services() {
                     </p>
                 </div>
 
-                <div className="flex items-center space-x-4">
+                <div className="w-full max-w-[600px] flex items-center justify-center gap-2 sm:gap-4">
                     <button
                         onClick={() => setCurrentSlide((prev) => (prev === 0 ? services.length - 1 : prev - 1))}
-                        className="p-2 bg-white/80 rounded-full shadow-md hover:bg-white cursor-pointer"
+                        className="shrink-0 p-2.5 bg-white/80 rounded-full shadow-md hover:bg-white cursor-pointer"
                     >
                         <ChevronLeft className="w-6 h-6 text-brand-primary" />
                     </button>
@@ -81,7 +82,7 @@ export default function Services() {
                     <div
                         key={services[currentSlide].id}
                         id={services[currentSlide].id}
-                        className="cursor-default bg-white/90 rounded-xl p-8 shadow-lg hover:shadow-xl text-center space-y-4 w-[320px] sm:w-[400px] md:w-[500px] transition-all duration-500 ease-in-out opacity-0 animate-fade-in"
+                        className="cursor-default bg-white/90 rounded-xl p-5 sm:p-8 shadow-lg hover:shadow-xl text-center space-y-4 flex-1 min-w-0 max-w-[500px] transition-all duration-500 ease-in-out opacity-0 animate-fade-in"
                     >
                         <div className={`text-5xl ${services[currentSlide].color}`}>
                             {services[currentSlide].icon}
@@ -96,13 +97,13 @@ export default function Services() {
 
                     <button
                         onClick={() => setCurrentSlide((prev) => (prev === services.length - 1 ? 0 : prev + 1))}
-                        className="p-2 bg-white/80 rounded-full shadow-md hover:bg-white cursor-pointer"
+                        className="shrink-0 p-2.5 bg-white/80 rounded-full shadow-md hover:bg-white cursor-pointer"
                     >
                         <ChevronRight className="w-6 h-6 text-brand-primary" />
                     </button>
                 </div>
 
-                <div className="pt-10 text-center space-y-4">
+                <div className="pt-2 text-center space-y-4">
                     <p className="text-md md:text-lg text-white">
                         Discutons ensemble de vos besoins QA, que ce soit pour un accompagnement ponctuel ou une mission plus stratégique.
                     </p>
