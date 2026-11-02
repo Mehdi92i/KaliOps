@@ -62,7 +62,7 @@ export default function Services() {
                 <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-10 text-center space-y-6 max-w-2xl">
                     <h1 className="text-3xl md:text-5xl font-bold">
                         <span className="text-brand-primary">Mes</span>{' '}
-                        <span className="text-brand-tertiary">services</span>
+                        <span className="text-kali-cuivre">services</span>
                     </h1>
                     <p className="text-lg md:text-xl text-gray-700">
                         J&apos;accompagne les équipes tech à construire une démarche qualité moderne, fluide et efficace.
