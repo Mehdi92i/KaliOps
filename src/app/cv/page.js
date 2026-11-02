@@ -8,12 +8,12 @@ import CvTravels from '@/components/cv/CvTravels';
 
 export default function Cv() {
     return (
-        <div className="relative min-h-screen">
+        <div className="relative">
             {/* Arrière-plan dégradé couvrant toute la page */}
             <div className="fixed inset-0 -z-10 page-gradient" />
 
             {/* Contenu principal */}
-            <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12 py-10">
+            <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12 py-6 md:py-8">
                     <CvIntro />
                     <Separator />
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
         <html lang="fr" suppressHydrationWarning>
         <body className="bg-background text-foreground flex flex-col min-h-screen">
         <Header />
-        <main className="flex-1 w-full flex flex-col items-center py-8 px-4">
+        <main className="flex-1 w-full flex flex-col items-center py-4 px-4">
             {children}
         </main>
         <Footer />

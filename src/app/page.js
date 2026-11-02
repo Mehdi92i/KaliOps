@@ -18,14 +18,14 @@ export const metadata = {
 
 export default function Home() {
     return (
-        <div className="relative w-full min-h-screen">
+        <div className="relative w-full">
             <div className="fixed inset-0 -z-10 page-gradient" />
 
-            <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12 py-20 flex flex-col items-center space-y-16">
-                <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-10 text-center space-y-6 max-w-2xl">
+            <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12 py-6 md:py-8 flex flex-col items-center space-y-8 md:space-y-10">
+                <div className="bg-white/90 backdrop-blur-sm border border-white/30 shadow-lg rounded-lg p-6 sm:p-10 text-center space-y-6 max-w-2xl">
                     <h1 className="text-3xl md:text-5xl font-bold">
-                        Structurer la qualité. <br />
-                        Accélérer le delivery.
+                        Structurer la <span className="text-kali-cuivre">qualité</span>. <br />
+                        Accélérer le <span className="text-kali-cuivre">delivery</span>.
                     </h1>
 
                     <p className="text-lg md:text-xl text-gray-700">
