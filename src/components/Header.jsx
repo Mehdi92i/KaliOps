@@ -51,7 +51,7 @@ export default function Header() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className="min-h-11 md:min-h-0 flex items-center px-3 sm:px-4 py-2 rounded-lg bg-transparent hover:bg-nav-hover-bg text-brand-primary hover:text-brand-tertiary transition-colors duration-200 whitespace-nowrap"
+                                    className="min-h-11 md:min-h-0 flex items-center px-3 sm:px-4 py-2 rounded-full bg-transparent hover:bg-nav-hover-bg text-brand-primary hover:text-brand-tertiary transition-colors duration-200 whitespace-nowrap"
                                 >
                                     {link.label}
                                 </Link>

@@ -109,7 +109,7 @@ export default function Services() {
                     </p>
                     <a
                         href="/contact"
-                        className="inline-block bg-brand-secondary hover:bg-brand-secondary-hover text-kali-noir font-semibold px-8 py-3 rounded shadow-md transition"
+                        className="inline-block bg-brand-secondary hover:bg-brand-secondary-hover text-kali-noir font-semibold px-8 py-3 rounded-full shadow-md transition"
                     >
                         Me contacter
                     </a>

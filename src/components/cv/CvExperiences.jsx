@@ -1,343 +1,164 @@
+// Postes de management : Leadership → leviers techniques → résultats
+const POSTES_MANAGEMENT = [
+    {
+        titre: 'Head of QA – MEDIN+',
+        periode: 'Depuis novembre 2023',
+        equipe: 'Chapter de 6 à 10 QA (internes et prestataires)',
+        outils: ['Cypress', 'K6', 'Postman', 'Bitbucket Pipelines', 'GitLab CI', 'Claude (Anthropic)', 'Xray', 'Grafana', 'Excel (KPI)'],
+        blocs: [
+            {
+                icone: '🧭',
+                titre: 'Leadership',
+                texte: "Création et direction du Chapter QA. Membre des comités stratégiques, porte la roadmap et le budget qualité, pilote les prestataires. Recrutement, objectifs individuels et entretiens annuels.",
+            },
+            {
+                icone: '📊',
+                titre: 'Pilotage data-driven',
+                texte: "Maturité de pilotage par les KPI, suivis par la direction : taux de fuite des anomalies en production, couverture et part automatisée, délais de recette et de TNR, stabilité de la CI (tests instables). ROI des tests automatisés démontré pour arbitrer les investissements. Tableaux de bord Jira (JQL), Xray et Grafana.",
+            },
+            {
+                icone: '🤖',
+                titre: 'Leviers techniques & IA',
+                texte: "Stratégie de tests de bout en bout (E2E, API, performance K6) intégrée à la CI Bitbucket. Création d'agents IA (Anthropic Claude) qui challengent les tickets Jira pour en dériver critères d'acceptation et scénarios Gherkin ; IA appliquée au débogage des tests automatisés E2E et K6.",
+            },
+            {
+                icone: '🚀',
+                titre: 'Résultats',
+                texte: "TNR fortement accélérée, baisse des bugs en production, culture QAOps adoptée par les développeurs et les PO : la qualité est intégrée au delivery des squads.",
+            },
+        ],
+    },
+    {
+        titre: 'Responsable QA – Skilleos',
+        periode: 'Juillet 2021 – 2023',
+        equipe: 'Création du pôle QA · équipe de 4 QA',
+        outils: ['Cypress', 'K6', 'Postman', 'GitLab CI'],
+        blocs: [
+            {
+                icone: '🧭',
+                titre: 'Leadership',
+                texte: "Création du pôle QA de zéro, recrutement et management de l'équipe, référent qualité des squads Agile.",
+            },
+            {
+                icone: '🛠️',
+                titre: 'Leviers techniques',
+                texte: "Stratégie qualité, bibliothèque de tests automatisés web et mobile intégrée en CI/CD avec l'équipe DevOps, tests de performance et de charge sur les environnements critiques.",
+            },
+            {
+                icone: '🚀',
+                titre: 'Résultats',
+                texte: "Releases plus fréquentes, recette accélérée, moins de bugs en production. Migration du framework mobile Android/iOS sécurisée.",
+            },
+        ],
+    },
+    {
+        titre: 'Lead QA – FlexyBeauty/Kiute',
+        periode: 'Décembre 2018 – Juillet 2021',
+        equipe: 'Pôle de 6 à 10 personnes (QA et support N2)',
+        outils: ['Katalon', 'Appium', 'JMeter', 'Postman', 'Bitbucket Pipelines'],
+        blocs: [
+            {
+                icone: '🧭',
+                titre: 'Leadership',
+                texte: "Création et direction du pôle QA et de l'équipe support N2. Recrutement, montée en compétences, acculturation qualité des équipes.",
+            },
+            {
+                icone: '🛠️',
+                titre: 'Leviers techniques',
+                texte: "Architecture des tests automatisés web et mobile, tests API, de charge et de performance, intégration en CI/CD avec l'équipe Infra.",
+            },
+            {
+                icone: '🚀',
+                titre: 'Résultats',
+                texte: "Releases plus fréquentes, recette plus rapide, moins de bugs en production. Partenariat Google « Reserve with Google » validé et mis en production.",
+            },
+        ],
+    },
+];
+
+// Débuts : expertise technique qui fonde la crédibilité du manager
+const PARCOURS_TECHNIQUE = [
+    {
+        titre: 'QA Test Automation Engineer – Aviva',
+        periode: 'Septembre 2017 – Novembre 2018',
+        outils: ['UFT One', 'HP Quality Center'],
+        texte: "Référent technique de l'équipe QA : architecture et stratégie de tests, automatisation E2E web et AS400, chiffrage et planification des campagnes.",
+    },
+    {
+        titre: 'Chef de projet Test Junior – AXA Banque',
+        periode: 'Septembre 2015 – Septembre 2017',
+        outils: ['Robot Framework', 'Selenium', 'SoapUI'],
+        texte: "POC et choix des technologies, automatisation des tests web, mobile et API, tests de charge et de performance, intégration des tests en CI/CD.",
+    },
+];
+
+function Stack({ outils }) {
+    return (
+        <p className="text-sm text-texte-secondaire mt-1">
+            <span className="font-semibold">Stack :</span> {outils.join(' · ')}
+        </p>
+    );
+}
+
 export default function CvExperiences() {
     return (
         <div className="lg:col-span-2 bg-white/90 backdrop-blur-sm rounded-lg p-5 sm:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-white/30 space-y-8">
-        <div className="text-center">
+            <div className="text-center">
                 <h2 className="text-2xl md:text-3xl font-bold text-cv-section mb-6">Expériences professionnelles</h2>
             </div>
-            {/* Contenu des expériences */}
-                {/* Poste Chapter Lead QA – MEDIN+ */}
-                <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-texte">Chapter Lead QA – MEDIN+</h3>
-                    <p className="text-sm text-texte-secondaire mb-4">Depuis Novembre 2023</p>
+
+            {POSTES_MANAGEMENT.map((poste, index) => (
+                <div key={poste.titre}>
+                    {index > 0 && (
+                        <hr className="border-t-4 border-brand-secondary w-full max-w-64 mx-auto rounded-full my-12" />
+                    )}
                     <div className="space-y-6">
-
-                        {/* Bloc 1 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">🧩</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Leadership & coordination transverse</h4>
-                                <p className="text-texte-secondaire">
-                                    Création et animation du Chapter QA. Coordination avec les équipes produit, IT, sécurité, métier et architecture. Participation aux comités stratégiques. Gestion de prestataires pour des missions ciblées.
-                                </p>
-                            </div>
+                        <div>
+                            <h3 className="text-xl font-semibold text-texte">{poste.titre}</h3>
+                            <p className="text-sm text-texte-secondaire">{poste.periode}</p>
+                            <p className="text-sm font-semibold text-brand-tertiary mt-1">{poste.equipe}</p>
+                            <Stack outils={poste.outils} />
                         </div>
-
-                        {/* Bloc 2 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">📘</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Définition & diffusion des bonnes pratiques</h4>
-                                <p className="text-texte-secondaire">
-                                    Définition de la stratégie de tests en lien avec les enjeux produit et métier. Mise en place et optimisation des workflows QA, documentation des process, application des méthodologies Agile (Scrum, Kanban). Veille et diffusion des bonnes pratiques QA.
-                                </p>
-                            </div>
+                        <div className="space-y-6">
+                            {poste.blocs.map((bloc) => (
+                                <div key={bloc.titre} className="flex items-start space-x-4">
+                                    <div className="p-2 rounded">
+                                        <span className="text-2xl" aria-hidden="true">{bloc.icone}</span>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-lg font-semibold text-texte-secondaire">{bloc.titre}</h4>
+                                        <p className="text-texte-secondaire">{bloc.texte}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-
-                        {/* Bloc 3 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">🚀</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Support aux équipes & accompagnement au changement</h4>
-                                <p className="text-texte-secondaire">
-                                    Automatisation des tests (E2E, API, performance avec K6) via une CI Bitbucket. Accompagnement des développeurs et PO dans l’intégration des tests dans les outils de delivery. Sensibilisation à la culture QAOps au sein des équipes R&D.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Bloc 4 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">🎯</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Montée en compétence & recrutement</h4>
-                                <p className="text-texte-secondaire">
-                                    Coaching quotidien des QA, création d’une communauté de testeurs, montée en compétence, suivi des KPI, définition des objectifs individuels et recrutement.
-                                </p>
-                            </div>
-                        </div>
-                        {/* Bloc 5 - Projets majeurs */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">🚀</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Projets majeurs</h4>
-                                <p className="text-texte-secondaire">
-                                    Industrialisation des tests manuels et automatisés, a de la TNR pour accélérer les validations, mise en place d’une culture QAOps et de KPIs QA
-                                </p>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
+            ))}
+
             <hr className="border-t-4 border-brand-secondary w-full max-w-64 mx-auto rounded-full my-12" />
-            {/* Poste Lead QA Skilleos détaillé */}
-                <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-texte">Lead QA – Skilleos</h3>
-                    <p className="text-sm text-texte-secondaire mb-4">Juillet 2021 – 2023</p>
 
-                    <div className="space-y-6">
-
-                        {/* Bloc 1 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">👥</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Création et pilotage du pôle QA</h4>
-                                <p className="text-texte-secondaire">
-                                    Recrutement, management d&#39;équipe QA, rôle de référent qualité au sein des squads Agile.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Bloc 2 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">🛠️</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Opérationnel QA</h4>
-                                <p className="text-texte-secondaire">
-                                    Réalisation de tests fonctionnels manuels, maintenance et exécution des tests automatisés (web et mobile),
-                                    élaboration de cas de test manuels, validation d&#39;APIs, réalisation de tests de performance et de charge sur les environnements critiques.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Bloc 3 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">⚙️</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Stratégie qualité & Monitoring</h4>
-                                <p className="text-texte-secondaire">
-                                    Définition de la stratégie qualité, suivi des environnements, création de jeux de données de test, reporting KPI.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Bloc 4 */}
-                        <div className="flex items-start space-x-4">
-                            <div className=" p-2 rounded">
-                                <span className="text-2xl">📈</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Industrialisation des tests & Amélioration continue</h4>
-                                <p className="text-texte-secondaire">
-                                    Mise en place et maintenance de tests manuels et automatisés (web & mobile), création de la bibliothèque de tests, intégration dans la CI/CD, amélioration continue des processus QA.
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    {/* Bloc 5 - Projets majeurs */}
-                    <div className="flex items-start space-x-4">
+            <div className="space-y-6">
+                <div>
+                    <h3 className="text-xl font-semibold text-texte">Parcours technique · 2015 – 2018</h3>
+                    <p className="text-sm text-texte-secondaire">
+                        L&apos;expertise en automatisation qui fonde mon approche du management de la qualité.
+                    </p>
+                </div>
+                {PARCOURS_TECHNIQUE.map((poste) => (
+                    <div key={poste.titre} className="flex items-start space-x-4">
                         <div className="p-2 rounded">
-                            <span className="text-2xl">🚀</span>
+                            <span className="text-2xl" aria-hidden="true">🧪</span>
                         </div>
                         <div>
-                            <h4 className="text-lg font-semibold text-texte-secondaire">Projets majeurs</h4>
-                            <p className="text-texte-secondaire">
-                                Validation de la migration du framework mobile Android/iOS, structuration des processus QA et
-                                industrialisation des tests en collaboration avec la team DevOps.
-                            </p>
+                            <h4 className="text-lg font-semibold text-texte-secondaire">{poste.titre}</h4>
+                            <p className="text-sm text-texte-secondaire">{poste.periode}</p>
+                            <p className="text-texte-secondaire">{poste.texte}</p>
+                            <Stack outils={poste.outils} />
                         </div>
                     </div>
-                </div>
-                <hr className="border-t-4 border-brand-secondary w-full max-w-64 mx-auto rounded-full my-12" />
-                {/* Poste Lead QA FlexyBeauty/Kiute détaillé */}
-                <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-texte">Lead QA – FlexyBeauty/Kiute</h3>
-                    <p className="text-sm text-texte-secondaire mb-4">Décembre 2018 – Juillet 2021</p>
-                    <div className="space-y-6">
-
-                        {/* Bloc 1 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">👥</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Création et pilotage du pôle QA</h4>
-                                <p className="text-texte-secondaire">
-                                    Recrutement, management de l&#39;équipe QA et de la team support 2, rôle de référent qualité au sein des équipes Agile.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Bloc 2 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">📊</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Stratégie de test & monitoring</h4>
-                                <p className="text-texte-secondaire">
-                                    Mise en place de la stratégie de tests manuels, architecture des tests automatisés (web, mobile), suivi des environnements, préparation des jeux de données, remontée et analyse des bugs, reporting KPI.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Bloc 3 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">🛠️</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Automatisation & QAOps</h4>
-                                <p className="text-texte-secondaire">
-                                    Réalisation de POCs, scripts de tests API & e2e, tests de charge & performance, intégration des tests dans la CI/CD, création du référentiel de tests.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Bloc 4 - Projets majeurs */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">🚀</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Projets majeurs</h4>
-                                <p className="text-texte-secondaire">
-                                    Partenariat Google : validation de « Reserve with Google », industrialisation des tests avec la team Infra, acculturation QA, validation de l&#39;app mobile iOS.
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <hr className="border-t-4 border-brand-secondary w-full max-w-64 mx-auto rounded-full my-12" />
-                {/* Poste QA Test Automation Engineer – Aviva */}
-                <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-texte">QA Test Automation Engineer – Aviva</h3>
-                    <p className="text-sm text-texte-secondaire mb-4">Septembre 2017 – Novembre 2018</p>
-                    <div className="space-y-6">
-
-                        {/* Bloc 1 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">🧠</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Référent technique & stratégie de tests</h4>
-                                <p className="text-texte-secondaire">
-                                    Conception des architectures et des stratégies de tests, référent technique au sein de l’équipe QA, chiffrage et planification des campagnes de test.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Bloc 2 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">🧪</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Automatisation & maintenance des tests</h4>
-                                <p className="text-texte-secondaire">
-                                    Automatisation des tests e2e pour produits web et AS400, maintenance des tests automatisés sous UFT (VBA), automatisation des régressions.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Bloc 3 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">🔍</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Analyse & amélioration continue</h4>
-                                <p className="text-texte-secondaire">
-                                    Remontée et analyse des anomalies, réalisation de POCs sur la faisabilité des tests.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Bloc 4 - Projets majeurs */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">🚀</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Projets majeurs</h4>
-                                <p className="text-texte-secondaire">
-                                    NMRH Eurofil, ASK IT Never, TRA (Tierce Recette Applicative).
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <hr className="border-t-4 border-brand-secondary w-full max-w-64 mx-auto rounded-full my-12" />
-                {/* Poste Chef de projet Test Junior – AXA Banque */}
-                <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-texte">Chef de projet Test Junior – AXA Banque</h3>
-                    <p className="text-sm text-texte-secondaire mb-4">Septembre 2015 – Septembre 2017</p>
-                    <div className="space-y-6">
-
-                        {/* Bloc 1 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">🧪</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Automatisation & stratégie de test</h4>
-                                <p className="text-texte-secondaire">
-                                    Études de faisabilité via POC, choix des technologies de test, mise en place d’un projet d’automatisation des tests Web, mobile et API.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Bloc 2 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">📊</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Performance & pilotage</h4>
-                                <p className="text-texte-secondaire">
-                                    Estimation de charges, réalisation de tests de charge et de performance, reporting régulier, indicateurs qualité (KPI), application de la méthode RACI.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Bloc 3 */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">🔁</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">CI/CD & industrialisation</h4>
-                                <p className="text-texte-secondaire">
-                                    Mise en place des tests automatisés dans la chaîne CI/CD pour améliorer la réactivité et la stabilité des livraisons.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Bloc 4 - Projets majeurs */}
-                        <div className="flex items-start space-x-4">
-                            <div className="p-2 rounded">
-                                <span className="text-2xl">🚀</span>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-semibold text-texte-secondaire">Projets majeurs</h4>
-                                <p className="text-texte-secondaire">
-                                    AUTO’TEST, AXIMMO, migration des services EIP.
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
+                ))}
+            </div>
         </div>
     );
 }
