@@ -134,6 +134,34 @@ test.describe('Design system – règle de contraste (CLAUDE.md)', () => {
     }
 });
 
+test.describe('Design system – forme des boutons', () => {
+    // Tous les boutons sont en arrondi complet (pilule), pas en carré arrondi
+    for (const path of ['/', '/services', '/cv', '/contact']) {
+        test(`les boutons de ${path} sont entièrement arrondis`, async ({ page }) => {
+            await page.goto(path);
+            const fautifs = await page.evaluate(() => {
+                const estBouton = (el) => {
+                    const style = getComputedStyle(el);
+                    const rect = el.getBoundingClientRect();
+                    const fondVisible = style.backgroundColor !== 'rgba(0, 0, 0, 0)';
+                    // Les cartes cliquables (services de l'accueil) sont plus hautes qu'un bouton
+                    return rect.width > 0 && rect.height > 0 && rect.height < 70
+                        && (el.tagName === 'BUTTON' || fondVisible);
+                };
+                return [...document.querySelectorAll('button, a')]
+                    .filter(estBouton)
+                    .filter((el) => {
+                        const rayon = parseFloat(getComputedStyle(el).borderTopLeftRadius);
+                        return rayon < el.getBoundingClientRect().height / 2 - 1;
+                    })
+                    .map((el) => `« ${el.textContent.trim().slice(0, 30) || el.getAttribute('title') || el.tagName} »`);
+            });
+
+            expect(fautifs, fautifs.join(', ')).toEqual([]);
+        });
+    }
+});
+
 test.describe('Design system – pas de couleur en dur dans le code', () => {
     // Toutes les couleurs passent par les tokens de src/app/globals.css (règle CLAUDE.md)
     const PALETTE_TAILWIND = /\b(?:text|bg|border|from|via|to|ring|fill|stroke|outline|divide|decoration|placeholder|shadow)-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-\d{2,3}\b|\b(?:text|bg|border)-black\b/g;

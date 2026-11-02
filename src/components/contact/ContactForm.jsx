@@ -119,7 +119,7 @@ export default function ContactForm() {
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-brand-secondary hover:bg-brand-secondary-hover text-kali-noir font-semibold py-2 px-6 rounded shadow-md transition disabled:opacity-50"
+                    className="bg-brand-secondary hover:bg-brand-secondary-hover text-kali-noir font-semibold py-2 px-6 rounded-full shadow-md transition disabled:opacity-50"
                 >
                     {isSubmitting ? 'Envoi...' : 'Envoyer'}
                 </button>

@@ -6,8 +6,13 @@ export default function CvIntro() {
             <h1 className="text-4xl md:text-6xl font-extrabold text-texte tracking-tight text-center">
                 Curriculum <span className="text-kali-cuivre">Vitae</span>
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-texte-secondaire max-w-3xl mx-auto">
-                Un parcours de plus de 10 ans dans la qualité logicielle, entre exigence technique, vision stratégique et leadership opérationnel.
+            <p className="mt-3 font-heading text-3xl md:text-5xl font-bold text-brand-primary text-center">
+                Head of QA
+            </p>
+            <p className="mt-4 text-lg md:text-xl text-texte-secondaire max-w-3xl mx-auto text-center">
+                10 ans de qualité logicielle, dont 7 à créer et diriger des équipes QA. Je structure la qualité à l&apos;échelle
+                de l&apos;organisation — stratégie, équipes, KPI, ROI — tout en gardant une forte expertise technique :
+                automatisation, CI/CD, performance et IA.
             </p>
 
             <div className="mt-8 text-center">
