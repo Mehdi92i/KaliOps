@@ -22,8 +22,8 @@ test.describe('Page CV', () => {
     });
 
     test('les postes du CV sont affichés', async ({ page }) => {
-        await expect(page.getByRole('heading', { name: /Chapter Lead QA/i })).toBeVisible();
-        await expect(page.getByRole('heading', { name: /Lead QA – Skilleos/i })).toBeVisible();
+        await expect(page.getByRole('heading', { name: /Head of QA – MEDIN\+/i })).toBeVisible();
+        await expect(page.getByRole('heading', { name: /Responsable QA – Skilleos/i })).toBeVisible();
         await expect(page.getByRole('heading', { name: /Lead QA – FlexyBeauty/i })).toBeVisible();
         await expect(page.getByRole('heading', { name: /QA Test Automation Engineer/i })).toBeVisible();
         await expect(page.getByRole('heading', { name: /Chef de projet Test Junior/i })).toBeVisible();
@@ -38,7 +38,12 @@ test.describe('Page CV', () => {
     });
 
     test('Cypress est mentionné dans les outils', async ({ page }) => {
-        await expect(page.getByText(/Cypress/)).toBeVisible();
+        // Cypress apparaît aussi dans la stack des expériences : on cible la section Outils techniques
+        const sectionOutils = page
+            .locator('div')
+            .filter({ has: page.getByRole('heading', { name: /Outils techniques/i }) })
+            .last();
+        await expect(sectionOutils.getByText(/Cypress/)).toBeVisible();
     });
 
     test('la section Loisirs est visible', async ({ page }) => {

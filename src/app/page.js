@@ -82,19 +82,19 @@ export default function Home() {
                 <div className="flex flex-wrap justify-center gap-6">
                     <Link
                         href="/services"
-                        className="bg-white/80 text-brand-tertiary font-semibold px-6 py-3 rounded shadow-md hover:bg-white transition"
+                        className="bg-white/80 text-brand-tertiary font-semibold px-6 py-3 rounded-full shadow-md hover:bg-white transition"
                     >
                         En savoir plus
                     </Link>
                     <Link
                         href="/cv"
-                        className="bg-brand-secondary text-kali-noir font-semibold px-6 py-3 rounded shadow-md hover:bg-brand-secondary-hover transition"
+                        className="bg-brand-secondary text-kali-noir font-semibold px-6 py-3 rounded-full shadow-md hover:bg-brand-secondary-hover transition"
                     >
                         Voir mon CV
                     </Link>
                     <Link
                         href="/contact"
-                        className="bg-white/80 text-brand-primary font-semibold px-6 py-3 rounded shadow-md hover:bg-white transition"
+                        className="bg-white/80 text-brand-primary font-semibold px-6 py-3 rounded-full shadow-md hover:bg-white transition"
                     >
                         Me contacter
                     </Link>

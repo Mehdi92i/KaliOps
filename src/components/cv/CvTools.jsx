@@ -1,49 +1,44 @@
+// Stack actuelle, par domaine. Les outils plus anciens sont cités dans chaque expérience.
+const GROUPES = [
+    {
+        titre: 'Automatisation & performance',
+        outils: ['🎭 Playwright', '🧪 Cypress', '📈 K6', '📮 Postman'],
+    },
+    {
+        titre: 'CI/CD & DevOps',
+        outils: ['⚙️ GitHub Actions', '🧱 Bitbucket Pipelines', '🦊 GitLab CI', '🐳 Docker'],
+    },
+    {
+        titre: 'Langages',
+        outils: ['📘 TypeScript', '💻 JavaScript', '🐍 Python'],
+    },
+    {
+        titre: 'Pilotage & KPI',
+        outils: ['📋 Jira (JQL & dashboards)', '✅ Xray', '📉 Grafana', '📊 Excel'],
+    },
+    {
+        titre: 'IA',
+        outils: ['🤖 Claude (Anthropic)'],
+    },
+];
+
 export default function CvTools() {
     return (
         <div className="bg-white/90 backdrop-blur-sm rounded-lg p-5 sm:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-white/30">
             <h2 className="text-2xl font-bold text-cv-section mb-6 text-center">Outils techniques</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                <div>
-                    <h3 className="text-lg font-semibold text-texte mb-2 text-center">Frameworks & Languages</h3>
-                    <div className="flex flex-wrap gap-2">
-                        {[
-                            "🧪 Cypress",
-                            "🧰 Katalon",
-                            "📈 K6",
-                            "💻 JavaScript",
-                            "📘 TypeScript",
-                            "🐍 Python",
-                            "🐚 Bash / Shell",
-                            "🐳 Dockerfile"
-                        ].map((tool, i) => (
-                            <span key={i} className="flex items-center gap-1 text-texte border border-bordure px-3 py-1 rounded-full text-sm font-medium">
-                                {tool}
-                            </span>
-                        ))}
+            <div className="space-y-5 text-left">
+                {GROUPES.map((groupe) => (
+                    <div key={groupe.titre}>
+                        <h3 className="text-lg font-semibold text-texte mb-2">{groupe.titre}</h3>
+                        <div className="flex flex-wrap gap-2">
+                            {groupe.outils.map((outil) => (
+                                <span key={outil} className="flex items-center gap-1 text-texte border border-bordure px-3 py-1 rounded-full text-sm font-medium">
+                                    {outil}
+                                </span>
+                            ))}
+                        </div>
                     </div>
-                </div>
-
-                <div>
-                    <h3 className="text-lg font-semibold text-texte mb-2 text-center">Logiciels</h3>
-                    <div className="flex flex-wrap gap-2">
-                        {[
-                            "📮 Postman",
-                            "🐙 GitHub",
-                            "🦊 GitLab",
-                            "🧱 Bitbucket",
-                            "📊 JMeter",
-                            "📋 Jira",
-                            "📌 Trello",
-                            "🐳 Docker",
-                            "💠 Aqua",
-                            "🌐 WebStorm"
-                        ].map((tool, i) => (
-                            <span key={i} className="flex items-center gap-1 text-texte border border-bordure px-3 py-1 rounded-full text-sm font-medium">
-                                {tool}
-                            </span>
-                        ))}
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     );
