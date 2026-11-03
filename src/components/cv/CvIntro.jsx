@@ -1,4 +1,5 @@
 import { documents } from '@/config/assets';
+import { INTRO } from '@/data/cv.mjs';
 
 export default function CvIntro() {
     return (
@@ -7,12 +8,10 @@ export default function CvIntro() {
                 Curriculum <span className="text-kali-cuivre">Vitae</span>
             </h1>
             <p className="mt-3 font-heading text-3xl md:text-5xl font-bold text-brand-primary text-center">
-                Head of QA
+                {INTRO.titre}
             </p>
             <p className="mt-4 text-lg md:text-xl text-texte-secondaire max-w-3xl mx-auto text-center">
-                10 ans de qualité logicielle, dont 7 à créer et diriger des équipes QA. Je structure la qualité à l&apos;échelle
-                de l&apos;organisation — stratégie, équipes, KPI, ROI — tout en gardant une forte expertise technique :
-                automatisation, CI/CD, performance et IA.
+                {INTRO.accroche}
             </p>
 
             <div className="mt-8 text-center">
