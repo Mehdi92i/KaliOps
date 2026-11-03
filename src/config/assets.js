@@ -3,7 +3,8 @@ export const images = {
 };
 
 export const documents = {
-    cv: '/documents/CV_Mehdi_072025.pdf',
+    // Généré par `npm run cv:pdf` à partir de src/data/cv.mjs
+    cv: '/documents/CV_Mehdi_Tassi_Head_of_QA.pdf',
 };
 
 export const sounds = {
