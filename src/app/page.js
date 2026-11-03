@@ -1,20 +1,7 @@
 import Link from 'next/link';
 import RecommendationCarousel from '@/components/ui/RecommendationCarousel';
 
-export const metadata = {
-    title: 'KaliOps Consulting – Optimisation QA',
-    description:
-        'Structuration qualité, stratégie QA, automatisation de test, intégration continue.',
-    keywords: [
-        'QA',
-        'Quality Assurance',
-        'Cypress',
-        'Next.js',
-        'Automation',
-        'Freelance QA',
-        'DevOps',
-    ],
-};
+// Titre, description et mots-clés : définis une seule fois dans layout.js pour tout le site
 
 export default function Home() {
     return (
@@ -31,8 +18,9 @@ export default function Home() {
                     <p className="text-lg md:text-xl text-texte-secondaire">
                         Bienvenue chez{' '}
                         <span className="text-brand-primary">Kali</span>
-                        <span className="text-brand-tertiary">Ops</span>, un accompagnement
-                        freelance sur-mesure en qualité logicielle.
+                        <span className="text-brand-tertiary">Ops</span> : un Head of QA à vos côtés pour
+                        structurer votre démarche qualité — stratégie, équipes, KPI — et l&apos;outiller avec
+                        l&apos;automatisation, la CI/CD et l&apos;IA.
                     </p>
 
                     <p className="italic text-texte mt-4 text-center">
@@ -47,8 +35,8 @@ export default function Home() {
                         className="bg-white/90 text-brand-primary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
                     >
                         <span className="text-4xl mb-2">🎯</span>
-                        <h3 className="font-bold text-lg">Stratégie QA</h3>
-                        <p className="text-sm text-texte-secondaire mt-1">Alignée produit & delivery</p>
+                        <h3 className="font-bold text-lg">Stratégie QA & KPI</h3>
+                        <p className="text-sm text-texte-secondaire mt-1">Audit de maturité, pilotage data-driven</p>
                     </Link>
 
                     <Link
@@ -56,8 +44,8 @@ export default function Home() {
                         className="bg-white/90 text-brand-tertiary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
                     >
                         <span className="text-4xl mb-2">🧪</span>
-                        <h3 className="font-bold text-lg">Tests automatisés & manuels</h3>
-                        <p className="text-sm text-texte-secondaire mt-1">E2E, API, Performance</p>
+                        <h3 className="font-bold text-lg">Tests automatisés & IA</h3>
+                        <p className="text-sm text-texte-secondaire mt-1">E2E, API, performance, agents IA</p>
                     </Link>
 
                     <Link
@@ -66,16 +54,16 @@ export default function Home() {
                     >
                         <span className="text-4xl mb-2">⚙️</span>
                         <h3 className="font-bold text-lg">CI/CD & QAOps</h3>
-                        <p className="text-sm text-texte-secondaire mt-1">Intégration continue</p>
+                        <p className="text-sm text-texte-secondaire mt-1">La qualité intégrée au delivery</p>
                     </Link>
 
                     <Link
                         href="/services#accompagnement"
                         className="bg-white/90 text-brand-tertiary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
                     >
-                        <span className="text-4xl mb-2">🤝</span>
-                        <h3 className="font-bold text-lg">Accompagnement</h3>
-                        <p className="text-sm text-texte-secondaire mt-1">Audit, support, coaching</p>
+                        <span className="text-4xl mb-2">🧭</span>
+                        <h3 className="font-bold text-lg">Accompagnement Head of QA</h3>
+                        <p className="text-sm text-texte-secondaire mt-1">Direction QA à temps partagé, coaching d&apos;équipes</p>
                     </Link>
                 </section>
 

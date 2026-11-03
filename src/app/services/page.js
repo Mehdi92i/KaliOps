@@ -8,17 +8,17 @@ const services = [
             id: 'strategie',
             icon: '🎯',
             color: 'text-brand-primary',
-            title: 'Stratégie QA',
+            title: 'Stratégie QA & KPI',
             description:
-                "Une démarche qualité efficace commence par une stratégie claire. J'analyse votre contexte produit, vos contraintes d'équipe, et je vous propose un plan d'action QA concret : rôles, types de tests, niveaux de validation, choix d'outils, KPIs et organisation.",
+                "Je commence par un audit de maturité QA : processus, couverture, outillage et organisation. J'en tire une stratégie et une roadmap qualité concrètes, puis je mets en place un pilotage data-driven : taux de fuite des anomalies, couverture et part automatisée, délais de recette, stabilité de la CI. Vous décidez sur des chiffres, ROI de l'automatisation compris.",
         },
         {
             id: 'tests',
             icon: '🧪',
             color: 'text-brand-tertiary',
-            title: 'Tests automatisés',
+            title: 'Tests automatisés & IA',
             description:
-                "J'implémente ou optimise vos tests E2E, API et performance. Je travaille avec des outils comme Cypress, Postman ou K6. Je vous aide à automatiser intelligemment pour accélérer le feedback et fiabiliser les déploiements.",
+                "Je conçois ou fais évoluer votre architecture de tests E2E, API et performance (Playwright, Cypress, K6, Postman), en automatisant là où le retour sur investissement est réel. J'y ajoute l'IA : des agents qui challengent les tickets Jira pour en tirer critères d'acceptation et scénarios Gherkin, et une assistance au débogage des tests.",
         },
         {
             id: 'qaops',
@@ -26,15 +26,15 @@ const services = [
             color: 'text-brand-primary',
             title: 'CI/CD & QAOps',
             description:
-                "Je connecte vos tests aux pipelines CI/CD pour qu'ils tournent en continu et en automatique. J'optimise la chaîne de validation (Bitbucket Pipelines, GitHub Actions, GitLab CI...) pour accélérer vos mises en production et renforcer la confiance dans les livraisons.",
+                "Je connecte vos tests aux pipelines (GitHub Actions, GitLab CI, Bitbucket Pipelines) pour qu'ils tournent à chaque changement, avec des contrôles de non-régression et de sécurité. Développeurs et PO s'approprient la qualité : elle devient une étape naturelle du delivery, et non un goulot d'étranglement en fin de sprint.",
         },
         {
             id: 'accompagnement',
-            icon: '🤝',
+            icon: '🧭',
             color: 'text-brand-tertiary',
-            title: 'Accompagnement',
+            title: 'Accompagnement Head of QA',
             description:
-                "Que ce soit pour un audit QA, du coaching de testeurs, ou pour formaliser votre référentiel de tests, je vous accompagne avec des pratiques adaptées à votre structure et vos outils. Mon but est de vous rendre autonomes sur votre qualité.",
+                "Pas encore de responsable QA, ou besoin d'un renfort ? J'interviens comme Head of QA à temps partagé : structuration ou création de l'équipe, recrutement, coaching des QA, pilotage des prestataires et représentation de la qualité auprès de la direction. L'objectif : une équipe autonome et une qualité durable.",
         },
 ];
 
@@ -66,8 +66,8 @@ export default function Services() {
                         <span className="text-kali-cuivre">services</span>
                     </h1>
                     <p className="text-lg md:text-xl text-texte-secondaire">
-                        J&apos;accompagne les équipes tech à construire une démarche qualité moderne, fluide et efficace.
-                        Voici comment je peux vous aider :
+                        J&apos;accompagne les équipes tech de la stratégie à l&apos;outillage : direction QA, pilotage par
+                        les KPI, automatisation, QAOps et IA. Voici comment je peux vous aider :
                     </p>
                 </div>
 
@@ -105,7 +105,7 @@ export default function Services() {
 
                 <div className="pt-2 text-center space-y-4">
                     <p className="text-md md:text-lg text-white">
-                        Discutons ensemble de vos besoins QA, que ce soit pour un accompagnement ponctuel ou une mission plus stratégique.
+                        Discutons de vos enjeux qualité : audit ponctuel, mission de Head of QA à temps partagé ou mise en place de votre automatisation.
                     </p>
                     <a
                         href="/contact"
