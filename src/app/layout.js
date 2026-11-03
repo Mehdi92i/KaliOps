@@ -3,8 +3,20 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer'; // ➔ on importe ton Footer
 
 export const metadata = {
-    title: 'KaliOps- Tassi Mehdi - Expert QA',
-    description: 'Optimisez votre qualité logicielle et structurez vos Design Systems avec KaliOps.',
+    title: 'KaliOps · Mehdi Tassi — Head of QA & conseil qualité logicielle',
+    description:
+        'Mehdi Tassi, Head of QA : direction QA à temps partagé, stratégie et KPI qualité, automatisation et QAOps, IA appliquée aux tests.',
+    keywords: [
+        'Head of QA',
+        'QA Manager',
+        'Quality Assurance',
+        'Stratégie QA',
+        'KPI qualité',
+        'QAOps',
+        'Automatisation des tests',
+        'IA appliquée aux tests',
+        'Freelance QA',
+    ],
 };
 
 export default function RootLayout({ children }) {
