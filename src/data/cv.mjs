@@ -17,28 +17,51 @@ export const INTRO = {
 };
 
 // Expériences principales, la plus récente en premier : activité KaliOps puis postes de management
-// (Leadership → leviers techniques → résultats). `outils` peut être vide.
+// (Leadership → leviers techniques → résultats). `tools` peut être vide.
+// `sector` : secteur d'activité de l'entreprise, affiché à côté du poste.
+// `groups` (facultatif) remplace `blocks` pour découper un poste en parties titrées.
 export const MANAGEMENT_ROLES = [
     {
         title: 'Fondateur & formateur Tech – KaliOps',
         period: 'Depuis octobre 2025',
         team: 'Activité indépendante',
         tools: [],
-        blocks: [
+        groups: [
             {
-                icon: '🎓',
-                title: 'Enseignement',
-                text: "Intervenant au CESI et à l'EPSI : cours sur la qualité logicielle et les pratiques tech.",
+                title: 'Activité tech & QA',
+                blocks: [
+                    {
+                        icon: '🎨',
+                        title: 'Validation de design system',
+                        text: "Grand groupe d'assurance (+1 500 collaborateurs) : contrôles automatisés du design system sur les composants (couleurs, typos, contrastes WCAG).",
+                    },
+                    {
+                        icon: '🌐',
+                        title: 'Création de site web',
+                        text: "Conception et réalisation du site web d'un centre équestre.",
+                    },
+                ],
             },
             {
-                icon: '🏛️',
-                title: 'Jurys',
-                text: "Membre de jury pour l'évaluation des étudiants.",
+                title: 'Formation',
+                blocks: [
+                    {
+                        icon: '🎓',
+                        title: 'Enseignement',
+                        text: "Intervenant au CESI et à l'EPSI : cours sur la qualité logicielle et les pratiques tech.",
+                    },
+                    {
+                        icon: '🏛️',
+                        title: 'Jurys',
+                        text: "Membre de jury pour l'évaluation des étudiants.",
+                    },
+                ],
             },
         ],
     },
     {
         title: 'Head of QA – MEDIN+',
+        sector: 'Santé – téléradiologie',
         period: 'Depuis novembre 2023',
         team: 'Chapter de 6 à 10 QA (internes et prestataires)',
         tools: ['Cypress', 'K6', 'Postman', 'Bitbucket Pipelines', 'GitLab CI', 'Claude (Anthropic)', 'Xray', 'Grafana', 'Excel (KPI)'],
@@ -67,6 +90,7 @@ export const MANAGEMENT_ROLES = [
     },
     {
         title: 'Responsable QA – Skilleos',
+        sector: 'Formation en ligne',
         period: 'Juillet 2021 – 2023',
         team: 'Création du pôle QA · équipe de 4 QA',
         tools: ['Cypress', 'K6', 'Postman', 'GitLab CI'],
@@ -90,6 +114,7 @@ export const MANAGEMENT_ROLES = [
     },
     {
         title: 'Lead QA – FlexyBeauty/Kiute',
+        sector: 'Éditeur logiciel – coiffure',
         period: 'Décembre 2018 – Juillet 2021',
         team: 'Pôle de 6 à 10 personnes (QA et support N2)',
         tools: ['Katalon', 'Appium', 'JMeter', 'Postman', 'Bitbucket Pipelines'],
@@ -122,12 +147,14 @@ export const EARLY_CAREER = {
 export const TECHNICAL_ROLES = [
     {
         title: 'QA Test Automation Engineer – Aviva',
+        sector: 'Assurance',
         period: 'Septembre 2017 – Novembre 2018',
         tools: ['UFT One', 'HP Quality Center'],
         text: "Référent technique de l'équipe QA : architecture et stratégie de tests, automatisation E2E web et AS400, chiffrage et planification des campagnes.",
     },
     {
         title: 'Chef de projet Test Junior – AXA Banque',
+        sector: 'Banque',
         period: 'Septembre 2015 – Septembre 2017',
         tools: ['Robot Framework', 'Selenium', 'SoapUI'],
         text: "POC et choix des technologies, automatisation des tests web, mobile et API, tests de charge et de performance, intégration des tests en CI/CD.",
