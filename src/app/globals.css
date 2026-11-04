@@ -130,6 +130,23 @@ body.cv-page {
     );
   }
 
+  /* Bandeau de marque : pictogramme KaliOps en filigrane, comme sur la planche et la bannière LinkedIn */
+  .page-gradient::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/images/kaliops-picto-filigrane.svg") no-repeat right -8vw center / auto 85vh;
+    opacity: 0.06;
+    pointer-events: none;
+  }
+
+  @media (max-width: 640px) {
+    .page-gradient::after {
+      background-position: right -45vw center;
+      background-size: auto 60vh;
+    }
+  }
+
   @keyframes fade-in {
     from {
       opacity: 0;
