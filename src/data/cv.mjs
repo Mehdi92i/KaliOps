@@ -3,141 +3,168 @@
 
 // Coordonnées : affichées uniquement dans le PDF, pas sur les pages du site
 export const CONTACT = {
-    nom: 'Mehdi Tassi',
+    name: 'Mehdi Tassi',
     email: 'mehdi.tassi.pro@gmail.com',
-    telephone: '06 52 60 69 87',
+    phone: '06 52 60 69 87',
     site: 'https://kaliops.vercel.app/',
     linkedin: 'https://www.linkedin.com/in/mehdi-t-4505a38b/',
 };
 
 export const INTRO = {
-    titre: 'Head of QA',
-    accroche:
+    title: 'Head of QA',
+    tagline:
         "10 ans de qualité logicielle, dont 7 à créer et diriger des équipes QA. Je structure la qualité à l'échelle de l'organisation — stratégie, équipes, KPI, ROI — tout en gardant une forte expertise technique : automatisation, CI/CD, performance et IA.",
 };
 
 // Expériences principales, la plus récente en premier : activité KaliOps puis postes de management
-// (Leadership → leviers techniques → résultats). `outils` peut être vide.
-export const POSTES_MANAGEMENT = [
+// (Leadership → leviers techniques → résultats). `tools` peut être vide.
+// `sector` : secteur d'activité de l'entreprise, affiché à côté du poste.
+// `groups` (facultatif) remplace `blocks` pour découper un poste en parties titrées.
+export const MANAGEMENT_ROLES = [
     {
-        titre: 'Fondateur & formateur Tech – KaliOps',
-        periode: 'Depuis octobre 2025',
-        equipe: 'Activité indépendante',
-        outils: [],
-        blocs: [
+        title: 'Fondateur & formateur Tech – KaliOps',
+        period: 'Depuis octobre 2025',
+        team: 'Activité indépendante',
+        tools: [],
+        groups: [
             {
-                icone: '🎓',
-                titre: 'Enseignement',
-                texte: "Intervenant au CESI et à l'EPSI : cours sur la qualité logicielle et les pratiques tech.",
+                title: 'Activité tech & QA',
+                blocks: [
+                    {
+                        icon: '🎨',
+                        title: 'Validation de design system',
+                        text: "Grand groupe d'assurance (+1 500 collaborateurs) : contrôles automatisés du design system sur les composants (couleurs, typos, contrastes WCAG).",
+                    },
+                    {
+                        icon: '🌐',
+                        title: 'Création de site web',
+                        text: "Conception et réalisation du site web d'un centre équestre.",
+                    },
+                ],
             },
             {
-                icone: '🏛️',
-                titre: 'Jurys',
-                texte: "Membre de jury pour l'évaluation des étudiants.",
+                title: 'Formation',
+                blocks: [
+                    {
+                        icon: '🎓',
+                        title: 'Enseignement',
+                        text: "Intervenant au CESI et à l'EPSI : cours sur la qualité logicielle et les pratiques tech.",
+                    },
+                    {
+                        icon: '🏛️',
+                        title: 'Jurys',
+                        text: "Membre de jury pour l'évaluation des étudiants.",
+                    },
+                ],
             },
         ],
     },
     {
-        titre: 'Head of QA – MEDIN+',
-        periode: 'Depuis novembre 2023',
-        equipe: 'Chapter de 6 à 10 QA (internes et prestataires)',
-        outils: ['Cypress', 'K6', 'Postman', 'Bitbucket Pipelines', 'GitLab CI', 'Claude (Anthropic)', 'Xray', 'Grafana', 'Excel (KPI)'],
-        blocs: [
+        title: 'Head of QA – MEDIN+',
+        sector: 'Santé – téléradiologie',
+        period: 'Depuis novembre 2023',
+        team: 'Chapter de 6 à 10 QA (internes et prestataires)',
+        tools: ['Cypress', 'K6', 'Postman', 'Bitbucket Pipelines', 'GitLab CI', 'Claude (Anthropic)', 'Xray', 'Grafana', 'Excel (KPI)'],
+        blocks: [
             {
-                icone: '🧭',
-                titre: 'Leadership',
-                texte: "Création et direction du Chapter QA. Membre des comités stratégiques, porte la roadmap et le budget qualité, pilote les prestataires. Recrutement, objectifs individuels et entretiens annuels.",
+                icon: '🧭',
+                title: 'Leadership',
+                text: "Création et direction du Chapter QA. Membre des comités stratégiques, porte la roadmap et le budget qualité, pilote les prestataires. Recrutement, objectifs individuels et entretiens annuels.",
             },
             {
-                icone: '📊',
-                titre: 'Pilotage data-driven',
-                texte: "Maturité de pilotage par les KPI, suivis par la direction : taux de fuite des anomalies en production, couverture et part automatisée, délais de recette et de TNR, stabilité de la CI (tests instables). ROI des tests automatisés démontré pour arbitrer les investissements. Tableaux de bord Jira (JQL), Xray et Grafana.",
+                icon: '📊',
+                title: 'Pilotage data-driven',
+                text: "Maturité de pilotage par les KPI, suivis par la direction : taux de fuite des anomalies en production, couverture et part automatisée, délais de recette et de TNR, stabilité de la CI (tests instables). ROI des tests automatisés démontré pour arbitrer les investissements. Tableaux de bord Jira (JQL), Xray et Grafana.",
             },
             {
-                icone: '🤖',
-                titre: 'Leviers techniques & IA',
-                texte: "Stratégie de tests de bout en bout (E2E, API, performance K6) intégrée à la CI Bitbucket. Création d'agents IA (Anthropic Claude) qui challengent les tickets Jira pour en dériver critères d'acceptation et scénarios Gherkin ; IA appliquée au débogage des tests automatisés E2E et K6.",
+                icon: '🤖',
+                title: 'Leviers techniques & IA',
+                text: "Stratégie de tests de bout en bout (E2E, API, performance K6) intégrée à la CI Bitbucket. Création d'agents IA (Anthropic Claude) qui challengent les tickets Jira pour en dériver critères d'acceptation et scénarios Gherkin ; IA appliquée au débogage des tests automatisés E2E et K6.",
             },
             {
-                icone: '🚀',
-                titre: 'Résultats',
-                texte: "TNR fortement accélérée, baisse des bugs en production, culture QAOps adoptée par les développeurs et les PO : la qualité est intégrée au delivery des squads.",
-            },
-        ],
-    },
-    {
-        titre: 'Responsable QA – Skilleos',
-        periode: 'Juillet 2021 – 2023',
-        equipe: 'Création du pôle QA · équipe de 4 QA',
-        outils: ['Cypress', 'K6', 'Postman', 'GitLab CI'],
-        blocs: [
-            {
-                icone: '🧭',
-                titre: 'Leadership',
-                texte: "Création du pôle QA de zéro, recrutement et management de l'équipe, référent qualité des squads Agile.",
-            },
-            {
-                icone: '🛠️',
-                titre: 'Leviers techniques',
-                texte: "Stratégie qualité, bibliothèque de tests automatisés web et mobile intégrée en CI/CD avec l'équipe DevOps, tests de performance et de charge sur les environnements critiques.",
-            },
-            {
-                icone: '🚀',
-                titre: 'Résultats',
-                texte: "Releases plus fréquentes, recette accélérée, moins de bugs en production. Migration du framework mobile Android/iOS sécurisée.",
+                icon: '🚀',
+                title: 'Résultats',
+                text: "TNR fortement accélérée, baisse des bugs en production, culture QAOps adoptée par les développeurs et les PO : la qualité est intégrée au delivery des squads.",
             },
         ],
     },
     {
-        titre: 'Lead QA – FlexyBeauty/Kiute',
-        periode: 'Décembre 2018 – Juillet 2021',
-        equipe: 'Pôle de 6 à 10 personnes (QA et support N2)',
-        outils: ['Katalon', 'Appium', 'JMeter', 'Postman', 'Bitbucket Pipelines'],
-        blocs: [
+        title: 'Responsable QA – Skilleos',
+        sector: 'Formation en ligne',
+        period: 'Juillet 2021 – 2023',
+        team: 'Création du pôle QA · équipe de 4 QA',
+        tools: ['Cypress', 'K6', 'Postman', 'GitLab CI'],
+        blocks: [
             {
-                icone: '🧭',
-                titre: 'Leadership',
-                texte: "Création et direction du pôle QA et de l'équipe support N2. Recrutement, montée en compétences, acculturation qualité des équipes.",
+                icon: '🧭',
+                title: 'Leadership',
+                text: "Création du pôle QA de zéro, recrutement et management de l'équipe, référent qualité des squads Agile.",
             },
             {
-                icone: '🛠️',
-                titre: 'Leviers techniques',
-                texte: "Architecture des tests automatisés web et mobile, tests API, de charge et de performance, intégration en CI/CD avec l'équipe Infra.",
+                icon: '🛠️',
+                title: 'Leviers techniques',
+                text: "Stratégie qualité, bibliothèque de tests automatisés web et mobile intégrée en CI/CD avec l'équipe DevOps, tests de performance et de charge sur les environnements critiques.",
             },
             {
-                icone: '🚀',
-                titre: 'Résultats',
-                texte: "Releases plus fréquentes, recette plus rapide, moins de bugs en production. Partenariat Google « Reserve with Google » validé et mis en production.",
+                icon: '🚀',
+                title: 'Résultats',
+                text: "Releases plus fréquentes, recette accélérée, moins de bugs en production. Migration du framework mobile Android/iOS sécurisée.",
+            },
+        ],
+    },
+    {
+        title: 'Lead QA – FlexyBeauty/Kiute',
+        sector: 'Éditeur logiciel – coiffure',
+        period: 'Décembre 2018 – Juillet 2021',
+        team: 'Pôle de 6 à 10 personnes (QA et support N2)',
+        tools: ['Katalon', 'Appium', 'JMeter', 'Postman', 'Bitbucket Pipelines'],
+        blocks: [
+            {
+                icon: '🧭',
+                title: 'Leadership',
+                text: "Création et direction du pôle QA et de l'équipe support N2. Recrutement, montée en compétences, acculturation qualité des équipes.",
+            },
+            {
+                icon: '🛠️',
+                title: 'Leviers techniques',
+                text: "Architecture des tests automatisés web et mobile, tests API, de charge et de performance, intégration en CI/CD avec l'équipe Infra.",
+            },
+            {
+                icon: '🚀',
+                title: 'Résultats',
+                text: "Releases plus fréquentes, recette plus rapide, moins de bugs en production. Partenariat Google « Reserve with Google » validé et mis en production.",
             },
         ],
     },
 ];
 
 // Débuts de carrière : la technique, toujours pratiquée, au second plan derrière le management
-export const PREMIERES_EXPERIENCES = {
-    titre: 'Premières expériences · 2015 – 2018',
+export const EARLY_CAREER = {
+    title: 'Premières expériences · 2015 – 2018',
     note: 'Les fondations techniques de mon parcours — automatisation, performance, CI/CD — que je continue d\'exercer au quotidien.',
 };
 
-export const PARCOURS_TECHNIQUE = [
+export const TECHNICAL_ROLES = [
     {
-        titre: 'QA Test Automation Engineer – Aviva',
-        periode: 'Septembre 2017 – Novembre 2018',
-        outils: ['UFT One', 'HP Quality Center'],
-        texte: "Référent technique de l'équipe QA : architecture et stratégie de tests, automatisation E2E web et AS400, chiffrage et planification des campagnes.",
+        title: 'QA Test Automation Engineer – Aviva',
+        sector: 'Assurance',
+        period: 'Septembre 2017 – Novembre 2018',
+        tools: ['UFT One', 'HP Quality Center'],
+        text: "Référent technique de l'équipe QA : architecture et stratégie de tests, automatisation E2E web et AS400, chiffrage et planification des campagnes.",
     },
     {
-        titre: 'Chef de projet Test Junior – AXA Banque',
-        periode: 'Septembre 2015 – Septembre 2017',
-        outils: ['Robot Framework', 'Selenium', 'SoapUI'],
-        texte: "POC et choix des technologies, automatisation des tests web, mobile et API, tests de charge et de performance, intégration des tests en CI/CD.",
+        title: 'Chef de projet Test Junior – AXA Banque',
+        sector: 'Banque',
+        period: 'Septembre 2015 – Septembre 2017',
+        tools: ['Robot Framework', 'Selenium', 'SoapUI'],
+        text: "POC et choix des technologies, automatisation des tests web, mobile et API, tests de charge et de performance, intégration des tests en CI/CD.",
     },
 ];
 
 // Ordre volontaire : management d'abord, puis gouvernance, puis expertise technique
-export const COMPETENCES = [
+export const SKILLS = [
     {
-        titre: 'Leadership & management',
+        title: 'Leadership & management',
         items: [
             '🏗️ Création d’équipes QA',
             '👥 Recrutement & onboarding',
@@ -148,7 +175,7 @@ export const COMPETENCES = [
         ],
     },
     {
-        titre: 'Stratégie & gouvernance qualité',
+        title: 'Stratégie & gouvernance qualité',
         items: [
             '🗺️ Roadmap & budget QA',
             '📊 KPI qualité data-driven',
@@ -159,7 +186,7 @@ export const COMPETENCES = [
         ],
     },
     {
-        titre: 'Expertise technique',
+        title: 'Expertise technique',
         items: [
             '📝 Stratégie de tests',
             '🔁 Automatisation E2E & API',
@@ -174,29 +201,29 @@ export const COMPETENCES = [
 export const CERTIFICATION = '🎓 Certification ISTQB Foundation';
 
 // Stack actuelle, par domaine. Les outils plus anciens sont cités dans chaque expérience.
-export const OUTILS = [
+export const TOOLS = [
     {
-        titre: 'Automatisation & performance',
-        outils: ['🎭 Playwright', '🧪 Cypress', '📈 K6', '📮 Postman'],
+        title: 'Automatisation & performance',
+        tools: ['🎭 Playwright', '🧪 Cypress', '📈 K6', '📮 Postman'],
     },
     {
-        titre: 'CI/CD & DevOps',
-        outils: ['⚙️ GitHub Actions', '🧱 Bitbucket Pipelines', '🦊 GitLab CI', '🐳 Docker'],
+        title: 'CI/CD & DevOps',
+        tools: ['⚙️ GitHub Actions', '🧱 Bitbucket Pipelines', '🦊 GitLab CI', '🐳 Docker'],
     },
     {
-        titre: 'Langages',
-        outils: ['📘 TypeScript', '💻 JavaScript', '🐍 Python'],
+        title: 'Langages',
+        tools: ['📘 TypeScript', '💻 JavaScript', '🐍 Python'],
     },
     {
-        titre: 'Pilotage & KPI',
-        outils: ['📋 Jira (JQL & dashboards)', '✅ Xray', '📉 Grafana', '📊 Excel'],
+        title: 'Pilotage & KPI',
+        tools: ['📋 Jira (JQL & dashboards)', '✅ Xray', '📉 Grafana', '📊 Excel'],
     },
     {
-        titre: 'IA',
-        outils: ['🤖 Claude (Anthropic)'],
+        title: 'IA',
+        tools: ['🤖 Claude (Anthropic)'],
     },
 ];
 
-export const LOISIRS = 'Football, Jeux vidéos, Cinéma, Échecs, Astronomie.';
-export const CENTRES_INTERET = 'Innovation technologique, IA, Développement durable.';
-export const VOYAGES = 'Espagne, Maroc, Mexique, Jamaïque, USA, Grèce.';
+export const HOBBIES = 'Football, Jeux vidéos, Cinéma, Échecs, Astronomie.';
+export const INTERESTS = 'Innovation technologique, IA, Développement durable.';
+export const TRAVELS = 'Espagne, Maroc, Mexique, Jamaïque, USA, Grèce.';

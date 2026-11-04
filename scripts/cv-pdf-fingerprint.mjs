@@ -1,21 +1,21 @@
-// Empreinte des sources du CV PDF : si elle change, le PDF doit être régénéré (npm run cv:pdf).
+// Empreinte (fingerprint) des sources du CV PDF : si elle change, le PDF doit être régénéré (npm run cv:pdf).
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
-export const SOURCES_CV_PDF = [
+export const CV_PDF_SOURCES = [
     'src/data/cv.mjs',
     'scripts/generate-cv-pdf.mjs',
     'public/images/kaliops-logo-horizontal.svg',
 ];
 
-export const FICHIER_EMPREINTE = 'scripts/cv-pdf.empreinte';
+export const FINGERPRINT_FILE = 'scripts/cv-pdf.fingerprint';
 
-export function calculerEmpreinte(racine) {
+export function computeFingerprint(root) {
     const hash = createHash('sha256');
-    for (const source of SOURCES_CV_PDF) {
+    for (const source of CV_PDF_SOURCES) {
         // Fins de ligne normalisées : même empreinte sous Windows (CRLF) et en CI (LF)
-        hash.update(readFileSync(path.join(racine, source), 'utf8').replace(/\r\n/g, '\n'));
+        hash.update(readFileSync(path.join(root, source), 'utf8').replace(/\r\n/g, '\n'));
     }
     return hash.digest('hex');
 }

@@ -11,6 +11,14 @@ const BUG_ICON_MASK = `url("data:image/svg+xml,${encodeURIComponent(
     + '<path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></svg>'
 )}") center / contain no-repeat`;
 
+// Tirage aléatoire hors du composant : la règle React Compiler « purity » interdit Math.random dans le rendu
+const createBug = () => ({
+    id: crypto.randomUUID?.() || Math.random().toString(36).substring(7),
+    x: Math.random() * 90,
+    y: Math.random() * 90,
+    rotation: Math.random() * 360,
+});
+
 const BugHuntGame = () => {
     const [isActive, setIsActive] = useState(false);
     const [bugs, setBugs] = useState([]);
@@ -22,6 +30,8 @@ const BugHuntGame = () => {
     const intervalRef = useRef(null);
 
     useEffect(() => {
+        // Marqueur d'hydratation volontaire : le jeu ne s'affiche qu'après le montage côté client
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsHydrated(true);
     }, []);
 
@@ -46,12 +56,9 @@ const BugHuntGame = () => {
     };
 
     const spawnBug = () => {
-        const id = crypto.randomUUID?.() || Math.random().toString(36).substring(7);
-        const x = Math.random() * 90;
-        const y = Math.random() * 90;
-        const rotation = Math.random() * 360;
-        setBugs((prev) => [...prev, { id, x, y, rotation }]);
-        setTimeout(() => removeBug(id), 5000);
+        const bug = createBug();
+        setBugs((prev) => [...prev, bug]);
+        setTimeout(() => removeBug(bug.id), 5000);
     };
 
     const removeBug = (id) => {

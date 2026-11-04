@@ -10,8 +10,8 @@ test.describe('Page Accueil', () => {
     });
 
     test('la mention KaliOps est présente dans l\'accroche', async ({ page }) => {
-        const accroche = page.locator('p').filter({ hasText: 'KaliOps' }).first();
-        await expect(accroche).toBeVisible();
+        const tagline = page.locator('p').filter({ hasText: 'KaliOps' }).first();
+        await expect(tagline).toBeVisible();
     });
 
     test('les 6 cartes de services sont affichées', async ({ page }) => {
