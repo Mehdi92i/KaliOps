@@ -10,6 +10,7 @@ import {
     INTRO,
     POSTES_MANAGEMENT,
     PARCOURS_TECHNIQUE,
+    PREMIERES_EXPERIENCES,
     COMPETENCES,
     CERTIFICATION,
     OUTILS,
@@ -39,6 +40,10 @@ const echapper = (texte) =>
 // « 🎭 Playwright » → « Playwright » : pas d'emoji sur le CV imprimé
 const sansEmoji = (texte) => texte.replace(/^[^\p{L}\p{N}]+\s*/u, '');
 
+// Pas de ligne Stack pour une expérience sans outils (ex. activité de formation)
+const stack = (outils) =>
+    outils.length ? `<p class="stack"><strong>Stack :</strong> ${outils.map(echapper).join(' · ')}</p>` : '';
+
 const poste = (p) => `
     <article class="poste">
         <header>
@@ -47,7 +52,7 @@ const poste = (p) => `
         </header>
         <p class="equipe">${echapper(p.equipe)}</p>
         ${p.blocs.map((b) => `<p class="bloc"><strong>${echapper(b.titre)} :</strong> ${echapper(b.texte)}</p>`).join('')}
-        <p class="stack"><strong>Stack :</strong> ${p.outils.map(echapper).join(' · ')}</p>
+        ${stack(p.outils)}
     </article>`;
 
 const parcours = (p) => `
@@ -57,7 +62,7 @@ const parcours = (p) => `
             <p class="periode">${echapper(p.periode)}</p>
         </header>
         <p class="bloc">${echapper(p.texte)}</p>
-        <p class="stack"><strong>Stack :</strong> ${p.outils.map(echapper).join(' · ')}</p>
+        ${stack(p.outils)}
     </article>`;
 
 const html = `<!doctype html>
@@ -68,7 +73,7 @@ const html = `<!doctype html>
 <style>
     @page { size: A4; margin: 0; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Jost', sans-serif; font-size: 8.3pt; line-height: 1.3; color: ${C.noir}; }
+    body { font-family: 'Jost', sans-serif; font-size: 8.2pt; line-height: 1.27; color: ${C.noir}; }
     h1, h2, h3 { font-family: 'Signika Negative', sans-serif; color: ${C.petrole}; }
 
     .entete { display: flex; align-items: center; justify-content: space-between; padding: 8mm 12mm 3mm; border-bottom: 3px solid ${C.ocre}; }
@@ -77,18 +82,19 @@ const html = `<!doctype html>
     .identite h1 { font-size: 20pt; line-height: 1.1; }
     .identite .titre { font-family: 'Signika Negative', sans-serif; font-weight: 700; font-size: 13pt; color: ${C.cuivre}; }
     .identite .contact { font-size: 8.2pt; color: ${C.vert}; margin-top: 0.4mm; }
+    .identite .contact a { color: inherit; text-decoration: none; }
     .accroche { padding: 3mm 12mm 0; font-size: 9pt; color: ${C.petrole}; }
 
     .corps { display: grid; grid-template-columns: 1fr 52mm; gap: 6mm; padding: 3.5mm 12mm 4mm; }
     h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: 0.6px; border-bottom: 1.5px solid ${C.ocre}; padding-bottom: 1mm; margin-bottom: 2.5mm; }
     .section + .section { margin-top: 3mm; }
 
-    .poste { break-inside: avoid; margin-bottom: 2.2mm; }
+    .poste { break-inside: avoid; margin-bottom: 2mm; }
     .poste header { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
     .poste h3 { font-size: 10pt; }
     .periode { font-size: 8pt; color: ${C.vert}; white-space: nowrap; }
     .equipe { font-weight: 600; color: ${C.vert}; font-size: 8.5pt; margin-bottom: 1mm; }
-    .bloc { margin-bottom: 0.8mm; }
+    .bloc { margin-bottom: 0.5mm; }
     .bloc strong { color: ${C.petrole}; }
     .stack { font-size: 8pt; color: #3d3f3d; }
     .court .bloc { margin-bottom: 0.5mm; }
@@ -111,8 +117,9 @@ const html = `<!doctype html>
         <div class="identite">
             <h1>${CONTACT.nom}</h1>
             <p class="titre">${echapper(INTRO.titre)}</p>
-            <p class="contact">${CONTACT.email} · ${CONTACT.telephone}</p>
-            <p class="contact">${CONTACT.site} · ${CONTACT.linkedin}</p>
+            <p class="contact"><a href="mailto:${CONTACT.email}">${CONTACT.email}</a> · ${CONTACT.telephone}</p>
+            <p class="contact"><a href="${CONTACT.site}">${CONTACT.site}</a></p>
+            <p class="contact"><a href="${CONTACT.linkedin}">${CONTACT.linkedin}</a></p>
         </div>
     </div>
     <p class="accroche">${echapper(INTRO.accroche)}</p>
@@ -124,8 +131,8 @@ const html = `<!doctype html>
                 ${POSTES_MANAGEMENT.map(poste).join('')}
             </section>
             <section class="section">
-                <h2>Parcours technique · 2015 – 2018</h2>
-                <p class="note">L'expertise en automatisation qui fonde mon approche du management de la qualité.</p>
+                <h2>${echapper(PREMIERES_EXPERIENCES.titre)}</h2>
+                <p class="note">${echapper(PREMIERES_EXPERIENCES.note)}</p>
                 ${PARCOURS_TECHNIQUE.map(parcours).join('')}
             </section>
             <section class="section interets">

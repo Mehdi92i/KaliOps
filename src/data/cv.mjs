@@ -6,8 +6,8 @@ export const CONTACT = {
     nom: 'Mehdi Tassi',
     email: 'mehdi.tassi.pro@gmail.com',
     telephone: '06 52 60 69 87',
-    site: 'kaliops.vercel.app',
-    linkedin: 'linkedin.com/in/mehdi-t-4505a38b',
+    site: 'https://kaliops.vercel.app/',
+    linkedin: 'https://www.linkedin.com/in/mehdi-t-4505a38b/',
 };
 
 export const INTRO = {
@@ -16,8 +16,27 @@ export const INTRO = {
         "10 ans de qualité logicielle, dont 7 à créer et diriger des équipes QA. Je structure la qualité à l'échelle de l'organisation — stratégie, équipes, KPI, ROI — tout en gardant une forte expertise technique : automatisation, CI/CD, performance et IA.",
 };
 
-// Postes de management : Leadership → leviers techniques → résultats
+// Expériences principales, la plus récente en premier : activité KaliOps puis postes de management
+// (Leadership → leviers techniques → résultats). `outils` peut être vide.
 export const POSTES_MANAGEMENT = [
+    {
+        titre: 'Fondateur & formateur Tech – KaliOps',
+        periode: 'Depuis octobre 2025',
+        equipe: 'Activité indépendante',
+        outils: [],
+        blocs: [
+            {
+                icone: '🎓',
+                titre: 'Enseignement',
+                texte: "Intervenant au CESI et à l'EPSI : cours sur la qualité logicielle et les pratiques tech.",
+            },
+            {
+                icone: '🏛️',
+                titre: 'Jurys',
+                texte: "Membre de jury pour l'évaluation des étudiants.",
+            },
+        ],
+    },
     {
         titre: 'Head of QA – MEDIN+',
         periode: 'Depuis novembre 2023',
@@ -94,7 +113,12 @@ export const POSTES_MANAGEMENT = [
     },
 ];
 
-// Débuts : expertise technique qui fonde la crédibilité du manager
+// Débuts de carrière : la technique, toujours pratiquée, au second plan derrière le management
+export const PREMIERES_EXPERIENCES = {
+    titre: 'Premières expériences · 2015 – 2018',
+    note: 'Les fondations techniques de mon parcours — automatisation, performance, CI/CD — que je continue d\'exercer au quotidien.',
+};
+
 export const PARCOURS_TECHNIQUE = [
     {
         titre: 'QA Test Automation Engineer – Aviva',
@@ -142,7 +166,7 @@ export const COMPETENCES = [
             '⚡ Tests de performance & de charge',
             '🔄 CI/CD & QAOps',
             '🔒 Tests de sécurité',
-            '🤖 IA appliquée à la QA',
+            '🤖 IA générative & agents',
         ],
     },
 ];
