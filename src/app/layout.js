@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'; // ➔ on importe ton Footer
 export const metadata = {
     title: 'KaliOps · Mehdi Tassi — Head of QA & conseil qualité logicielle',
     description:
-        'Mehdi Tassi, Head of QA : direction QA à temps partagé, stratégie et KPI qualité, automatisation et QAOps, IA appliquée aux tests.',
+        'Mehdi Tassi, Head of QA : direction QA à temps partagé, stratégie et KPI qualité, formation des équipes, automatisation et QAOps, IA appliquée aux tests.',
     keywords: [
         'Head of QA',
         'QA Manager',
@@ -15,6 +15,7 @@ export const metadata = {
         'QAOps',
         'Automatisation des tests',
         'IA appliquée aux tests',
+        'Formation QA',
         'Freelance QA',
     ],
 };

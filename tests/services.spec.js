@@ -2,8 +2,10 @@ import { test, expect } from '@playwright/test';
 
 const SERVICES = [
     { id: 'strategie', title: 'Stratégie QA' },
-    { id: 'tests', title: 'Tests automatisés' },
+    { id: 'tests', title: 'Industrialisation des tests' },
     { id: 'qaops', title: 'CI/CD & QAOps' },
+    { id: 'ia', title: 'IA' },
+    { id: 'formation', title: 'Formation & coaching' },
     { id: 'accompagnement', title: 'Accompagnement' },
 ];
 
@@ -24,7 +26,7 @@ test.describe('Page Services', () => {
     test('la flèche droite avance au service suivant', async ({ page }) => {
         const nextBtn = page.getByRole('button').filter({ has: page.locator('svg') }).last();
         await nextBtn.click();
-        await expect(page.getByRole('heading', { name: /Tests automatisés/i })).toBeVisible();
+        await expect(page.getByRole('heading', { name: /Industrialisation des tests/i })).toBeVisible();
     });
 
     test('la flèche gauche revient au service précédent', async ({ page }) => {
@@ -32,7 +34,7 @@ test.describe('Page Services', () => {
         const prevBtn = page.getByRole('button').filter({ has: page.locator('svg') }).first();
 
         await nextBtn.click();
-        await expect(page.getByRole('heading', { name: /Tests automatisés/i })).toBeVisible();
+        await expect(page.getByRole('heading', { name: /Industrialisation des tests/i })).toBeVisible();
 
         await prevBtn.click();
         await expect(page.getByRole('heading', { name: /Stratégie QA/i })).toBeVisible();

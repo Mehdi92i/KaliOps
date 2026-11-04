@@ -29,14 +29,14 @@ export default function Home() {
                     </p>
                 </div>
 
-                <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-5xl px-4">
+                <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 w-full max-w-5xl px-4">
                     <Link
                         href="/services#strategie"
                         className="bg-white/90 text-brand-primary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
                     >
                         <span className="text-4xl mb-2">🎯</span>
-                        <h3 className="font-bold text-lg">Stratégie QA & KPI</h3>
-                        <p className="text-sm text-texte-secondaire mt-1">Audit de maturité, pilotage data-driven</p>
+                        <h3 className="font-bold text-lg">Stratégie QA & gouvernance</h3>
+                        <p className="text-sm text-texte-secondaire mt-1">Audit de maturité, roadmap, KPI</p>
                     </Link>
 
                     <Link
@@ -44,8 +44,8 @@ export default function Home() {
                         className="bg-white/90 text-brand-tertiary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
                     >
                         <span className="text-4xl mb-2">🧪</span>
-                        <h3 className="font-bold text-lg">Tests automatisés & IA</h3>
-                        <p className="text-sm text-texte-secondaire mt-1">E2E, API, performance, agents IA</p>
+                        <h3 className="font-bold text-lg">Industrialisation des tests</h3>
+                        <p className="text-sm text-texte-secondaire mt-1">Manuels, automatisés, sécurité, design system</p>
                     </Link>
 
                     <Link
@@ -58,12 +58,30 @@ export default function Home() {
                     </Link>
 
                     <Link
+                        href="/services#ia"
+                        className="bg-white/90 text-brand-tertiary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
+                    >
+                        <span className="text-4xl mb-2">🤖</span>
+                        <h3 className="font-bold text-lg">IA</h3>
+                        <p className="text-sm text-texte-secondaire mt-1">Agents sur mesure, automatisation</p>
+                    </Link>
+
+                    <Link
+                        href="/services#formation"
+                        className="bg-white/90 text-brand-primary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
+                    >
+                        <span className="text-4xl mb-2">🎓</span>
+                        <h3 className="font-bold text-lg">Formation & coaching</h3>
+                        <p className="text-sm text-texte-secondaire mt-1">QA, devs, managers, écoles</p>
+                    </Link>
+
+                    <Link
                         href="/services#accompagnement"
                         className="bg-white/90 text-brand-tertiary rounded-2xl p-6 shadow-lg text-center flex flex-col items-center hover:scale-105 transition-transform duration-300"
                     >
                         <span className="text-4xl mb-2">🧭</span>
                         <h3 className="font-bold text-lg">Accompagnement Head of QA</h3>
-                        <p className="text-sm text-texte-secondaire mt-1">Direction QA à temps partagé, coaching d&apos;équipes</p>
+                        <p className="text-sm text-texte-secondaire mt-1">Direction QA à temps partagé</p>
                     </Link>
                 </section>
 
