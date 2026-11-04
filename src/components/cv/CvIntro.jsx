@@ -1,5 +1,5 @@
-import { documents } from '@/config/assets';
 import { INTRO } from '@/data/cv.mjs';
+import CvDownloadButton from '@/components/cv/CvDownloadButton';
 
 export default function CvIntro() {
     return (
@@ -8,21 +8,14 @@ export default function CvIntro() {
                 Curriculum <span className="text-kali-cuivre">Vitae</span>
             </h1>
             <p className="mt-3 font-heading text-3xl md:text-5xl font-bold text-brand-primary text-center">
-                {INTRO.titre}
+                {INTRO.title}
             </p>
             <p className="mt-4 text-lg md:text-xl text-texte-secondaire max-w-3xl mx-auto text-center">
-                {INTRO.accroche}
+                {INTRO.tagline}
             </p>
 
             <div className="mt-8 text-center">
-                <a
-                    href={documents.cv}
-                    download
-                    className="inline-flex items-center gap-2 bg-brand-secondary text-kali-noir font-semibold px-6 py-2 rounded-full hover:bg-brand-secondary-hover transition-colors duration-300"
-                >
-                    <span>📄</span>
-                    <span>Télécharger mon CV (PDF)</span>
-                </a>
+                <CvDownloadButton />
             </div>
         </div>
     );

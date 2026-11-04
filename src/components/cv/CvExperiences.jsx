@@ -1,10 +1,10 @@
-import { POSTES_MANAGEMENT, PARCOURS_TECHNIQUE, PREMIERES_EXPERIENCES } from '@/data/cv.mjs';
+import { MANAGEMENT_ROLES, TECHNICAL_ROLES, EARLY_CAREER } from '@/data/cv.mjs';
 
-function Stack({ outils }) {
-    if (outils.length === 0) return null;
+function Stack({ tools }) {
+    if (tools.length === 0) return null;
     return (
         <p className="text-sm text-texte-secondaire mt-1">
-            <span className="font-semibold">Stack :</span> {outils.join(' · ')}
+            <span className="font-semibold">Stack :</span> {tools.join(' · ')}
         </p>
     );
 }
@@ -16,27 +16,27 @@ export default function CvExperiences() {
                 <h2 className="text-2xl md:text-3xl font-bold text-cv-section mb-6">Expériences professionnelles</h2>
             </div>
 
-            {POSTES_MANAGEMENT.map((poste, index) => (
-                <div key={poste.titre}>
+            {MANAGEMENT_ROLES.map((role, index) => (
+                <div key={role.title}>
                     {index > 0 && (
                         <hr className="border-t-4 border-brand-secondary w-full max-w-64 mx-auto rounded-full my-12" />
                     )}
                     <div className="space-y-6">
                         <div>
-                            <h3 className="text-xl font-semibold text-texte">{poste.titre}</h3>
-                            <p className="text-sm text-texte-secondaire">{poste.periode}</p>
-                            <p className="text-sm font-semibold text-brand-tertiary mt-1">{poste.equipe}</p>
-                            <Stack outils={poste.outils} />
+                            <h3 className="text-xl font-semibold text-texte">{role.title}</h3>
+                            <p className="text-sm text-texte-secondaire">{role.period}</p>
+                            <p className="text-sm font-semibold text-brand-tertiary mt-1">{role.team}</p>
+                            <Stack tools={role.tools} />
                         </div>
                         <div className="space-y-6">
-                            {poste.blocs.map((bloc) => (
-                                <div key={bloc.titre} className="flex items-start space-x-4">
+                            {role.blocks.map((block) => (
+                                <div key={block.title} className="flex items-start space-x-4">
                                     <div className="p-2 rounded">
-                                        <span className="text-2xl" aria-hidden="true">{bloc.icone}</span>
+                                        <span className="text-2xl" aria-hidden="true">{block.icon}</span>
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-semibold text-texte-secondaire">{bloc.titre}</h4>
-                                        <p className="text-texte-secondaire">{bloc.texte}</p>
+                                        <h4 className="text-lg font-semibold text-texte-secondaire">{block.title}</h4>
+                                        <p className="text-texte-secondaire">{block.text}</p>
                                     </div>
                                 </div>
                             ))}
@@ -49,21 +49,21 @@ export default function CvExperiences() {
 
             <div className="space-y-6">
                 <div>
-                    <h3 className="text-xl font-semibold text-texte">{PREMIERES_EXPERIENCES.titre}</h3>
+                    <h3 className="text-xl font-semibold text-texte">{EARLY_CAREER.title}</h3>
                     <p className="text-sm text-texte-secondaire">
-                        {PREMIERES_EXPERIENCES.note}
+                        {EARLY_CAREER.note}
                     </p>
                 </div>
-                {PARCOURS_TECHNIQUE.map((poste) => (
-                    <div key={poste.titre} className="flex items-start space-x-4">
+                {TECHNICAL_ROLES.map((role) => (
+                    <div key={role.title} className="flex items-start space-x-4">
                         <div className="p-2 rounded">
                             <span className="text-2xl" aria-hidden="true">🧪</span>
                         </div>
                         <div>
-                            <h4 className="text-lg font-semibold text-texte-secondaire">{poste.titre}</h4>
-                            <p className="text-sm text-texte-secondaire">{poste.periode}</p>
-                            <p className="text-texte-secondaire">{poste.texte}</p>
-                            <Stack outils={poste.outils} />
+                            <h4 className="text-lg font-semibold text-texte-secondaire">{role.title}</h4>
+                            <p className="text-sm text-texte-secondaire">{role.period}</p>
+                            <p className="text-texte-secondaire">{role.text}</p>
+                            <Stack tools={role.tools} />
                         </div>
                     </div>
                 ))}
