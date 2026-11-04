@@ -14,10 +14,12 @@ test.describe('Page Accueil', () => {
         await expect(accroche).toBeVisible();
     });
 
-    test('les 4 cartes de services sont affichées', async ({ page }) => {
+    test('les 6 cartes de services sont affichées', async ({ page }) => {
         await expect(page.getByRole('link', { name: /Stratégie QA/i })).toBeVisible();
-        await expect(page.getByRole('link', { name: /Tests automatisés/i })).toBeVisible();
+        await expect(page.getByRole('link', { name: /Industrialisation des tests/i })).toBeVisible();
         await expect(page.getByRole('link', { name: /CI\/CD/i })).toBeVisible();
+        await expect(page.locator('a[href="/services#ia"]')).toContainText('IA');
+        await expect(page.getByRole('link', { name: /Formation & coaching/i })).toBeVisible();
         await expect(page.getByRole('link', { name: /Accompagnement/i })).toBeVisible();
     });
 
