@@ -1,56 +1,88 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Check, ChevronLeft, ChevronRight } from 'lucide-react';
 
+// Chaque service : une accroche (le bénéfice) puis quelques points concrets
 const services = [
         {
             id: 'strategie',
             icon: '🎯',
             color: 'text-brand-primary',
             title: 'Stratégie QA & gouvernance',
-            description:
-                "Je pose le cadre qualité de votre organisation : audit de maturité (processus, équipes, outillage), stratégie et roadmap QA alignées sur vos enjeux produit, gouvernance et rituels de pilotage. Je mets en place des KPI suivis par la direction — taux de fuite des anomalies, couverture, délais de recette, stabilité de la CI — et le ROI de l'automatisation pour arbitrer les investissements.",
+            accroche: 'Un cadre qualité clair, piloté par les chiffres.',
+            points: [
+                'Audit de maturité : processus, équipes, outillage',
+                'Stratégie et roadmap QA alignées sur vos enjeux produit',
+                'Gouvernance et rituels de pilotage',
+                "KPI suivis par la direction et ROI de l'automatisation",
+            ],
         },
         {
             id: 'tests',
             icon: '🧪',
             color: 'text-brand-tertiary',
             title: 'Industrialisation des tests',
-            description:
-                "J'industrialise votre démarche de test de bout en bout : référentiel et campagnes de tests manuels structurés (Xray), automatisation E2E, API et performance (Playwright, Cypress, K6, Postman) là où le retour sur investissement est réel, et TNR fiabilisée pour livrer plus vite et plus sereinement.",
+            accroche: "Des tests fiables, du manuel à l'automatisé.",
+            points: [
+                'Référentiel et campagnes de tests manuels structurés (Xray)',
+                'Automatisation E2E, API et performance (Playwright, Cypress, K6, Postman) là où le ROI est réel',
+                'Tests de sécurité : en-têtes HTTP, XSS, robustesse des API',
+                'Validation de design system : chaque composant vérifié contre la charte (typographies, couleurs, espacements, accessibilité)',
+                'TNR fiabilisée pour livrer plus vite et plus sereinement',
+            ],
         },
         {
             id: 'qaops',
             icon: '⚙️',
             color: 'text-brand-primary',
             title: 'CI/CD & QAOps',
-            description:
-                "Je connecte vos tests aux pipelines (GitHub Actions, GitLab CI, Bitbucket Pipelines) pour qu'ils tournent à chaque changement, avec des contrôles de non-régression et de sécurité. Développeurs et PO s'approprient la qualité : elle devient une étape naturelle du delivery, et non un goulot d'étranglement en fin de sprint.",
+            accroche: 'La qualité intégrée à chaque livraison.',
+            points: [
+                'Vos tests branchés sur les pipelines (GitHub Actions, GitLab CI, Bitbucket Pipelines), à chaque changement',
+                'Contrôles de non-régression et de sécurité automatiques',
+                'Développeurs et PO acteurs de la qualité',
+                "Fini le goulot d'étranglement en fin de sprint",
+            ],
         },
         {
             id: 'ia',
             icon: '🤖',
             color: 'text-brand-tertiary',
             title: 'IA',
-            description:
-                "J'intègre l'IA générative dans vos équipes et vos outils : agents sur mesure (Anthropic Claude), automatisation de tâches, assistance au développement et aux tests. Exemple concret : des agents qui challengent les tickets Jira pour en dériver critères d'acceptation et scénarios Gherkin. Je vous aide à cibler les cas d'usage qui apportent un vrai gain et à les déployer avec des garde-fous.",
+            accroche: "L'IA générative au service de vos équipes.",
+            points: [
+                'Agents sur mesure (Anthropic Claude) et automatisation de tâches',
+                "Critères d'acceptation et scénarios Gherkin générés depuis vos tickets Jira",
+                'Assistance au développement, aux tests et au débogage',
+                "Cas d'usage ciblés, déployés avec des garde-fous",
+            ],
         },
         {
             id: 'formation',
             icon: '🎓',
             color: 'text-brand-primary',
             title: 'Formation & coaching',
-            description:
-                "Je forme et coache les équipes pour qu'elles deviennent autonomes : coaching d'équipe au quotidien, formations à l'automatisation des tests, au QAOps et à la CI/CD, et à l'IA. J'adapte le contenu à chaque public — QA et testeurs, développeurs et PO, managers et direction — et j'interviens aussi en écoles et organismes de formation.",
+            accroche: 'Des équipes autonomes sur la qualité.',
+            points: [
+                "Coaching d'équipe au quotidien",
+                'Formations : automatisation des tests, QAOps et CI/CD, IA',
+                'Contenus adaptés : QA, développeurs et PO, managers et direction',
+                'Interventions en écoles et organismes de formation',
+            ],
         },
         {
             id: 'accompagnement',
             icon: '🧭',
             color: 'text-brand-tertiary',
             title: 'Accompagnement Head of QA',
-            description:
-                "Pas encore de responsable QA, ou besoin d'un renfort ? J'interviens comme Head of QA à temps partagé : structuration ou création de l'équipe, recrutement, objectifs et entretiens annuels, pilotage des prestataires et du budget qualité, représentation de la qualité en comité de direction. L'objectif : une équipe autonome et une qualité durable.",
+            accroche: 'Un Head of QA à temps partagé, sans recrutement.',
+            points: [
+                "Structuration ou création de l'équipe QA",
+                'Recrutement, objectifs et entretiens annuels',
+                'Pilotage des prestataires et du budget qualité',
+                'La qualité représentée en comité de direction',
+            ],
         },
 ];
 
@@ -88,7 +120,7 @@ export default function Services() {
                     </p>
                 </div>
 
-                <div className="w-full max-w-[600px] flex items-center justify-center gap-2 sm:gap-4">
+                <div className="w-full max-w-[980px] flex flex-wrap sm:flex-nowrap items-center justify-center gap-4">
                     <button
                         onClick={() => setCurrentSlide((prev) => (prev === 0 ? services.length - 1 : prev - 1))}
                         className="shrink-0 p-2.5 bg-white/80 rounded-full shadow-md hover:bg-white cursor-pointer"
@@ -99,17 +131,27 @@ export default function Services() {
                     <div
                         key={services[currentSlide].id}
                         id={services[currentSlide].id}
-                        className="cursor-default bg-white/90 rounded-xl p-5 sm:p-8 shadow-lg hover:shadow-xl text-center space-y-4 flex-1 min-w-0 max-w-[500px] transition-all duration-500 ease-in-out opacity-0 animate-fade-in"
+                        className="cursor-default bg-white/90 rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl basis-full sm:basis-auto order-last sm:order-none flex-1 min-w-0 max-w-[860px] flex flex-col transition-all duration-500 ease-in-out opacity-0 animate-fade-in"
                     >
-                        <div className={`text-5xl ${services[currentSlide].color}`}>
-                            {services[currentSlide].icon}
+                        {/* En-tête en haut de la carte : icône et titre, un filet ocre, puis l'accroche */}
+                        <div className="text-center">
+                            <span className="block text-4xl sm:text-5xl" aria-hidden="true">{services[currentSlide].icon}</span>
+                            <h3 className={`mt-2 text-xl sm:text-2xl font-bold ${services[currentSlide].color}`}>
+                                {services[currentSlide].title}
+                            </h3>
+                            <span className="block mx-auto my-3 h-1 w-12 rounded-full bg-brand-secondary" aria-hidden="true" />
+                            <p className="text-texte-secondaire font-medium">{services[currentSlide].accroche}</p>
                         </div>
-                        <h3 className={`text-2xl font-bold ${services[currentSlide].color}`}>
-                            {services[currentSlide].title}
-                        </h3>
-                        <p className="text-texte-secondaire text-base">
-                            {services[currentSlide].description}
-                        </p>
+
+                        <ul className="mt-10 space-y-2.5 text-left">
+                            {services[currentSlide].points.map((point) => (
+                                <li key={point} className="flex items-start gap-2.5 text-texte">
+                                    <Check className="w-5 h-5 shrink-0 mt-0.5 text-brand-tertiary" aria-hidden="true" />
+                                    <span>{point}</span>
+                                </li>
+                            ))}
+                        </ul>
+
                     </div>
 
                     <button

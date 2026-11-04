@@ -45,7 +45,7 @@ export default function Home() {
                     >
                         <span className="text-4xl mb-2">🧪</span>
                         <h3 className="font-bold text-lg">Industrialisation des tests</h3>
-                        <p className="text-sm text-texte-secondaire mt-1">Manuels, automatisés, TNR</p>
+                        <p className="text-sm text-texte-secondaire mt-1">Manuels, automatisés, sécurité, design system</p>
                     </Link>
 
                     <Link
