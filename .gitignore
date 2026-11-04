@@ -13,6 +13,12 @@
 # testing
 /coverage
 
+# playwright (résultats et rapports générés à chaque run)
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
 # next.js
 /.next/
 /out/
@@ -39,3 +45,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# consignes et config locales de Claude Code (non publiées, dépôt public)
+CLAUDE.md
+/.claude/
