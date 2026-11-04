@@ -1,6 +1,6 @@
 // Génère le CV PDF (A4) à partir du même contenu que la page /cv.
 // Usage : npm run cv:pdf   →   public/documents/CV_Mehdi_Tassi_Head_of_QA.pdf
-import { readFileSync, writeFileSync } from 'node:fs';
+import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { chromium } from '@playwright/test';
@@ -21,8 +21,6 @@ import {
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUTPUT_PATH = path.join(ROOT, 'public/documents/CV_Mehdi_Tassi_Head_of_QA.pdf');
-const LOGO = readFileSync(path.join(ROOT, 'public/images/kaliops-logo-horizontal.svg'), 'utf8')
-    .replace(/<\?xml[^>]*>\s*/, '');
 
 // Couleurs de la charte (src/app/globals.css)
 const C = {
@@ -88,9 +86,8 @@ const html = `<!doctype html>
     body { font-family: 'Jost', sans-serif; font-size: 8pt; line-height: 1.22; color: ${C.black}; }
     h1, h2, h3 { font-family: 'Signika Negative', sans-serif; color: ${C.petrol}; }
 
-    .page-header { display: flex; align-items: center; justify-content: space-between; padding: 6.5mm 12mm 3mm; border-bottom: 3px solid ${C.ochre}; }
-    .page-header svg { height: 12mm; width: auto; }
-    .identity { text-align: right; }
+    .page-header { padding: 6.5mm 12mm 3mm; border-bottom: 3px solid ${C.ochre}; }
+    .identity { text-align: left; }
     .identity h1 { font-size: 20pt; line-height: 1.1; }
     .identity .title { font-family: 'Signika Negative', sans-serif; font-weight: 700; font-size: 13pt; color: ${C.copper}; }
     .identity .contact { font-size: 8.2pt; color: ${C.green}; margin-top: 0.4mm; }
@@ -127,7 +124,6 @@ const html = `<!doctype html>
 </head>
 <body>
     <div class="page-header">
-        ${LOGO}
         <div class="identity">
             <h1>${CONTACT.name}</h1>
             <p class="title">${escapeText(INTRO.title)}</p>
