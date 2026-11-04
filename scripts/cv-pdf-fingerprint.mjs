@@ -6,7 +6,6 @@ import path from 'node:path';
 export const CV_PDF_SOURCES = [
     'src/data/cv.mjs',
     'scripts/generate-cv-pdf.mjs',
-    'public/images/kaliops-logo-horizontal.svg',
 ];
 
 export const FINGERPRINT_FILE = 'scripts/cv-pdf.fingerprint';
