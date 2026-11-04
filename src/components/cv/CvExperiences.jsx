@@ -1,6 +1,7 @@
-import { POSTES_MANAGEMENT, PARCOURS_TECHNIQUE } from '@/data/cv.mjs';
+import { POSTES_MANAGEMENT, PARCOURS_TECHNIQUE, PREMIERES_EXPERIENCES } from '@/data/cv.mjs';
 
 function Stack({ outils }) {
+    if (outils.length === 0) return null;
     return (
         <p className="text-sm text-texte-secondaire mt-1">
             <span className="font-semibold">Stack :</span> {outils.join(' · ')}
@@ -48,9 +49,9 @@ export default function CvExperiences() {
 
             <div className="space-y-6">
                 <div>
-                    <h3 className="text-xl font-semibold text-texte">Parcours technique · 2015 – 2018</h3>
+                    <h3 className="text-xl font-semibold text-texte">{PREMIERES_EXPERIENCES.titre}</h3>
                     <p className="text-sm text-texte-secondaire">
-                        L&apos;expertise en automatisation qui fonde mon approche du management de la qualité.
+                        {PREMIERES_EXPERIENCES.note}
                     </p>
                 </div>
                 {PARCOURS_TECHNIQUE.map((poste) => (
