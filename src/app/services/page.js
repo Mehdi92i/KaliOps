@@ -25,8 +25,8 @@ const services = [
             title: 'Industrialisation des tests',
             accroche: "Des tests fiables, du manuel à l'automatisé.",
             points: [
-                'Référentiel et campagnes de tests manuels structurés (Xray)',
-                'Automatisation E2E, API et performance (Playwright, Cypress, K6, Postman) là où le ROI est réel',
+                'Référentiel et campagnes de tests manuels structurés',
+                'Automatisation E2E, API et performance là où le ROI est réel',
                 'Tests de sécurité : en-têtes HTTP, XSS, robustesse des API',
                 'Validation de design system : chaque composant vérifié contre la charte (typographies, couleurs, espacements, accessibilité)',
                 'TNR fiabilisée pour livrer plus vite et plus sereinement',
@@ -39,7 +39,7 @@ const services = [
             title: 'CI/CD & QAOps',
             accroche: 'La qualité intégrée à chaque livraison.',
             points: [
-                'Vos tests branchés sur les pipelines (GitHub Actions, GitLab CI, Bitbucket Pipelines), à chaque changement',
+                'Vos tests branchés sur les pipelines, à chaque changement',
                 'Contrôles de non-régression et de sécurité automatiques',
                 'Développeurs et PO acteurs de la qualité',
                 "Fini le goulot d'étranglement en fin de sprint",
@@ -52,7 +52,7 @@ const services = [
             title: 'IA',
             accroche: "L'IA générative au service de vos équipes.",
             points: [
-                'Agents sur mesure (Anthropic Claude) et automatisation de tâches',
+                'Agents sur mesure et automatisation de tâches',
                 "Critères d'acceptation et scénarios Gherkin générés depuis vos tickets Jira",
                 'Assistance au développement, aux tests et au débogage',
                 "Cas d'usage ciblés, déployés avec des garde-fous",
