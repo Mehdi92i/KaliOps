@@ -39,11 +39,11 @@ test.describe('Page CV', () => {
 
     test('Cypress est mentionné dans les outils', async ({ page }) => {
         // Cypress apparaît aussi dans la stack des expériences : on cible la section Outils techniques
-        const sectionOutils = page
+        const toolsSection = page
             .locator('div')
             .filter({ has: page.getByRole('heading', { name: /Outils techniques/i }) })
             .last();
-        await expect(sectionOutils.getByText(/Cypress/)).toBeVisible();
+        await expect(toolsSection.getByText(/Cypress/)).toBeVisible();
     });
 
     test('la section Loisirs est visible', async ({ page }) => {

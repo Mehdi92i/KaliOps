@@ -94,7 +94,7 @@ export default function ContactForm() {
                         <option value="conseil">Conseil stratégique</option>
                         <option value="audit">Audit qualité</option>
                         <option value="automatisation">Automatisation des tests</option>
-                        <option value="coaching">Coaching d'équipe QA</option>
+                        <option value="coaching">Coaching d&apos;équipe QA</option>
                         <option value="formation">Formation / sensibilisation</option>
                         <option value="autre">Autre</option>
                     </select>

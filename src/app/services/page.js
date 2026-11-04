@@ -10,7 +10,7 @@ const services = [
             icon: '🎯',
             color: 'text-brand-primary',
             title: 'Stratégie QA & gouvernance',
-            accroche: 'Un cadre qualité clair, piloté par les chiffres.',
+            tagline: 'Un cadre qualité clair, piloté par les chiffres.',
             points: [
                 'Audit de maturité : processus, équipes, outillage',
                 'Stratégie et roadmap QA alignées sur vos enjeux produit',
@@ -23,7 +23,7 @@ const services = [
             icon: '🧪',
             color: 'text-brand-tertiary',
             title: 'Industrialisation des tests',
-            accroche: "Des tests fiables, du manuel à l'automatisé.",
+            tagline: "Des tests fiables, du manuel à l'automatisé.",
             points: [
                 'Référentiel et campagnes de tests manuels structurés',
                 'Automatisation E2E, API et performance là où le ROI est réel',
@@ -37,7 +37,7 @@ const services = [
             icon: '⚙️',
             color: 'text-brand-primary',
             title: 'CI/CD & QAOps',
-            accroche: 'La qualité intégrée à chaque livraison.',
+            tagline: 'La qualité intégrée à chaque livraison.',
             points: [
                 'Vos tests branchés sur les pipelines, à chaque changement',
                 'Contrôles de non-régression et de sécurité automatiques',
@@ -50,7 +50,7 @@ const services = [
             icon: '🤖',
             color: 'text-brand-tertiary',
             title: 'IA',
-            accroche: "L'IA générative au service de vos équipes.",
+            tagline: "L'IA générative au service de vos équipes.",
             points: [
                 'Agents sur mesure et automatisation de tâches',
                 "Critères d'acceptation et scénarios Gherkin générés depuis vos tickets Jira",
@@ -63,7 +63,7 @@ const services = [
             icon: '🎓',
             color: 'text-brand-primary',
             title: 'Formation & coaching',
-            accroche: 'Des équipes autonomes sur la qualité.',
+            tagline: 'Des équipes autonomes sur la qualité.',
             points: [
                 "Coaching d'équipe au quotidien",
                 'Formations : automatisation des tests, QAOps et CI/CD, IA',
@@ -76,7 +76,7 @@ const services = [
             icon: '🧭',
             color: 'text-brand-tertiary',
             title: 'Accompagnement Head of QA',
-            accroche: 'Un Head of QA à temps partagé, sans recrutement.',
+            tagline: 'Un Head of QA à temps partagé, sans recrutement.',
             points: [
                 "Structuration ou création de l'équipe QA",
                 'Recrutement, objectifs et entretiens annuels',
@@ -94,6 +94,8 @@ export default function Services() {
         if (hash) {
             const target = hash.substring(1);
             const index = services.findIndex((s) => s.id === target);
+            // Synchronisation avec l'ancre de l'URL (#ia…), lisible seulement après le montage
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             if (index !== -1) setCurrentSlide(index);
             const element = document.getElementById(target);
             if (element) {
@@ -140,7 +142,7 @@ export default function Services() {
                                 {services[currentSlide].title}
                             </h3>
                             <span className="block mx-auto my-3 h-1 w-12 rounded-full bg-brand-secondary" aria-hidden="true" />
-                            <p className="text-texte-secondaire font-medium">{services[currentSlide].accroche}</p>
+                            <p className="text-texte-secondaire font-medium">{services[currentSlide].tagline}</p>
                         </div>
 
                         <ul className="mt-10 space-y-2.5 text-left">

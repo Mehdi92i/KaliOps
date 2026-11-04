@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 // Palette de la charte KaliOps (voir CLAUDE.md et src/app/globals.css)
-const CHARTE = {
+const BRAND_PALETTE = {
     '--kali-petrole': '#174449',
     '--kali-ocre': '#dd9222',
     '--kali-vert': '#405643',
@@ -11,29 +11,29 @@ const CHARTE = {
     '--kali-blanc': '#ffffff',
 };
 
-const OCRE = 'rgb(221, 146, 34)';
-const CUIVRE = 'rgb(186, 117, 28)';
+const OCHRE = 'rgb(221, 146, 34)';
+const COPPER = 'rgb(186, 117, 28)';
 
 test.describe('Design system – tokens de la charte', () => {
     test('les couleurs --kali-* ont les valeurs de la charte', async ({ page }) => {
         await page.goto('/');
         // On compare les couleurs calculées (rgb) : le CSS compilé peut abréger #ffffff en #fff
-        const couleurs = await page.evaluate((charte) => {
-            const sonde = document.createElement('div');
-            document.body.appendChild(sonde);
-            const resultat = {};
-            for (const [token, attendue] of Object.entries(charte)) {
-                sonde.style.color = `var(${token})`;
-                const actuelle = getComputedStyle(sonde).color;
-                sonde.style.color = attendue;
-                resultat[token] = { actuelle, attendue: getComputedStyle(sonde).color };
+        const colors = await page.evaluate((palette) => {
+            const probe = document.createElement('div');
+            document.body.appendChild(probe);
+            const result = {};
+            for (const [token, expected] of Object.entries(palette)) {
+                probe.style.color = `var(${token})`;
+                const actual = getComputedStyle(probe).color;
+                probe.style.color = expected;
+                result[token] = { actual, expected: getComputedStyle(probe).color };
             }
-            sonde.remove();
-            return resultat;
-        }, CHARTE);
+            probe.remove();
+            return result;
+        }, BRAND_PALETTE);
 
-        for (const [token, { actuelle, attendue }] of Object.entries(couleurs)) {
-            expect(actuelle, token).toBe(attendue);
+        for (const [token, { actual, expected }] of Object.entries(colors)) {
+            expect(actual, token).toBe(expected);
         }
     });
 
@@ -49,8 +49,8 @@ test.describe('Design system – tokens de la charte', () => {
 test.describe('Design system – couleurs de marque', () => {
     test('le header affiche le logo horizontal de la charte', async ({ page }) => {
         await page.goto('/');
-        const lien = page.locator('header a[href="/"]').first();
-        const logo = lien.locator('img[src*="kaliops-logo-horizontal.svg"]');
+        const link = page.locator('header a[href="/"]').first();
+        const logo = link.locator('img[src*="kaliops-logo-horizontal.svg"]');
 
         await expect(logo).toBeVisible();
         // Image réellement chargée (pas d'icône cassée)
@@ -62,26 +62,26 @@ test.describe('Design system – couleurs de marque', () => {
 
     test('le SVG du logo utilise uniquement les couleurs de la charte', async ({ request }) => {
         const svg = await (await request.get('/images/kaliops-logo-horizontal.svg')).text();
-        const couleurs = [...new Set(svg.match(/#[0-9a-fA-F]{6}\b/g).map((c) => c.toLowerCase()))];
-        for (const couleur of couleurs) {
-            expect(Object.values(CHARTE), couleur).toContain(couleur);
+        const colors = [...new Set(svg.match(/#[0-9a-fA-F]{6}\b/g).map((c) => c.toLowerCase()))];
+        for (const color of colors) {
+            expect(Object.values(BRAND_PALETTE), color).toContain(color);
         }
     });
 
-    const ACCENTS = [
+    const ACCENT_COLORS = [
         { path: '/', mots: ['qualité', 'delivery'] },
         { path: '/services', mots: ['services'] },
         { path: '/contact', mots: ['collaborer'] },
         { path: '/cv', mots: ['Vitae'] },
     ];
 
-    for (const { path, mots } of ACCENTS) {
+    for (const { path, mots } of ACCENT_COLORS) {
         test(`le titre de ${path} met en valeur ${mots.join(' / ')} en cuivre`, async ({ page }) => {
             await page.goto(path);
             const h1 = page.getByRole('heading', { level: 1 });
-            for (const mot of mots) {
-                const couleur = await h1.locator('span', { hasText: mot }).evaluate((el) => getComputedStyle(el).color);
-                expect(couleur, mot).toBe(CUIVRE);
+            for (const word of mots) {
+                const color = await h1.locator('span', { hasText: word }).evaluate((el) => getComputedStyle(el).color);
+                expect(color, word).toBe(COPPER);
             }
         });
     }
@@ -93,43 +93,43 @@ test.describe('Design system – règle de contraste (CLAUDE.md)', () => {
     for (const path of ['/', '/services', '/cv', '/contact']) {
         test(`aucun petit texte ocre ou cuivre sur ${path}`, async ({ page }) => {
             await page.goto(path);
-            const fautifs = await page.evaluate(({ ocre, cuivre }) => {
-                const resultat = [];
+            const offenders = await page.evaluate(({ ochre, copper }) => {
+                const result = [];
                 for (const el of document.querySelectorAll('body *')) {
-                    const texte = [...el.childNodes]
+                    const text = [...el.childNodes]
                         .filter((n) => n.nodeType === Node.TEXT_NODE)
                         .map((n) => n.textContent.trim())
                         .join('');
-                    if (!texte) continue;
+                    if (!text) continue;
                     const style = getComputedStyle(el);
-                    if (style.color !== ocre && style.color !== cuivre) continue;
-                    const taille = parseFloat(style.fontSize);
-                    const gras = parseInt(style.fontWeight, 10) >= 700;
-                    const grosTexte = taille >= 24 || (gras && taille >= 18.66);
-                    if (!grosTexte) resultat.push(`« ${texte.slice(0, 30)} » (${taille}px)`);
+                    if (style.color !== ochre && style.color !== copper) continue;
+                    const size = parseFloat(style.fontSize);
+                    const isBold = parseInt(style.fontWeight, 10) >= 700;
+                    const isLargeText = size >= 24 || (isBold && size >= 18.66);
+                    if (!isLargeText) result.push(`« ${text.slice(0, 30)} » (${size}px)`);
                 }
-                return resultat;
-            }, { ocre: OCRE, cuivre: CUIVRE });
+                return result;
+            }, { ochre: OCHRE, copper: COPPER });
 
-            expect(fautifs, fautifs.join(', ')).toEqual([]);
+            expect(offenders, offenders.join(', ')).toEqual([]);
         });
 
         test(`aucun texte blanc sur fond ocre ou cuivre sur ${path}`, async ({ page }) => {
             await page.goto(path);
             // Blanc sur ocre : 2,6:1. La charte impose du texte noir sur l'ocre (7,82:1).
-            const fautifs = await page.evaluate(({ ocre, cuivre }) => {
-                const blanc = 'rgb(255, 255, 255)';
+            const offenders = await page.evaluate(({ ochre, copper }) => {
+                const white = 'rgb(255, 255, 255)';
                 return [...document.querySelectorAll('body *')]
                     .filter((el) => {
                         const style = getComputedStyle(el);
-                        return [ocre, cuivre].includes(style.backgroundColor)
-                            && style.color === blanc
+                        return [ochre, copper].includes(style.backgroundColor)
+                            && style.color === white
                             && el.textContent.trim() !== '';
                     })
                     .map((el) => `« ${el.textContent.trim().slice(0, 30)} »`);
-            }, { ocre: OCRE, cuivre: CUIVRE });
+            }, { ochre: OCHRE, copper: COPPER });
 
-            expect(fautifs, fautifs.join(', ')).toEqual([]);
+            expect(offenders, offenders.join(', ')).toEqual([]);
         });
     }
 });
@@ -139,60 +139,60 @@ test.describe('Design system – forme des boutons', () => {
     for (const path of ['/', '/services', '/cv', '/contact']) {
         test(`les boutons de ${path} sont entièrement arrondis`, async ({ page }) => {
             await page.goto(path);
-            const fautifs = await page.evaluate(() => {
-                const estBouton = (el) => {
+            const offenders = await page.evaluate(() => {
+                const isButton = (el) => {
                     const style = getComputedStyle(el);
                     const rect = el.getBoundingClientRect();
-                    const fondVisible = style.backgroundColor !== 'rgba(0, 0, 0, 0)';
+                    const visibleBackground = style.backgroundColor !== 'rgba(0, 0, 0, 0)';
                     // Les cartes cliquables (services de l'accueil) sont plus hautes qu'un bouton
                     return rect.width > 0 && rect.height > 0 && rect.height < 70
-                        && (el.tagName === 'BUTTON' || fondVisible);
+                        && (el.tagName === 'BUTTON' || visibleBackground);
                 };
                 return [...document.querySelectorAll('button, a')]
-                    .filter(estBouton)
+                    .filter(isButton)
                     .filter((el) => {
-                        const rayon = parseFloat(getComputedStyle(el).borderTopLeftRadius);
-                        return rayon < el.getBoundingClientRect().height / 2 - 1;
+                        const radius = parseFloat(getComputedStyle(el).borderTopLeftRadius);
+                        return radius < el.getBoundingClientRect().height / 2 - 1;
                     })
                     .map((el) => `« ${el.textContent.trim().slice(0, 30) || el.getAttribute('title') || el.tagName} »`);
             });
 
-            expect(fautifs, fautifs.join(', ')).toEqual([]);
+            expect(offenders, offenders.join(', ')).toEqual([]);
         });
     }
 });
 
 test.describe('Design system – pas de couleur en dur dans le code', () => {
     // Toutes les couleurs passent par les tokens de src/app/globals.css (règle CLAUDE.md)
-    const PALETTE_TAILWIND = /\b(?:text|bg|border|from|via|to|ring|fill|stroke|outline|divide|decoration|placeholder|shadow)-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-\d{2,3}\b|\b(?:text|bg|border)-black\b/g;
+    const TAILWIND_PALETTE = /\b(?:text|bg|border|from|via|to|ring|fill|stroke|outline|divide|decoration|placeholder|shadow)-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-\d{2,3}\b|\b(?:text|bg|border)-black\b/g;
     // (?<!&) : ignore les entités HTML comme &#039;
-    const HEXA = /(?<!&)#(?:[0-9a-fA-F]{6}|[0-9a-fA-F]{3})\b/g;
+    const HEX = /(?<!&)#(?:[0-9a-fA-F]{6}|[0-9a-fA-F]{3})\b/g;
 
     test('les composants n\'utilisent ni couleur Tailwind par défaut ni code hexadécimal', async () => {
         const fs = await import('node:fs');
         const path = await import('node:path');
 
-        const fichiers = [];
-        const parcourir = (dossier) => {
-            for (const entree of fs.readdirSync(dossier, { withFileTypes: true })) {
-                const chemin = path.join(dossier, entree.name);
-                if (entree.isDirectory()) parcourir(chemin);
-                else if (/\.(jsx?|tsx?)$/.test(entree.name)) fichiers.push(chemin);
+        const files = [];
+        const walk = (dir) => {
+            for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+                const filePath = path.join(dir, entry.name);
+                if (entry.isDirectory()) walk(filePath);
+                else if (/\.(jsx?|tsx?)$/.test(entry.name)) files.push(filePath);
             }
         };
-        parcourir(path.join(process.cwd(), 'src'));
+        walk(path.join(process.cwd(), 'src'));
 
-        const fautes = [];
-        for (const fichier of fichiers) {
-            fs.readFileSync(fichier, 'utf8').split('\n').forEach((ligne, i) => {
-                for (const motif of [PALETTE_TAILWIND, HEXA]) {
-                    for (const trouve of ligne.match(motif) ?? []) {
-                        fautes.push(`${path.relative(process.cwd(), fichier)}:${i + 1} ${trouve}`);
+        const violations = [];
+        for (const file of files) {
+            fs.readFileSync(file, 'utf8').split('\n').forEach((ligne, i) => {
+                for (const pattern of [TAILWIND_PALETTE, HEX]) {
+                    for (const found of ligne.match(pattern) ?? []) {
+                        violations.push(`${path.relative(process.cwd(), file)}:${i + 1} ${found}`);
                     }
                 }
             });
         }
 
-        expect(fautes, fautes.join('\n')).toEqual([]);
+        expect(violations, violations.join('\n')).toEqual([]);
     });
 });

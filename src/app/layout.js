@@ -1,6 +1,7 @@
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer'; // ➔ on importe ton Footer
+import Footer from '@/components/Footer';
 
 export const metadata = {
     title: 'KaliOps · Mehdi Tassi — Head of QA & conseil qualité logicielle',
@@ -30,6 +31,8 @@ export default function RootLayout({ children }) {
             {children}
         </main>
         <Footer />
+        {/* Vercel Web Analytics : visites et pages vues, sans cookies (plan Hobby gratuit) */}
+        <Analytics />
         </body>
         </html>
     );

@@ -49,15 +49,15 @@ test.describe('Responsive – header mobile', () => {
     test('les zones tactiles du header font au moins 44px', async ({ page }) => {
         await page.goto('/');
         const header = page.locator('header');
-        const cibles = [
+        const targets = [
             page.getByRole('button', { name: /chasser un bug/i }),
             header.locator('a[href*="linkedin.com"]'),
             header.locator('a[href="/services"]'),
             header.locator('a[href="/cv"]'),
             header.locator('a[href="/contact"]'),
         ];
-        for (const cible of cibles) {
-            const { height } = await cible.boundingBox();
+        for (const target of targets) {
+            const { height } = await target.boundingBox();
             expect(height).toBeGreaterThanOrEqual(44);
         }
     });
@@ -74,9 +74,9 @@ test.describe('Responsive – desktop', () => {
 
     test('Contact affiche le titre et le formulaire côte à côte', async ({ page }) => {
         await page.goto('/contact');
-        const titre = await page.getByRole('heading', { level: 1 }).boundingBox();
-        const formulaire = await page.locator('form').boundingBox();
-        expect(formulaire.x).toBeGreaterThan(titre.x + titre.width);
+        const title = await page.getByRole('heading', { level: 1 }).boundingBox();
+        const formBox = await page.locator('form').boundingBox();
+        expect(formBox.x).toBeGreaterThan(title.x + title.width);
     });
 });
 
@@ -84,9 +84,9 @@ test.describe('Responsive – mise en page', () => {
     test('Contact empile le titre et le formulaire en mobile', async ({ page }) => {
         await page.setViewportSize({ width: 375, height: 812 });
         await page.goto('/contact');
-        const titre = await page.getByRole('heading', { level: 1 }).boundingBox();
-        const formulaire = await page.locator('form').boundingBox();
-        expect(formulaire.y).toBeGreaterThan(titre.y + titre.height);
+        const title = await page.getByRole('heading', { level: 1 }).boundingBox();
+        const formBox = await page.locator('form').boundingBox();
+        expect(formBox.y).toBeGreaterThan(title.y + title.height);
     });
 
     test('Services est centrée verticalement sur grand écran', async ({ page }) => {
@@ -94,12 +94,12 @@ test.describe('Responsive – mise en page', () => {
         await page.goto('/services');
         const header = await page.locator('header').boundingBox();
         const footer = await page.locator('footer').boundingBox();
-        const titre = await page.getByRole('heading', { level: 1 }).boundingBox();
+        const title = await page.getByRole('heading', { level: 1 }).boundingBox();
         const cta = await page.getByRole('link', { name: /me contacter/i }).last().boundingBox();
 
-        const espaceHaut = titre.y - (header.y + header.height);
-        const espaceBas = footer.y - (cta.y + cta.height);
+        const topGap = title.y - (header.y + header.height);
+        const bottomGap = footer.y - (cta.y + cta.height);
         // Tolérance : marges internes du bloc titre et marge au-dessus du footer
-        expect(Math.abs(espaceHaut - espaceBas)).toBeLessThanOrEqual(120);
+        expect(Math.abs(topGap - bottomGap)).toBeLessThanOrEqual(120);
     });
 });
