@@ -8,17 +8,17 @@ const services = [
             id: 'strategie',
             icon: '🎯',
             color: 'text-brand-primary',
-            title: 'Stratégie QA & KPI',
+            title: 'Stratégie QA & gouvernance',
             description:
-                "Je commence par un audit de maturité QA : processus, couverture, outillage et organisation. J'en tire une stratégie et une roadmap qualité concrètes, puis je mets en place un pilotage data-driven : taux de fuite des anomalies, couverture et part automatisée, délais de recette, stabilité de la CI. Vous décidez sur des chiffres, ROI de l'automatisation compris.",
+                "Je pose le cadre qualité de votre organisation : audit de maturité (processus, équipes, outillage), stratégie et roadmap QA alignées sur vos enjeux produit, gouvernance et rituels de pilotage. Je mets en place des KPI suivis par la direction — taux de fuite des anomalies, couverture, délais de recette, stabilité de la CI — et le ROI de l'automatisation pour arbitrer les investissements.",
         },
         {
             id: 'tests',
             icon: '🧪',
             color: 'text-brand-tertiary',
-            title: 'Tests automatisés & IA',
+            title: 'Industrialisation des tests',
             description:
-                "Je conçois ou fais évoluer votre architecture de tests E2E, API et performance (Playwright, Cypress, K6, Postman), en automatisant là où le retour sur investissement est réel. J'y ajoute l'IA : des agents qui challengent les tickets Jira pour en tirer critères d'acceptation et scénarios Gherkin, et une assistance au débogage des tests.",
+                "J'industrialise votre démarche de test de bout en bout : référentiel et campagnes de tests manuels structurés (Xray), automatisation E2E, API et performance (Playwright, Cypress, K6, Postman) là où le retour sur investissement est réel, et TNR fiabilisée pour livrer plus vite et plus sereinement.",
         },
         {
             id: 'qaops',
@@ -29,12 +29,28 @@ const services = [
                 "Je connecte vos tests aux pipelines (GitHub Actions, GitLab CI, Bitbucket Pipelines) pour qu'ils tournent à chaque changement, avec des contrôles de non-régression et de sécurité. Développeurs et PO s'approprient la qualité : elle devient une étape naturelle du delivery, et non un goulot d'étranglement en fin de sprint.",
         },
         {
+            id: 'ia',
+            icon: '🤖',
+            color: 'text-brand-tertiary',
+            title: 'IA',
+            description:
+                "J'intègre l'IA générative dans vos équipes et vos outils : agents sur mesure (Anthropic Claude), automatisation de tâches, assistance au développement et aux tests. Exemple concret : des agents qui challengent les tickets Jira pour en dériver critères d'acceptation et scénarios Gherkin. Je vous aide à cibler les cas d'usage qui apportent un vrai gain et à les déployer avec des garde-fous.",
+        },
+        {
+            id: 'formation',
+            icon: '🎓',
+            color: 'text-brand-primary',
+            title: 'Formation & coaching',
+            description:
+                "Je forme et coache les équipes pour qu'elles deviennent autonomes : coaching d'équipe au quotidien, formations à l'automatisation des tests, au QAOps et à la CI/CD, et à l'IA. J'adapte le contenu à chaque public — QA et testeurs, développeurs et PO, managers et direction — et j'interviens aussi en écoles et organismes de formation.",
+        },
+        {
             id: 'accompagnement',
             icon: '🧭',
             color: 'text-brand-tertiary',
             title: 'Accompagnement Head of QA',
             description:
-                "Pas encore de responsable QA, ou besoin d'un renfort ? J'interviens comme Head of QA à temps partagé : structuration ou création de l'équipe, recrutement, coaching des QA, pilotage des prestataires et représentation de la qualité auprès de la direction. L'objectif : une équipe autonome et une qualité durable.",
+                "Pas encore de responsable QA, ou besoin d'un renfort ? J'interviens comme Head of QA à temps partagé : structuration ou création de l'équipe, recrutement, objectifs et entretiens annuels, pilotage des prestataires et du budget qualité, représentation de la qualité en comité de direction. L'objectif : une équipe autonome et une qualité durable.",
         },
 ];
 
@@ -66,8 +82,9 @@ export default function Services() {
                         <span className="text-kali-cuivre">services</span>
                     </h1>
                     <p className="text-lg md:text-xl text-texte-secondaire">
-                        J&apos;accompagne les équipes tech de la stratégie à l&apos;outillage : direction QA, pilotage par
-                        les KPI, automatisation, QAOps et IA. Voici comment je peux vous aider :
+                        J&apos;accompagne les organisations tech de la stratégie à l&apos;outillage : direction et gouvernance
+                        QA, pilotage par les KPI, formation des équipes, sans perdre le lien avec la technique —
+                        automatisation, QAOps et IA. Voici comment je peux vous aider :
                     </p>
                 </div>
 
@@ -105,7 +122,7 @@ export default function Services() {
 
                 <div className="pt-2 text-center space-y-4">
                     <p className="text-md md:text-lg text-white">
-                        Discutons de vos enjeux qualité : audit ponctuel, mission de Head of QA à temps partagé ou mise en place de votre automatisation.
+                        Discutons de vos enjeux qualité : audit ponctuel, Head of QA à temps partagé, formation de vos équipes ou mise en place de votre automatisation.
                     </p>
                     <a
                         href="/contact"
