@@ -1,11 +1,44 @@
 import Link from 'next/link';
 import RecommendationCarousel from '@/components/ui/RecommendationCarousel';
+import { SITE_URL, SITE_NAME, DEFAULT_TITLE, DEFAULT_DESCRIPTION, OG_IMAGE, pageMetadata } from '@/config/site.mjs';
+import { images, social } from '@/config/assets';
 
-// Titre, description et mots-clés : définis une seule fois dans layout.js pour tout le site
+export const metadata = pageMetadata({
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    path: '/',
+    absoluteTitle: true,
+});
+
+// Données structurées : indiquent à Google que KaliOps est un service de conseil porté par Mehdi Tassi
+const STRUCTURED_DATA = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: SITE_NAME,
+    url: SITE_URL,
+    description: DEFAULT_DESCRIPTION,
+    image: `${SITE_URL}${OG_IMAGE.url}`,
+    logo: `${SITE_URL}${images.logoHorizontal}`,
+    areaServed: 'FR',
+    sameAs: [social.linkedin],
+    knowsAbout: ['Stratégie QA', 'KPI qualité', 'Automatisation des tests', 'QAOps', 'IA appliquée aux tests', 'Formation QA'],
+    founder: {
+        '@type': 'Person',
+        name: 'Mehdi Tassi',
+        jobTitle: 'Head of QA',
+        url: `${SITE_URL}/cv`,
+        sameAs: [social.linkedin],
+    },
+};
 
 export default function Home() {
     return (
         <div className="relative w-full">
+            <script
+                type="application/ld+json"
+                // Contenu statique défini ci-dessus, aucune donnée utilisateur
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA) }}
+            />
             <div className="fixed inset-0 -z-10 page-gradient" />
 
             <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12 py-6 md:py-8 flex flex-col items-center space-y-8 md:space-y-10">

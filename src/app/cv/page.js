@@ -5,6 +5,14 @@ import CvSkills from '@/components/cv/CvSkills';
 import CvTools from '@/components/cv/CvTools';
 import CvLeisure from '@/components/cv/CvLeisure';
 import CvTravels from '@/components/cv/CvTravels';
+import { pageMetadata } from '@/config/site.mjs';
+
+export const metadata = pageMetadata({
+    title: 'CV de Mehdi Tassi, Head of QA',
+    description:
+        "10 ans de qualité logicielle, dont 7 à créer et diriger des équipes QA : expériences, compétences et outils. CV téléchargeable en PDF.",
+    path: '/cv',
+});
 
 export default function Cv() {
     return (

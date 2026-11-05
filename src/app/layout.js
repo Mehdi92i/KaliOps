@@ -2,11 +2,17 @@ import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { SITE_URL, SITE_NAME, DEFAULT_TITLE, DEFAULT_DESCRIPTION, pageMetadata } from '@/config/site.mjs';
 
 export const metadata = {
-    title: 'KaliOps · Mehdi Tassi — Head of QA & conseil qualité logicielle',
-    description:
-        'Mehdi Tassi, Head of QA : direction QA à temps partagé, stratégie et KPI qualité, formation des équipes, automatisation et QAOps, IA appliquée aux tests.',
+    // Base des URL relatives (canonical, Open Graph) : toujours le domaine officiel, y compris sur les déploiements de recette
+    metadataBase: new URL(SITE_URL),
+    // Aperçu de partage par défaut ; chaque page définit ensuite son titre, sa description et son URL canonique
+    ...pageMetadata({ title: DEFAULT_TITLE, description: DEFAULT_DESCRIPTION, path: '/', absoluteTitle: true }),
+    alternates: undefined,
+    // Titre des pages : « Services QA … · KaliOps »
+    title: { default: DEFAULT_TITLE, template: `%s · ${SITE_NAME}` },
+    authors: [{ name: 'Mehdi Tassi' }],
     keywords: [
         'Head of QA',
         'QA Manager',
