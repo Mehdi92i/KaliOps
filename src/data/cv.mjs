@@ -6,7 +6,7 @@ export const CONTACT = {
     name: 'Mehdi Tassi',
     email: 'mehdi.tassi.pro@gmail.com',
     phone: '06 52 60 69 87',
-    site: 'https://kaliops.vercel.app/',
+    site: 'https://www.kaliops-consulting.fr/',
     linkedin: 'https://www.linkedin.com/in/mehdi-t-4505a38b/',
 };
 
