@@ -31,7 +31,8 @@ export async function POST(req) {
     const resend = new Resend(apiKey);
 
     const { data, error } = await resend.emails.send({
-        from: "onboarding@resend.dev",
+        // Expéditeur sur le domaine vérifié dans Resend (DKIM + SPF via la zone DNS OVH)
+        from: "KaliOps <contact@kaliops-consulting.fr>",
         to: "kaliops.consulting@outlook.fr",
         subject: `📬 Nouveau message de ${name}`,
         replyTo: email,
