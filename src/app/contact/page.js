@@ -1,4 +1,12 @@
 import ContactForm from '@/components/contact/ContactForm';
+import { pageMetadata } from '@/config/site.mjs';
+
+export const metadata = pageMetadata({
+    title: 'Contact : parlons de votre qualité logicielle',
+    description:
+        "Un projet d'audit qualité, d'automatisation des tests, de QAOps ou de formation ? Contactez Mehdi Tassi, Head of QA chez KaliOps.",
+    path: '/contact',
+});
 
 export default function Contact() {
     return (
